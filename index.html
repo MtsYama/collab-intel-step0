@@ -118,7 +118,8 @@ footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-si
   <tr><td>需求真不真</td><td>真，但痛点是抢不到、跑店没货，不是不知道</td><td>麦当劳六一预售小程序预约 2000 万次<a class="c" href="#M1">M1</a>；对讲机 38 炒到 420<a class="c" href="#M2">M2</a>；今年六一开售当天系统崩<a class="c" href="#M11">M11</a></td></tr>
   <tr><td>Happy Toy Scout 赚钱了吗</td><td>没有。一周 7.9 万人是真的，收入只有一两刀打赏</td><td><a class="c" href="#H1">H1</a><a class="c" href="#H2">H2</a></td></tr>
   <tr><td>钱在哪</td><td>不在情报，在「去哪买」那一跳。34 个里没一个靠情报收费</td><td>游戏折扣站全靠 key 店分成，Steam 给 0<a class="c" href="#G63">G63</a>；快餐券 CPS 一单不到 2 块<a class="c" href="#R10">R10</a>；麦当劳九成订单在自家闭环<a class="c" href="#D64">D64</a></td></tr>
-  <tr><td>扩容是不是门槛</td><td>不是。10 万用户以内一个月 80 到 160 刀</td><td>官方单价算的<a class="c" href="#O56">O56</a><a class="c" href="#O57">O57</a>；门槛是主体、备案、收款、数据合规</td></tr>
+  <tr><td>扩容是不是门槛</td><td>不是。10 万用户以内一个月 80 到 160 刀</td><td>官方单价算的<a class="c" href="#O56">O56</a><a class="c" href="#O57">O57</a>；真正卡的是备案流程、数据合规、触达渠道</td></tr>
+  <tr><td>国内主体谁来</td><td>我。我有个体户和国内账号</td><td>个体工商户能微信认证<a class="c" href="#O12">O12</a>，所以小程序能开微信支付<a class="c" href="#O16">O16</a>；备案用营业执照走企业备案<a class="c" href="#O2">O2</a></td></tr>
   <tr><td>国外模型不适配？</td><td>担心错地方了。中文没问题，问题是三家 API 都不给大陆用</td><td><a class="c" href="#O35">O35</a><a class="c" href="#O36">O36</a><a class="c" href="#O38">O38</a>；服务放加拿大跑就随便用</td></tr>
 </table></div>
 
@@ -277,7 +278,7 @@ footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-si
 <div class="tw"><table>
   <tr><th>路</th><th>门槛</th><th>一单 / 一人</th><th>月入 5 千要</th><th>月入 3 万要</th><th>风险</th></tr>
   <tr><td>快餐券 CPS</td><td>个人能开<a class="c" href="#R11">R11</a></td><td>约 1.75 块/单<a class="c" href="#R10">R10</a></td><td>3300 单/月</td><td>2 万单/月</td><td>品牌没官方联盟，聚合层说没就没<a class="c" href="#D69">D69</a></td></tr>
-  <tr><td>付费提醒</td><td>收款要执照，或知识星球抽 20%<a class="c" href="#R24">R24</a></td><td>转化 2.6 到 3.7%<a class="c" href="#R18">R18</a></td><td>2 到 3 万注册</td><td>12 到 20 万注册</td><td>要比免费渠道快</td></tr>
+  <tr><td>付费提醒</td><td>我个体户能开微信支付；或走知识星球抽 20%<a class="c" href="#R24">R24</a></td><td>转化 2.6 到 3.7%<a class="c" href="#R18">R18</a></td><td>2 到 3 万注册</td><td>12 到 20 万注册</td><td>要比免费渠道快</td></tr>
   <tr><td>广告</td><td>小程序 UV 过 1000<a class="c" href="#R23">R23</a></td><td>eCPM 10 到 15<a class="c" href="#R29">R29</a></td><td>4600 日活</td><td>2.8 万日活</td><td>有案例跌 85%<a class="c" href="#R28">R28</a></td></tr>
   <tr><td>代购代抢</td><td>无合规路径</td><td>利润高</td><td>—</td><td>—</td><td>价格法 5 倍罚款、非法经营罪<a class="c" href="#R37">R37</a></td></tr>
   <tr><td>二手抽成</td><td>要支付通道 + 资质</td><td>0.6 到 1.6%</td><td>GMV 17 万/月</td><td>GMV 100 万/月</td><td>用户直接去闲鱼</td></tr>
@@ -334,13 +335,14 @@ footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-si
 
 <div class="note"><p>限流、缓存、队列、预算告警，一天配完。卡人的在下一节。</p></div>
 
-<h2>真正卡人的四样</h2>
+<h2>真正卡人的</h2>
+
+<p>主体和收款我这边能解：我有个体户，国内手机、银行账号都在。剩下三样是流程和规则。</p>
 
 <div class="tw"><table>
   <tr><th>环节</th><th>规则</th><th>意味着</th></tr>
-  <tr><td>备案</td><td>小程序请求域名必须 ICP 备案<a class="c" href="#O8">O8</a>；备案要国内身份证、手机号、住址、包年国内服务器<a class="c" href="#O2">O2</a><a class="c" href="#O3">O3</a>；指向海外会被取消接入<a class="c" href="#O7">O7</a></td><td>没国内身份做不了小程序</td></tr>
-  <tr><td>小程序主体</td><td>个人可用「工具 · 信息查询」类目<a class="c" href="#O10">O10</a>，但个人不能认证<a class="c" href="#O12">O12</a>，所以开不了微信支付<a class="c" href="#O16">O16</a>；境外主体不支持个人<a class="c" href="#O14">O14</a></td><td>个人小程序永远收不了钱</td></tr>
-  <tr><td>收款</td><td>小微商户只给线下<a class="c" href="#O15">O15</a>；Stripe 不面向大陆<a class="c" href="#O18">O18</a>；微信跨境直连只对香港商户<a class="c" href="#O17">O17</a></td><td>三条路：国内合伙人办个体户、注册香港公司、亲友代收（不建议）。验证期不收钱</td></tr>
+  <tr><td>备案</td><td>小程序请求域名必须 ICP 备案<a class="c" href="#O8">O8</a>，小程序本身也要备案<a class="c" href="#O9">O9</a>；用个体户营业执照走企业备案，要法人身份证、国内手机收核验短信、包年国内服务器<a class="c" href="#O2">O2</a><a class="c" href="#O3">O3</a>；指向海外会被取消接入<a class="c" href="#O7">O7</a></td><td>我来办。人在海外流程能走，就是两轮审核各 1 到 20 个工作日，得提前起</td></tr>
+  <tr><td>小程序主体 + 收款</td><td>个体工商户可以微信认证<a class="c" href="#O12">O12</a>，认证后能开微信支付商户号<a class="c" href="#O16">O16</a>；类目用「工具 · 信息查询」不用资质<a class="c" href="#O10">O10</a>。个人主体才收不了钱，跟咱们没关系了</td><td>用我的个体户注册。验证期先不收钱，省得认证费和审核</td></tr>
   <tr><td>数据</td><td>新反法第十三条「避开技术措施获取数据」<a class="c" href="#O52">O52</a>；微博告蚁坊 500 万<a class="c" href="#O46">O46</a>；小红书案 490 万，换 IP 换 ID 算规避<a class="c" href="#O50">O50</a></td><td>小红书微博抖音不能爬，品牌小程序接口不能逆向。众包 + 人工整理官方源</td></tr>
   <tr><td>触达</td><td>Discord、Telegram 国内全墙<a class="c" href="#O64">O64</a><a class="c" href="#O65">O65</a>；QQ 机器人个人可注册 5 个<a class="c" href="#O66">O66</a></td><td>你的 Discord 经验搬到 QQ 机器人上</td></tr>
 </table></div>
@@ -350,8 +352,8 @@ footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-si
 <div class="tw"><table>
   <tr><th></th><th>能做</th><th>不能做</th><th>月成本</th><th>我的看法</th></tr>
   <tr><td>全海外</td><td>H5 + Cloudflare，模型随便选</td><td>小程序、收人民币、可达性保证</td><td>0 到 40 刀</td><td>验证期够用，或者目标改成海外华人</td></tr>
-  <tr><td>全国内</td><td>小程序、云开发</td><td>只能国产模型；商业化要升个体户</td><td>20 到 1200 块</td><td>要国内合伙人从头到尾在</td></tr>
-  <tr><td>混合</td><td>大脑在海外，嘴在国内：爬虫众包模型在加拿大跑，国内合伙人备案一台 68 块/年的轻量机<a class="c" href="#O30">O30</a>做只读分发 + 个人小程序</td><td>收钱还是要升主体</td><td>验证期 &lt; 500 块</td><td><b>推荐。</b>要国内主体的东西压到最薄一层，人变了只换这层</td></tr>
+  <tr><td>全国内</td><td>小程序、云开发，我个体户当主体</td><td>只能国产模型</td><td>20 到 1200 块</td><td>能走，但海外这边的模型和工具用不上</td></tr>
+  <tr><td>混合</td><td>大脑在海外，嘴在国内：爬虫众包模型在加拿大跑，我用个体户备案一台 68 块/年的轻量机<a class="c" href="#O30">O30</a>做只读分发 + 小程序</td><td>备案两轮审核要等</td><td>验证期 &lt; 500 块</td><td><b>推荐。</b>国内那层就一台机加一个小程序，全在我名下</td></tr>
 </table></div>
 
 <pre>[加拿大 · 咱俩]                    [国内 · 合伙人个人主体]
@@ -375,14 +377,14 @@ footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-si
 </div>
 
 <div class="ask">
-  <h3>二、国内那一层谁来</h3>
-  <p class="q">备案、小程序、收款都要一个有国内身份证、手机号、住址的人。我猜你也在加拿大（Jonathan 报的是加元）。</p>
+  <h3>二、第一步直接上小程序，还是先 H5 验证</h3>
+  <p class="q">国内主体我来，个体户、国内手机、银行账号都有。剩下是节奏问题：备案两轮审核加起来要几周。</p>
   <div class="opts">
-    <div class="opt"><b>A</b><div>咱俩之一有国内身份，自己当主体<small>最干净，走混合，两个月能出小程序。</small></div></div>
-    <div class="opt"><b>B</b><div>找个国内朋友只担「主体」这一层<small>要谈清这层的责任和回报。</small></div></div>
-    <div class="opt me"><b>C</b><div>先不碰小程序和收款，H5 + QQ 群跑一次真实活动<small>零门槛，先看打卡数、48 小时回访、分享带来的新用户。我建议先这么走，跟 A、B 都不冲突。</small></div></div>
+    <div class="opt"><b>A</b><div>直接上小程序<small>我现在就起备案，四到六周后小程序能上。中间没东西可跑。</small></div></div>
+    <div class="opt"><b>B</b><div>先 H5 + QQ 群跑一次真实活动<small>两周能上，先看打卡数、48 小时回访、分享带来的新用户。小程序以后再说。</small></div></div>
+    <div class="opt me"><b>C</b><div>两条并行<small>备案先走着，等审核的几周用 H5 + QQ 群跑一次活动。小程序批下来时已经有真实数据。我倾向这个。</small></div></div>
   </div>
-  <p class="hint">Discord 回我，或者 <a class="btn" href="https://github.com/MtsYama/collab-intel-step0/issues/new?title=Q2%20国内那一层谁来：我选%20__&amp;body=我选：A%20/%20B%20/%20C%0A%0A我有没有国内身份，或者认识合适的人：%0A" target="_blank" rel="noopener">在这条上留言</a></p>
+  <p class="hint">Discord 回我，或者 <a class="btn" href="https://github.com/MtsYama/collab-intel-step0/issues/new?title=Q2%20小程序还是先H5：我选%20__&amp;body=我选：A%20/%20B%20/%20C%0A%0A理由：%0A" target="_blank" rel="noopener">在这条上留言</a></p>
 </div>
 
 <div class="tw"><table>
