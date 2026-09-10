@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>联动情报 · 先做这个</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f5; --card:#ffffff; --panel:#f1ece7; --ink:#22201e; --ink2:#615a55; --line:#e4ddd6;
+  --acc:#874c54; --acc-soft:#f3e6e8; --acc-ink:#6d3a41; --s1:#b23a4d; --track:#ece6e0;
+  --serif:"Noto Serif SC","Songti SC","SimSun",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b1917; --card:#242120; --panel:#2d2927; --ink:#ebe6e1; --ink2:#a89f97; --line:#3a3532;
+    --acc:#d69aa2; --acc-soft:#3a2a2d; --acc-ink:#e6b4bb; --s1:#dd6680; --track:#33302d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b1917; --card:#242120; --panel:#2d2927; --ink:#ebe6e1; --ink2:#a89f97; --line:#3a3532;
+  --acc:#d69aa2; --acc-soft:#3a2a2d; --acc-ink:#e6b4bb; --s1:#dd6680; --track:#33302d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.8;text-wrap:pretty;orphans:3;widows:3}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px 72px}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;line-height:1.3;color:var(--ink)}
+h1{font-size:1.65rem;font-weight:700;margin:36px 0 6px}
+h2{font-size:1.3rem;font-weight:700;margin:44px 0 10px;padding-top:14px;border-top:1px solid var(--line)}
+h3{font-size:1rem;font-weight:600;margin:22px 0 6px;color:var(--acc-ink)}
+p{margin:.65em 0}
+a{color:var(--acc)}
+.who{display:flex;gap:8px;flex-wrap:wrap;font-size:.84rem;color:var(--ink2);margin:10px 0 18px}
+.who span{background:var(--panel);padding:2px 10px;border-radius:999px}
+.nav{font-size:.86rem;color:var(--ink2);margin:0 0 14px}
+.tw{overflow-x:auto;margin:12px -18px;padding:0 18px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;min-width:560px;width:100%;font-size:.88rem;line-height:1.5}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{background:var(--panel);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.c{font-size:.66rem;vertical-align:super;line-height:0;text-decoration:none;color:var(--acc);background:var(--acc-soft);border-radius:4px;padding:0 4px;margin-left:2px;white-space:nowrap}
+.big{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:16px 0}
+.big h3{margin:0 0 6px;color:var(--ink);font-size:1.05rem}
+.big p{margin:.4em 0}
+.fig{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:14px 0}
+.fig h4{margin:0 0 2px;font-size:.95rem;font-weight:600;color:var(--ink)}
+.fig .sub{margin:0 0 10px;font-size:.8rem;color:var(--ink2)}
+.bars{display:grid;grid-template-columns:minmax(110px,36%) 1fr;gap:6px 10px;align-items:center;font-size:.84rem}
+.bars .lab{color:var(--ink);text-align:right;line-height:1.3}
+.bars .lab small{display:block;color:var(--ink2);font-size:.74rem}
+.bars .tr{position:relative;height:14px;background:var(--track);border-radius:0 7px 7px 0}
+.bars .bar{position:absolute;left:0;top:0;height:14px;border-radius:0 7px 7px 0;background:var(--s1);min-width:3px}
+.bars .v{position:absolute;left:calc(var(--w) + 8px);top:-3px;white-space:nowrap;color:var(--ink2);font-size:.78rem}
+ul,ol{padding-left:1.3em}
+li{margin:.35em 0}
+pre{background:var(--panel);color:var(--ink);padding:10px 14px;border-radius:10px;overflow-x:auto;font-size:.78rem;line-height:1.5;font-family:ui-monospace,Consolas,monospace}
+.small{font-size:.86rem;color:var(--ink2)}
+footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.84rem;color:var(--ink2)}
+@media (max-width:480px){body{font-size:16px}h1{font-size:1.4rem}.bars{grid-template-columns:minmax(90px,40%) 1fr}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<h1>联动情报，先做这个</h1>
+<div class="who"><span>2026-09-10</span><span>我的决定 + 给你的技术任务</span></div>
+<p class="nav">证据都在另外几页，这页不堆数据：<a href="na/">北美调研</a> · <a href="cn/">国内调研</a> · <a href="v3/">上一版总报告</a></p>
+
+<p>昨天聊完我想清楚了。这份不是调研报告，是两件事：一是我定了方向，把我怎么想的写给你看；二是给你一份技术任务书。商业和方向的事我来扛，你只管技术。你参不参与你自己定，参与就按下面干，不参与我也会先把它做出来。</p>
+
+<h2>我怎么想的</h2>
+
+<p>起点是 SA 那个帖子，一个人一周做出 7.9 万人用的找玩具地图。我在国内让朋友代跑过两三家店找不到货，你在渥太华看到 Chiikawa 联名 MINISO Rideau 有、别处没有。这两件事是同一件事：<b>限量的东西，谁知道哪家店此刻还有，谁就有价值</b>。</p>
+
+<p>你说得对，广义上做商业就是信息商，倒狗信息网也是信息商。区别只在两点：信息从哪来是不是干净的，钱从谁身上赚是不是体面的。这两点我会守住：数据靠用户打卡和官方公开信息，不爬不逆向；不做代抢，不做交易。</p>
+
+<p>然后是钱。我查完的结论很干脆：这类东西没有一家靠情报本身收费活下来，品牌方一分钱不会给。所以第一年我不打算收钱，目标是攒一个真实用户群和一套跑通的引擎。这个群以后放什么品类都行，这才是资产。你练扩容和队列，我练产品和冷启动，两边都不亏。</p>
+
+<h2>方向我都过了一遍</h2>
+
+<p>你中午提的那几个我一个个查了，标准就一条：<b>谁愿意为这条信息掏钱</b>。掏钱的人只有一种，就是这条信息能帮他把钱赚回来的人。</p>
+
+<div class="fig">
+  <h4>谁在为哪类资讯付钱，每月美元</h4>
+  <p class="sub">已验证的价格。球鞋补货群那两个没能独立核实，打了折扣画。出处在<a href="v3/#s-dir">上一版</a></p>
+  <div class="bars">
+    <div class="lab">卡牌价格 / 补货提醒<small>Card Ladder Pro</small></div><div class="tr"><div class="bar" style="width:100%"></div><span class="v" style="--w:100%">20</span></div>
+    <div class="lab">球鞋补货群<small>没独立核实</small></div><div class="tr"><div class="bar" style="width:100%"></div><span class="v" style="--w:100%">30 起</span></div>
+    <div class="lab">卡牌藏品估值<small>Collectr PRO</small></div><div class="tr"><div class="bar" style="width:32.5%"></div><span class="v" style="--w:32.5%">5 到 8</span></div>
+    <div class="lab">游戏折扣提醒<small>DekuDeals，$40/年</small></div><div class="tr"><div class="bar" style="width:16.5%"></div><span class="v" style="--w:16.5%">3.3</span></div>
+    <div class="lab">快餐玩具找店<small>Happy Toy Scout，打赏</small></div><div class="tr"><div class="bar" style="width:5%"></div><span class="v" style="--w:5%">$1、$2 打赏</span></div>
+    <div class="lab">活动 / 开关店 / 华人资讯<small>Eventbrite、Meetup、Yelp、小红书</small></div><div class="tr"><div class="bar" style="width:0.5%"></div><span class="v" style="--w:0.5%">0，都向商家和主办方收</span></div>
+  </div>
+</div>
+
+<div class="tw"><table>
+  <tr><th>方向</th><th>我查到什么</th><th>我的决定</th></tr>
+  <tr><td>快餐联名玩具</td><td>国内和加拿大都是空白。美国有一个 Happy Toy Scout，只做麦当劳、只能被动查、没变现。痛点最具体：随机发、各店不同、卖完就没</td><td><b>第一个品类。</b>最容易验证，最容易跑通引擎</td></tr>
+  <tr><td>线下卡牌</td><td>唯一硬缺货加硬套利加有人真付钱的：2025 年宝可梦印 100 亿张还不够，Walmart 限购改抽签，Target 卡牌年销破 10 亿美元。加拿大各店信息各管各的，没有跨店聚合，没有地图</td><td><b>第二个品类。</b>引擎通了就接。黄牛味重，所以要等有了第一批正经用户再进</td></tr>
+  <tr><td>Pop Mart、Jellycat</td><td>同一批用户。Pop Mart 加拿大 4 店全在 BC 和多伦多，渥太华零店；官网有日历没补货提醒</td><td>第三个，顺手带</td></tr>
+  <tr><td>城市活动地图（你提的）</td><td>Eventbrite、Meetup、Luma 全向主办方收费，读者一分钱不付；Luma 城市页自带地图；Foursquare City Guide 2024 年底关了</td><td>不做。这是做媒体，做起来跟我们的引擎没关系</td></tr>
+  <tr><td>奶茶店餐馆开关店</td><td>小红书更快，Yelp 一年广告收 14.6 亿美元</td><td>不做。打不过</td></tr>
+  <tr><td>华人本地信息</td><td>多伦多华裔 63 万、渥太华 4.4 万，都在小红书上。小红书快但不求证</td><td>不单做。但「求证过的信息」正是我们打卡机制给的东西，华人和留学生是第一批用户</td></tr>
+  <tr><td>hackathon、招聘会</td><td>学生有用，没人付钱；MLH 今年加拿大 5 场，渥太华 0 场</td><td>不做</td></tr>
+  <tr><td>倒狗信息网（你说的）</td><td>Resell Calendar 靠线索赏金和会员活着</td><td>做诚实版：二手成交价当免费参考，不代抢、不撮合交易</td></tr>
+</table></div>
+
+<h2>定了</h2>
+
+<div class="big">
+  <h3>做什么</h3>
+  <p>一个「掉落地图」：什么东西、哪天开卖、哪家店此刻还有、推给想要的人。快餐联名玩具第一，卡牌第二，Pop Mart 第三。引擎一套，品类换数据。</p>
+</div>
+
+<div class="big">
+  <h3>在哪做</h3>
+  <p>加拿大先，渥太华和多伦多起，麦当劳 + Tim Hortons + Starbucks + Wendy's。理由四条：不用审批，两周能上；咱俩走两条街就能验证；你的 Discord bot 直接用；加拿大零竞品，而且联名节奏跟美国错位，美国的日历对加拿大人没用。国内放第二阶段，我有个体户，备案我来办，等北美跑通一次再起。</p>
+</div>
+
+<div class="big">
+  <h3>不做什么</h3>
+  <p>不爬小红书、Reddit、Facebook；不代抢；不做交易；不做城市活动站、餐馆站、华人资讯站；域名和站名不带品牌词；不问用户年龄。</p>
+</div>
+
+<div class="big">
+  <h3>钱</h3>
+  <p>第一年不收钱。第二年订阅（一个月两三加元，提醒优先送、门店级实时库存）+ eBay 和 Amazon 联盟 + 广告。品牌方不会给分成，我认。</p>
+</div>
+
+<div class="big">
+  <h3>四周之内算不算成</h3>
+  <p>跑一次真实联名活动。打卡 300 条以上，Discord 群 100 人以上，48 小时内回来看的人超过三成。成了就接卡牌；没成就换品类，引擎不扔。</p>
+</div>
+
+<h2>分工</h2>
+
+<div class="tw"><table>
+  <tr><th>我做</th><th>你做（如果你参与）</th><th>我不碰的</th></tr>
+  <tr><td>方向、品类顺序、什么时候扩</td><td>所有技术选型和实现</td><td>你的技术决定。下面的技术栈是建议，你可以全换</td></tr>
+  <tr><td>域名、文案、隐私政策、免责声明、CASL 同意文本</td><td>后端、数据库、队列、缓存、限流、预算告警</td><td></td></tr>
+  <tr><td>门店清单初版、联名日历人工种子</td><td>门店库导入和月更、地图</td><td></td></tr>
+  <tr><td>冷启动：Reddit 城市版、RFD 论坛、华人群、看到求助帖就手动回</td><td>Discord bot、推送</td><td></td></tr>
+  <tr><td>国内版：备案、小程序、QQ 机器人渠道（第二阶段）</td><td>同一套引擎换数据源（第二阶段）</td><td></td></tr>
+  <tr><td>每周 10 小时</td><td>你报你的</td><td></td></tr>
+</table></div>
+
+<p>你不参与也没关系，我先用现成工具搭一个能用的，跑完这四周再说。参与的话，下面是给你的。</p>
+
+<h2>给你的技术任务书</h2>
+
+<h3>用户会做的四件事</h3>
+
+<ol>
+  <li>打开看日历：这个月渥太华有什么联名，哪天开卖，规则是什么</li>
+  <li>点进一个联名，看地图：哪家店有人报告「还有」，几小时前报的</li>
+  <li>到店之后打卡：有 / 没有 / 限购几个，一键提交，可选拍张照</li>
+  <li>订阅：关注某个联名或某个城市，开卖前一天和有人打卡「有货」时收到提醒</li>
+</ol>
+
+<h3>数据长什么样</h3>
+
+<pre>drop      什么 · 哪个牌子 · 开卖日 · 结束日 · 规则文本 · 款式列表 · 城市
+store     OSM id · 牌子 · 坐标 · 地址 · 营业时间 · 城市
+report    store · drop · 款式 · 有/无/限购 N · 时间戳 · 用户 · 照片(可选,不公开)
+subscribe 用户 · drop 或 city · 渠道(discord / push / email)
+alert     subscribe × report 触发,去重,合并成一条</pre>
+
+<p>打卡两小时后自动变灰，页面上永远显示「N 人 X 小时前报告」，不显示「有货」两个字。这是免责，也是你担心的「限量的东西 50 人打卡就废了」的答案：半衰期短才有人要提醒。</p>
+
+<h3>v0.1 范围</h3>
+
+<div class="tw"><table>
+  <tr><th>必须</th><th>以后</th><th>永远不</th></tr>
+  <tr><td>日历页、地图页、打卡、订阅、Discord 推送</td><td>App 推送、邮件、SMS、换玩具板块、二手价参考、卡牌品类</td><td>爬社交平台、代抢、交易、评论区、精确定位、问年龄</td></tr>
+</table></div>
+
+<h3>硬约束</h3>
+
+<div class="tw"><table>
+  <tr><th>约束</th><th>数字</th><th>为什么</th></tr>
+  <tr><td>成本上限</td><td>验证期每月 50 美元以内；每个云账号设硬上限</td><td>Netlify 有人被刷出 10 万美元账单，Happy Toy Scout 两天烧光免费额度</td></tr>
+  <tr><td>地图</td><td>自托管 MapLibre + OSM 切片放 R2；不接 Google Maps SDK；Places 只用来月更门店库</td><td>10 万用户时 Google 一个月 4,130 美元，自托管 6 美元；按请求调 Places Nearby 要 2.5 万美元</td></tr>
+  <tr><td>四件套</td><td>限流、缓存、队列、预算告警第一周就配</td><td>一个联名开售一万人同时被推</td></tr>
+  <tr><td>数据来源</td><td>OSM + Google Place Details 月更 + PR Newswire RSS + 用户打卡；登出爬、低频爬、只爬门店不爬人</td><td>北美爬公开数据是民事不是刑事，但 Reddit API 收费、Facebook 禁自动采集</td></tr>
+  <tr><td>隐私</td><td>不问年龄，13+ 声明，不存精确 GPS，照片不公开只核验，不接广告 SDK</td><td>COPPA 每次违规最高 53,088 美元；魁北克 Law 25 第二阶段再管</td></tr>
+  <tr><td>消息</td><td>所有渠道共用一张同意表：渠道、时间戳、IP、退订时间</td><td>CASL 一次做对，美国自动满足</td></tr>
+</table></div>
+
+<h3>技术栈建议，你可以全换</h3>
+
+<div class="tw"><table>
+  <tr><th>层</th><th>建议</th><th>一句话理由</th></tr>
+  <tr><td>API</td><td>Cloudflare Workers</td><td>5 美元含一千万请求</td></tr>
+  <tr><td>数据库</td><td>D1，登录自己写</td><td>Supabase 登录按用户数收，规模上来单这一项就几千美元</td></tr>
+  <tr><td>缓存 / 限流</td><td>Upstash Redis</td><td>geohash 热点 + 令牌桶</td></tr>
+  <tr><td>地图</td><td>MapLibre + Protomaps PMTiles 放 R2</td><td>零出口费</td></tr>
+  <tr><td>推送</td><td>你的 Discord bot 先；然后自建 Web Push；App 用 Expo</td><td>全免费</td></tr>
+  <tr><td>邮件 / SMS</td><td>Resend；Twilio 只给付费层</td><td>邮件每人每月两分钱，SMS 一毛四</td></tr>
+  <tr><td>前端</td><td>H5 先，四周后再看要不要 App</td><td>先验证</td></tr>
+</table></div>
+
+<h3>Jonathan 能直接搬的</h3>
+
+<div class="tw"><table>
+  <tr><th>Jonathan 已有</th><th>这里对应</th></tr>
+  <tr><td>定时任务</td><td>新闻稿 RSS 轮询、门店库月更、打卡过期变灰</td></tr>
+  <tr><td>多源接入</td><td>OSM + Places + RSS + 用户提交，四个源合一张表</td></tr>
+  <tr><td>Discord 推送</td><td>第一个触达渠道，按城市开频道</td></tr>
+  <tr><td>愿望单匹配</td><td>订阅「城市 × 品牌 × 掉落」，打卡触发提醒</td></tr>
+</table></div>
+
+<h3>第一个月</h3>
+
+<div class="tw"><table>
+  <tr><th>周</th><th>你</th><th>我</th></tr>
+  <tr><td>1</td><td>骨架 + 门店库导入（渥太华、多伦多的麦当劳 / Tims / Starbucks / Wendy's）+ Discord 渥太华频道</td><td>域名、隐私政策英法版、免责声明、同意文本；挑下一个联名活动，做日历种子</td></tr>
+  <tr><td>2</td><td>打卡接口 + 限流 + 缓存；地图页；订阅到推送</td><td>H5 页面文案和流程；Reddit 城市版、RFD、华人群的冷启动帖准备好</td></tr>
+  <tr><td>3 到 4</td><td>跑真实活动，盯队列和成本，预算告警</td><td>人肉冷启动，看到求助帖就查、截图回；记打卡数、回访、分享来源</td></tr>
+</table></div>
+
+<h2>你要回我的就一件事</h2>
+
+<p>参不参与，参与的话每周能投多少小时。技术上的选择你定，不用问我。</p>
+
+<footer>
+  <p>调研部分用 Claude 跑的，出处都在另外几页。这页的判断是我的。</p>
+  <p>山山 · 2026-09-10</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  function widont(el){
+    if(!el || !el.innerHTML) return;
+    const txt = (el.textContent||'').trim();
+    if(txt.split(/\s+/).length < 5) return;
+    el.innerHTML = el.innerHTML.replace(/\s+(\S+)\s+(\S+)\s+(\S+\s*)$/, '&nbsp;$1&nbsp;$2&nbsp;$3');
+  }
+  const SEL = 'p, li, h1, h2, h3, td';
+  function run(){ document.querySelectorAll(SEL).forEach(widont); }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();
+</script>
+
+</body>
+</html>
