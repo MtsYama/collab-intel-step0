@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>联动情报 · 定方向</title>
+<title>联动情报 · 先做这个</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,88 +11,57 @@
 <style>
 :root{
   --bg:#faf8f5; --card:#ffffff; --panel:#f1ece7; --ink:#22201e; --ink2:#615a55; --line:#e4ddd6;
-  --acc:#874c54; --acc-soft:#f3e6e8; --acc-ink:#6d3a41;
-  --s1:#b23a4d; --s2:#2b6cd4; --track:#ece6e0;
-  --ok:#2f6f4e; --ok-bg:#e5f1ea; --warn:#8a5a00; --warn-bg:#fbf0d3; --no:#6b6b70; --no-bg:#ebe9e7; --bad:#9c3232; --bad-bg:#f8e3e3;
+  --acc:#874c54; --acc-soft:#f3e6e8; --acc-ink:#6d3a41; --s1:#b23a4d; --track:#ece6e0;
   --serif:"Noto Serif SC","Songti SC","SimSun",serif;
   --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#1b1917; --card:#242120; --panel:#2d2927; --ink:#ebe6e1; --ink2:#a89f97; --line:#3a3532;
-    --acc:#d69aa2; --acc-soft:#3a2a2d; --acc-ink:#e6b4bb;
-    --s1:#dd6680; --s2:#5490e8; --track:#33302d;
-    --ok:#8fcaa8; --ok-bg:#243b30; --warn:#e8c46b; --warn-bg:#3d3320; --no:#a3a09c; --no-bg:#333030; --bad:#e69a9a; --bad-bg:#432727;
+    --acc:#d69aa2; --acc-soft:#3a2a2d; --acc-ink:#e6b4bb; --s1:#dd6680; --track:#33302d;
   }
 }
 :root[data-theme="dark"]{
   --bg:#1b1917; --card:#242120; --panel:#2d2927; --ink:#ebe6e1; --ink2:#a89f97; --line:#3a3532;
-  --acc:#d69aa2; --acc-soft:#3a2a2d; --acc-ink:#e6b4bb;
-  --s1:#dd6680; --s2:#5490e8; --track:#33302d;
-  --ok:#8fcaa8; --ok-bg:#243b30; --warn:#e8c46b; --warn-bg:#3d3320; --no:#a3a09c; --no-bg:#333030; --bad:#e69a9a; --bad-bg:#432727;
+  --acc:#d69aa2; --acc-soft:#3a2a2d; --acc-ink:#e6b4bb; --s1:#dd6680; --track:#33302d;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.75;text-wrap:pretty;orphans:3;widows:3}
-.wrap{max-width:720px;margin:0 auto;padding:0 18px 72px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.8;text-wrap:pretty;orphans:3;widows:3}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px 72px}
 h1,h2,h3{font-family:var(--serif);text-wrap:balance;line-height:1.3;color:var(--ink)}
 h1{font-size:1.65rem;font-weight:700;margin:36px 0 6px}
-h2{font-size:1.3rem;font-weight:700;margin:42px 0 10px;padding-top:14px;border-top:1px solid var(--line)}
+h2{font-size:1.3rem;font-weight:700;margin:44px 0 10px;padding-top:14px;border-top:1px solid var(--line)}
 h3{font-size:1rem;font-weight:600;margin:22px 0 6px;color:var(--acc-ink)}
-p{margin:.6em 0}
+p{margin:.65em 0}
 a{color:var(--acc)}
 .who{display:flex;gap:8px;flex-wrap:wrap;font-size:.84rem;color:var(--ink2);margin:10px 0 18px}
 .who span{background:var(--panel);padding:2px 10px;border-radius:999px}
 .nav{font-size:.86rem;color:var(--ink2);margin:0 0 14px}
 .tw{overflow-x:auto;margin:12px -18px;padding:0 18px;-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;min-width:600px;width:100%;font-size:.88rem;line-height:1.5;font-variant-numeric:tabular-nums}
+table{border-collapse:collapse;min-width:560px;width:100%;font-size:.88rem;line-height:1.5}
 th,td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
 th{background:var(--panel);font-weight:600;white-space:nowrap}
 tr:last-child td{border-bottom:0}
-.big table{min-width:900px}
 .c{font-size:.66rem;vertical-align:super;line-height:0;text-decoration:none;color:var(--acc);background:var(--acc-soft);border-radius:4px;padding:0 4px;margin-left:2px;white-space:nowrap}
-.tag{display:inline-block;font-size:.76rem;padding:1px 8px;border-radius:999px;font-weight:600;white-space:nowrap;vertical-align:middle}
-.ok{background:var(--ok-bg);color:var(--ok)}.warn{background:var(--warn-bg);color:var(--warn)}.no{background:var(--no-bg);color:var(--no)}.bad{background:var(--bad-bg);color:var(--bad)}
-.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:12px 0}
-.nums div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
-.nums b{display:block;font-family:var(--serif);font-size:1.25rem;color:var(--acc);line-height:1.2}
-.nums span{font-size:.78rem;color:var(--ink2)}
-.note{background:var(--acc-soft);border-left:3px solid var(--acc);padding:8px 14px;border-radius:0 8px 8px 0;margin:12px 0}
-ul,ol{padding-left:1.3em}
-li{margin:.3em 0}
+.big{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:16px 0}
+.big h3{margin:0 0 6px;color:var(--ink);font-size:1.05rem}
+.big p{margin:.4em 0}
 .fig{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:14px 0}
 .fig h4{margin:0 0 2px;font-size:.95rem;font-weight:600;color:var(--ink)}
 .fig .sub{margin:0 0 10px;font-size:.8rem;color:var(--ink2)}
-.bars{display:grid;grid-template-columns:minmax(96px,34%) 1fr;gap:6px 10px;align-items:center;font-size:.84rem}
+.bars{display:grid;grid-template-columns:minmax(110px,36%) 1fr;gap:6px 10px;align-items:center;font-size:.84rem}
 .bars .lab{color:var(--ink);text-align:right;line-height:1.3}
 .bars .lab small{display:block;color:var(--ink2);font-size:.74rem}
 .bars .tr{position:relative;height:14px;background:var(--track);border-radius:0 7px 7px 0}
 .bars .bar{position:absolute;left:0;top:0;height:14px;border-radius:0 7px 7px 0;background:var(--s1);min-width:3px}
-.bars .bar.b{background:var(--s2)}
-.bars .v{position:absolute;left:calc(var(--w) + 8px);top:-3px;white-space:nowrap;color:var(--ink2);font-size:.78rem;font-variant-numeric:tabular-nums}
-.bars .tr:hover .bar{filter:brightness(.9)}
-.legend{display:flex;gap:14px;font-size:.78rem;color:var(--ink2);margin-top:8px}
-.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:4px;background:var(--s1)}
-.legend i.b{background:var(--s2)}
-.ask{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:16px 0}
-.ask h3{margin:0 0 4px;color:var(--ink)}
-.ask .q{font-size:.92rem;color:var(--ink2);margin:0 0 10px}
-.opts{display:grid;gap:8px;margin:8px 0}
-.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
-.opt b{font-family:var(--serif);color:var(--acc);min-width:1.4em}
-.opt small{display:block;color:var(--ink2);font-size:.84rem}
-.opt.me{border-color:var(--acc)}
-.hint{font-size:.85rem;color:var(--ink2);margin-top:8px}
-.btn{display:inline-block;margin-left:6px;padding:3px 12px;border:1px solid var(--acc);border-radius:999px;color:var(--acc);text-decoration:none;font-weight:600}
-.btn:hover{background:var(--acc);color:#fff}
-details{border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin:.6em 0;background:var(--card)}
-summary{cursor:pointer;font-weight:600}
-details ol{font-size:.82rem;line-height:1.5;color:var(--ink2)}
-details ol li{margin:.25em 0;overflow-wrap:anywhere}
-.small{font-size:.86rem;color:var(--ink2)}
+.bars .v{position:absolute;left:calc(var(--w) + 8px);top:-3px;white-space:nowrap;color:var(--ink2);font-size:.78rem}
+ul,ol{padding-left:1.3em}
+li{margin:.35em 0}
 pre{background:var(--panel);color:var(--ink);padding:10px 14px;border-radius:10px;overflow-x:auto;font-size:.78rem;line-height:1.5;font-family:ui-monospace,Consolas,monospace}
+.small{font-size:.86rem;color:var(--ink2)}
 footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.84rem;color:var(--ink2)}
-@media (max-width:480px){body{font-size:16px}h1{font-size:1.4rem}.bars{grid-template-columns:minmax(84px,38%) 1fr}}
+@media (max-width:480px){body{font-size:16px}h1{font-size:1.4rem}.bars{grid-template-columns:minmax(90px,40%) 1fr}}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -100,807 +69,169 @@ footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-si
 
 <div class="wrap">
 
-<h1>联动情报，定方向</h1>
-<div class="who"><span>2026-09-09 晚 · 第三版</span><span>北美优先，中国内地适当考虑</span><span>出处在文末，角标能点</span></div>
-<p class="nav">细节两页：<a href="na/">北美版</a> · <a href="cn/">国内版</a>。王聪，你关心怎么做，直接跳<a href="#build">最后一节</a>。</p>
+<h1>联动情报，先做这个</h1>
+<div class="who"><span>2026-09-10</span><span>我的决定 + 给你的技术任务</span></div>
+<p class="nav">证据都在另外几页，这页不堆数据：<a href="na/">北美调研</a> · <a href="cn/">国内调研</a> · <a href="v3/">上一版总报告</a></p>
 
-<p>这版是我定方向用的。今天聊下来两件事清楚了：一是两边的商业逻辑不一样，得分开算；二是这东西本身赚不了大钱，当练习做，但练习也得挑个能长出东西的方向。</p>
+<p>昨天聊完我想清楚了。这份不是调研报告，是两件事：一是我定了方向，把我怎么想的写给你看；二是给你一份技术任务书。商业和方向的事我来扛，你只管技术。你参不参与你自己定，参与就按下面干，不参与我也会先把它做出来。</p>
 
-<h2>定了什么</h2>
+<h2>我怎么想的</h2>
 
-<div class="tw"><table>
-  <tr><th>事</th><th>定法</th><th>为什么</th></tr>
-  <tr><td>先做哪边</td><td>北美先，中国内地放第二阶段</td><td>北美不用审批、两周能上、咱俩能亲自跑店、你的 Discord bot 直接用。中国市场大十倍但备案要几周，远程冷启动难。骨架两边通用，换数据源和触达就行</td></tr>
-  <tr><td>北美切口</td><td>加拿大、多品牌联名日历 + 门店打卡 + 提醒，渥太华多伦多起</td><td>Happy Toy Scout 只做美国麦当劳、只能被动查、没变现<a class="c" href="#P27">P27</a>；加拿大零产品，联名节奏跟美国错位<a class="c" href="#N11">N11</a><a class="c" href="#N17">N17</a>；Tim Hortons、Starbucks、Popeyes 的转售比麦当劳猛<a class="c" href="#N44">N44</a><a class="c" href="#N46">N46</a></td></tr>
-  <tr><td>产品本质</td><td>一个「掉落地图引擎」：什么东西、哪天、哪家店、还有没有货、推给谁</td><td>快餐联名只是第一个品类。卡牌、Pop Mart 这些第二品类用同一套引擎</td></tr>
-  <tr><td>钱</td><td>北美：订阅 + eBay / Amazon 联盟 + 广告。中国：券 CPS + 流量主 + 付费蹲点群。两边都不指望品牌分钱</td><td>34 个同类没一个靠情报收费；北美唯一可核的收入样本是 DekuDeals 三个人年入约 $33 万<a class="c" href="#P61">P61</a></td></tr>
-  <tr><td>脑暴那几个方向</td><td>卡牌是唯一硬缺货加硬套利加有人付费的；城市活动、开关店、华人本地信息读者不付费，只能做媒体或 B 端</td><td>见下面「方向脑暴」一节</td></tr>
-  <tr><td>练习目标</td><td>你练扩容四件套、队列、地图切片、bot；我练产品、冷启动、合规</td><td>第一年目标：不亏钱，攒下数据和一个真实用户群</td></tr>
-</table></div>
+<p>起点是 SA 那个帖子，一个人一周做出 7.9 万人用的找玩具地图。我在国内让朋友代跑过两三家店找不到货，你在渥太华看到 Chiikawa 联名 MINISO Rideau 有、别处没有。这两件事是同一件事：<b>限量的东西，谁知道哪家店此刻还有，谁就有价值</b>。</p>
 
-<h2>两边商业逻辑，一张表</h2>
+<p>你说得对，广义上做商业就是信息商，倒狗信息网也是信息商。区别只在两点：信息从哪来是不是干净的，钱从谁身上赚是不是体面的。这两点我会守住：数据靠用户打卡和官方公开信息，不爬不逆向；不做代抢，不做交易。</p>
 
-<div class="tw big"><table>
-  <tr><th></th><th>北美（加拿大先）</th><th>中国内地</th></tr>
-  <tr><td>用户是谁</td><td>成人收藏者 + 家长。美国 2026 上半年玩具 +17%，只有成人的家庭占 55% 销售额<a class="c" href="#N67">N67</a></td><td>22 到 35 岁上班族顺手抢 + 家长；谷子经济 2025 预计 2400 亿<a class="c" href="#M40">M40</a></td></tr>
-  <tr><td>痛点</td><td>随机发放、不能挑款、各店款式不同；「哪家店有几号」散在城市版 Reddit<a class="c" href="#N53">N53</a></td><td>抢不到；开售当天系统崩、定三个闹钟<a class="c" href="#M11">M11</a>；跑三家店没货</td></tr>
-  <tr><td>现有替代</td><td>Happy Toy Scout（美国）、媒体 checklist、Resell Calendar 转售情报<a class="c" href="#N63">N63</a></td><td>没有；品牌 push + 小红书 + 什么值得买零星帖<a class="c" href="#M52">M52</a></td></tr>
-  <tr><td>转售倍数</td><td>Bearista 17×、Timbiebs 5.3×、CPFM 整套 3.5×<a class="c" href="#N44">N44</a><a class="c" href="#N35">N35</a><a class="c" href="#N3">N3</a></td><td>对讲机 11×、星星人近 4×<a class="c" href="#M2">M2</a><a class="c" href="#M10">M10</a></td></tr>
-  <tr><td>读者付费先例</td><td>DekuDeals $40/年几百人<a class="c" href="#P62">P62</a>；Card Ladder $20/月<a class="c" href="#S16">S16</a>；Collectr $5 到 8/月<a class="c" href="#S20">S20</a></td><td>线报群 150 到 300 元/年<a class="c" href="#D48">D48</a><a class="c" href="#D49">D49</a>；工具类基本不付费</td></tr>
-  <tr><td>变现路径</td><td>Stripe 订阅、eBay 收藏品 3%<a class="c" href="#P30">P30</a>、Amazon.ca 玩具 3%<a class="c" href="#P29">P29</a>、Journey 广告 1000 次访问就能上<a class="c" href="#P45">P45</a></td><td>快餐券 CPS 一单不到 2 块<a class="c" href="#R10">R10</a>、小程序流量主、知识星球抽 20%<a class="c" href="#R24">R24</a></td></tr>
-  <tr><td>品牌给不给分成</td><td>不给，三家官网查不到联盟<a class="c" href="#P42">P42</a></td><td>不给，九成订单在自家闭环<a class="c" href="#D64">D64</a></td></tr>
-  <tr><td>触达</td><td>Discord、App 推送、网页推送免费；SMS 每条一分多<a class="c" href="#P58">P58</a></td><td>小程序一次性订阅、QQ 机器人；Discord 全墙<a class="c" href="#O64">O64</a></td></tr>
-  <tr><td>上线门槛</td><td>无审批；合规一天（13+、CASL 同意、免责声明）</td><td>ICP 备案 + 小程序备案，两轮各 1 到 20 个工作日；我用个体户办</td></tr>
-  <tr><td>数据来源风险</td><td>爬公开门店数据是民事，只爬店不爬人<a class="c" href="#Q1">Q1</a><a class="c" href="#Q63">Q63</a></td><td>换 IP 是判赔证据，490 万判例<a class="c" href="#O50">O50</a>；只能众包 + 人工</td></tr>
-  <tr><td>10 万用户月成本</td><td>约 $430，地图自托管<a class="c" href="#Q33">Q33</a></td><td>600 到 1200 元</td></tr>
-  <tr><td>谁能验证</td><td>咱俩，走两条街就是麦当劳和 Tims</td><td>得靠国内朋友或众包</td></tr>
-  <tr><td>结论</td><td>先做。练习价值和验证速度都在这</td><td>第二阶段。触发条件见下面</td></tr>
-</table></div>
+<p>然后是钱。我查完的结论很干脆：这类东西没有一家靠情报本身收费活下来，品牌方一分钱不会给。所以第一年我不打算收钱，目标是攒一个真实用户群和一套跑通的引擎。这个群以后放什么品类都行，这才是资产。你练扩容和队列，我练产品和冷启动，两边都不亏。</p>
 
-<h2>北美怎么做</h2>
+<h2>方向我都过了一遍</h2>
 
-<p>细节和 215 条出处在<a href="na/">北美版</a>。这里只放决定。</p>
-
-<div class="tw"><table>
-  <tr><th>模块</th><th>做法</th></tr>
-  <tr><td>范围</td><td>加拿大英语省，渥太华和多伦多起。麦当劳 + Tim Hortons + Starbucks + Wendy's + Popeyes</td></tr>
-  <tr><td>核心</td><td>跨品牌日历（新闻稿提前一两周，自动种<a class="c" href="#N9">N9</a>）+ 门店地图 + 「N 人 X 小时前报告有货」+ 主动推送</td></tr>
-  <tr><td>数据</td><td>OSM 门店库 + Google Place Details 月更（免费额内<a class="c" href="#Q38">Q38</a>）+ 用户众包。不爬 Reddit、Facebook<a class="c" href="#Q6">Q6</a><a class="c" href="#Q9">Q9</a></td></tr>
-  <tr><td>分发</td><td>r/waterloo、r/montreal 这类城市版；RedFlagDeals 论坛；找 @snackolator 这种号<a class="c" href="#N61">N61</a></td></tr>
-  <tr><td>收钱</td><td>Stripe 网页订阅 C$2 到 3/月；eBay / Amazon.ca 联盟；Journey 广告。SMS 只给付费层</td></tr>
-  <tr><td>合规</td><td>域名不带品牌词；13+ 不问年龄；英法隐私政策；CASL 同意表；免责声明抄 HTS<a class="c" href="#Q28">Q28</a>。魁北克 v2<a class="c" href="#Q18">Q18</a></td></tr>
-</table></div>
-
-<h2>方向脑暴</h2>
-
-<p>你中午提的那几个我都查了一遍。判断标准就一个：谁愿意花钱买这条资讯。</p>
+<p>你中午提的那几个我一个个查了，标准就一条：<b>谁愿意为这条信息掏钱</b>。掏钱的人只有一种，就是这条信息能帮他把钱赚回来的人。</p>
 
 <div class="fig">
   <h4>谁在为哪类资讯付钱，每月美元</h4>
-  <p class="sub">已验证的价格。cook group 和 Sole Retriever 没能独立核实，标 🟡<a class="c" href="#S16">S16</a><a class="c" href="#S20">S20</a><a class="c" href="#P62">P62</a><a class="c" href="#S55">S55</a><a class="c" href="#S69">S69</a></p>
+  <p class="sub">已验证的价格。球鞋补货群那两个没能独立核实，打了折扣画。出处在<a href="v3/#s-dir">上一版</a></p>
   <div class="bars">
-    <div class="lab">球鞋 cook group<small>补货 / bot 情报 🟡</small></div><div class="tr" title="$30 到 100"><div class="bar" style="width:100%"></div><span class="v" style="--w:100%">30 到 100</span></div>
-    <div class="lab">Card Ladder Pro<small>卡牌价格 / 提醒</small></div><div class="tr" title="$20"><div class="bar" style="width:30.8%"></div><span class="v" style="--w:30.8%">20</span></div>
-    <div class="lab">Sole Retriever<small>球鞋补货 🟡</small></div><div class="tr" title="$6.99 到 14.99"><div class="bar" style="width:16.9%"></div><span class="v" style="--w:16.9%">7 到 15</span></div>
-    <div class="lab">Collectr PRO<small>卡牌藏品估值</small></div><div class="tr" title="$4.99 到 7.99"><div class="bar" style="width:10%"></div><span class="v" style="--w:10%">5 到 8</span></div>
-    <div class="lab">DekuDeals<small>游戏折扣提醒，$40/年</small></div><div class="tr" title="约 $3.3"><div class="bar" style="width:5.1%"></div><span class="v" style="--w:5.1%">3.3</span></div>
-    <div class="lab">活动 / 开关店 / 华人资讯<small>Eventbrite、Meetup、Yelp、小红书都向供给侧收</small></div><div class="tr" title="$0"><div class="bar" style="width:0.5%"></div><span class="v" style="--w:0.5%">0</span></div>
+    <div class="lab">卡牌价格 / 补货提醒<small>Card Ladder Pro</small></div><div class="tr"><div class="bar" style="width:100%"></div><span class="v" style="--w:100%">20</span></div>
+    <div class="lab">球鞋补货群<small>没独立核实</small></div><div class="tr"><div class="bar" style="width:100%"></div><span class="v" style="--w:100%">30 起</span></div>
+    <div class="lab">卡牌藏品估值<small>Collectr PRO</small></div><div class="tr"><div class="bar" style="width:32.5%"></div><span class="v" style="--w:32.5%">5 到 8</span></div>
+    <div class="lab">游戏折扣提醒<small>DekuDeals，$40/年</small></div><div class="tr"><div class="bar" style="width:16.5%"></div><span class="v" style="--w:16.5%">3.3</span></div>
+    <div class="lab">快餐玩具找店<small>Happy Toy Scout，打赏</small></div><div class="tr"><div class="bar" style="width:5%"></div><span class="v" style="--w:5%">$1、$2 打赏</span></div>
+    <div class="lab">活动 / 开关店 / 华人资讯<small>Eventbrite、Meetup、Yelp、小红书</small></div><div class="tr"><div class="bar" style="width:0.5%"></div><span class="v" style="--w:0.5%">0，都向商家和主办方收</span></div>
   </div>
 </div>
 
-<div class="tw big"><table>
-  <tr><th>方向</th><th>谁 · 痛点</th><th>现有替代</th><th>谁付钱</th><th>加拿大空位</th><th>我的判断</th></tr>
-  <tr><td><b>快餐联名玩具</b>（原方向）</td><td>成人收藏者 + 家长 · 随机发放、各店款式不同</td><td>HTS 只美国；加拿大媒体 checklist</td><td>中：收藏者 $3 到 8/月级</td><td>整个加拿大</td><td><b>第一品类</b>。练引擎最合适</td></tr>
-  <tr><td><b>线下卡牌</b>（宝可梦 / Lorcana / 海贼王）</td><td>玩家 + 转卖者 · 硬缺货：2025 年印 100 亿张还不够<a class="c" href="#S2">S2</a>；Walmart 限购 5 包<a class="c" href="#S3">S3</a>、改抽签，ETB 二手两倍<a class="c" href="#S5">S5</a>；Target 卡牌年销破 $10 亿 +70%<a class="c" href="#S6">S6</a></td><td>各店 Shopify 日历 + Discord + 邮件，401 Games、Face to Face 各管各的<a class="c" href="#S13">S13</a><a class="c" href="#S14">S14</a>；NowInStock 免费<a class="c" href="#S15">S15</a></td><td><b>强</b>：Card Ladder $20/月<a class="c" href="#S16">S16</a>、Collectr $5 到 8<a class="c" href="#S20">S20</a>；TCGplayer 抽 8.95% + 2.5%<a class="c" href="#S18">S18</a></td><td>没有跨店聚合、没有地图；BC 卡店连环盗窃说明黑市价值<a class="c" href="#S10">S10</a></td><td><b>第二品类</b>。唯一三件齐全的。风险是黄牛定性和美国大站</td></tr>
-  <tr><td><b>Pop Mart / Labubu / Jellycat</b></td><td>收藏者 · Labubu 二手 5 倍<a class="c" href="#S29">S29</a>；StockX 887 条挂单<a class="c" href="#S37">S37</a></td><td>官网 Launch Calendar 但无补货提醒<a class="c" href="#S34">S34</a>；Jellycat 加拿大首店 2025-10 才开<a class="c" href="#S44">S44</a>；Indigo 上新读不到</td><td>中：收藏溢价；StockX 抽 9.5% + 3%</td><td>Pop Mart 加拿大 4 店 + 6 台机全在 BC 和 GTA，渥太华零店<a class="c" href="#S34">S34</a>，CBC 说渥太华「想买到不容易」<a class="c" href="#S40">S40</a>；MINISO 要在 Eaton Centre 开 MINISO LAND<a class="c" href="#S48">S48</a></td><td>跟快餐玩具同一批用户，同一套引擎，顺手带</td></tr>
-  <tr><td><b>城市活动地图</b>（快闪、hackathon、展览、招聘会）</td><td>年轻人 · 不知道城里有什么</td><td>Eventbrite 470 万场/年<a class="c" href="#S53">S53</a>、Luma 城市页自带地图<a class="c" href="#S59">S59</a>、Meetup、Fever、blogTO / Narcity；Foursquare City Guide 2024 关停<a class="c" href="#S71">S71</a></td><td><b>弱</b>：读者 $0。Eventbrite 向主办方收 3.7% + $1.79/票<a class="c" href="#S55">S55</a>，Meetup 向组织者收 $23.99/月<a class="c" href="#S56">S56</a>，Luma 5% 或 $59/月<a class="c" href="#S58">S58</a></td><td>MLH 2026 加拿大 5 场、渥太华 0 场<a class="c" href="#S68">S68</a></td><td>不做。这是做媒体，不是做订阅。「大部分人只会当免费资讯站」你说对了</td></tr>
-  <tr><td><b>奶茶店餐馆开关店</b></td><td>华人年轻人</td><td>小红书更快；Yelp 2025 广告营收 $14.6 亿<a class="c" href="#S69">S69</a>；blogTO 开关店栏目<a class="c" href="#S62">S62</a></td><td>弱：读者 $0，商家付广告</td><td>—</td><td>不做。跟小红书打不赢，跟 Yelp 打不赢</td></tr>
-  <tr><td><b>华人 / 留学生本地信息</b></td><td>多伦多华裔 63 万、渥太华 4.4 万<a class="c" href="#S75">S75</a>；2024 中国籍新学签 5.6 万<a class="c" href="#S78">S78</a></td><td>小红书 3 亿月活<a class="c" href="#S81">S81</a>，快但不求证</td><td>弱：$0</td><td>「求证过」这一点小红书没有</td><td>不单做。但咱们的众包打卡本身就是「求证」，华人是第一批用户</td></tr>
-  <tr><td><b>倒狗信息网</b>（你说的）</td><td>转卖者</td><td>Resell Calendar 赏金累计 $124 万<a class="c" href="#N63">N63</a>；cook groups</td><td>强，但是黄牛</td><td>—</td><td>不做代抢、不做交易。诚实版是「二手成交指数」当免费钩子</td></tr>
+<div class="tw"><table>
+  <tr><th>方向</th><th>我查到什么</th><th>我的决定</th></tr>
+  <tr><td>快餐联名玩具</td><td>国内和加拿大都是空白。美国有一个 Happy Toy Scout，只做麦当劳、只能被动查、没变现。痛点最具体：随机发、各店不同、卖完就没</td><td><b>第一个品类。</b>最容易验证，最容易跑通引擎</td></tr>
+  <tr><td>线下卡牌</td><td>唯一硬缺货加硬套利加有人真付钱的：2025 年宝可梦印 100 亿张还不够，Walmart 限购改抽签，Target 卡牌年销破 10 亿美元。加拿大各店信息各管各的，没有跨店聚合，没有地图</td><td><b>第二个品类。</b>引擎通了就接。黄牛味重，所以要等有了第一批正经用户再进</td></tr>
+  <tr><td>Pop Mart、Jellycat</td><td>同一批用户。Pop Mart 加拿大 4 店全在 BC 和多伦多，渥太华零店；官网有日历没补货提醒</td><td>第三个，顺手带</td></tr>
+  <tr><td>城市活动地图（你提的）</td><td>Eventbrite、Meetup、Luma 全向主办方收费，读者一分钱不付；Luma 城市页自带地图；Foursquare City Guide 2024 年底关了</td><td>不做。这是做媒体，做起来跟我们的引擎没关系</td></tr>
+  <tr><td>奶茶店餐馆开关店</td><td>小红书更快，Yelp 一年广告收 14.6 亿美元</td><td>不做。打不过</td></tr>
+  <tr><td>华人本地信息</td><td>多伦多华裔 63 万、渥太华 4.4 万，都在小红书上。小红书快但不求证</td><td>不单做。但「求证过的信息」正是我们打卡机制给的东西，华人和留学生是第一批用户</td></tr>
+  <tr><td>hackathon、招聘会</td><td>学生有用，没人付钱；MLH 今年加拿大 5 场，渥太华 0 场</td><td>不做</td></tr>
+  <tr><td>倒狗信息网（你说的）</td><td>Resell Calendar 靠线索赏金和会员活着</td><td>做诚实版：二手成交价当免费参考，不代抢、不撮合交易</td></tr>
 </table></div>
 
-<p>所以脑暴的结论：引擎不变，品类排序变。快餐联名先跑，因为最容易验证；卡牌和 Pop Mart 是第二第三品类，因为那里才有人真掏钱；活动地图那些，等有了用户再说，而且是 B 端的生意。</p>
+<h2>定了</h2>
 
-<p>你担心的「限量的东西 50 人打卡信息就废了」，正好反过来看：信息半衰期短，才有人要提醒。做法是每条打卡带时间戳，页面永远显示「N 人 X 小时前报告」不显示「有货」，超过两小时自动变灰。Happy Toy Scout 就是这么活下来的<a class="c" href="#P27">P27</a>。</p>
+<div class="big">
+  <h3>做什么</h3>
+  <p>一个「掉落地图」：什么东西、哪天开卖、哪家店此刻还有、推给想要的人。快餐联名玩具第一，卡牌第二，Pop Mart 第三。引擎一套，品类换数据。</p>
+</div>
 
-<h2>中国内地，什么时候考虑</h2>
+<div class="big">
+  <h3>在哪做</h3>
+  <p>加拿大先，渥太华和多伦多起，麦当劳 + Tim Hortons + Starbucks + Wendy's。理由四条：不用审批，两周能上；咱俩走两条街就能验证；你的 Discord bot 直接用；加拿大零竞品，而且联名节奏跟美国错位，美国的日历对加拿大人没用。国内放第二阶段，我有个体户，备案我来办，等北美跑通一次再起。</p>
+</div>
 
-<p>国内那版的结论我不重复，在<a href="cn/">国内版</a>。这里只写什么时候回头做、要改什么。</p>
+<div class="big">
+  <h3>不做什么</h3>
+  <p>不爬小红书、Reddit、Facebook；不代抢；不做交易；不做城市活动站、餐馆站、华人资讯站；域名和站名不带品牌词；不问用户年龄。</p>
+</div>
+
+<div class="big">
+  <h3>钱</h3>
+  <p>第一年不收钱。第二年订阅（一个月两三加元，提醒优先送、门店级实时库存）+ eBay 和 Amazon 联盟 + 广告。品牌方不会给分成，我认。</p>
+</div>
+
+<div class="big">
+  <h3>四周之内算不算成</h3>
+  <p>跑一次真实联名活动。打卡 300 条以上，Discord 群 100 人以上，48 小时内回来看的人超过三成。成了就接卡牌；没成就换品类，引擎不扔。</p>
+</div>
+
+<h2>分工</h2>
 
 <div class="tw"><table>
-  <tr><th>触发条件</th><th>要改的</th><th>不用改的</th></tr>
-  <tr><td>北美跑通一次真实联名活动，打卡过 1000 条，48 小时回访过 30%</td><td>数据源：众包 + 品牌公众号人工整理，不爬</td><td>引擎、数据模型、地图逻辑</td></tr>
-  <tr><td>我有时间起备案（个体户，两轮各 1 到 20 个工作日，得提前一个半月）</td><td>触达：小程序一次性订阅 + QQ 群机器人<a class="c" href="#O66">O66</a></td><td>众包打卡的规则和界面</td></tr>
-  <tr><td>找到愿意当种子的国内群（谷圈、家长群）</td><td>收钱：券 CPS + 流量主 + 蹲点群 150 到 300 元/年</td><td>免责声明和「去前打电话」</td></tr>
-  <tr><td>—</td><td>模型：服务在加拿大跑，模型随便；分发层放国内一台轻量机<a class="c" href="#O30">O30</a></td><td>品牌不给分成这个现实</td></tr>
+  <tr><th>我做</th><th>你做（如果你参与）</th><th>我不碰的</th></tr>
+  <tr><td>方向、品类顺序、什么时候扩</td><td>所有技术选型和实现</td><td>你的技术决定。下面的技术栈是建议，你可以全换</td></tr>
+  <tr><td>域名、文案、隐私政策、免责声明、CASL 同意文本</td><td>后端、数据库、队列、缓存、限流、预算告警</td><td></td></tr>
+  <tr><td>门店清单初版、联名日历人工种子</td><td>门店库导入和月更、地图</td><td></td></tr>
+  <tr><td>冷启动：Reddit 城市版、RFD 论坛、华人群、看到求助帖就手动回</td><td>Discord bot、推送</td><td></td></tr>
+  <tr><td>国内版：备案、小程序、QQ 机器人渠道（第二阶段）</td><td>同一套引擎换数据源（第二阶段）</td><td></td></tr>
+  <tr><td>每周 10 小时</td><td>你报你的</td><td></td></tr>
 </table></div>
 
-<p>国内的品类顺序也不一样：快餐玩具第一，便利店谷子第二（罗森一年 17 起<a class="c" href="#M19">M19</a>），茶饮不碰（联名疲劳，喜茶 14 次降到 2 次<a class="c" href="#M30">M30</a>）。卡牌在国内是卡游的地盘，监管雷区，不碰。</p>
+<p>你不参与也没关系，我先用现成工具搭一个能用的，跑完这四周再说。参与的话，下面是给你的。</p>
 
-<h2 id="build">给王聪：怎么做</h2>
+<h2>给你的技术任务书</h2>
 
-<p>这节是你要的。商业的事上面我定，你看这节就行。</p>
+<h3>用户会做的四件事</h3>
 
-<h3>引擎长什么样</h3>
+<ol>
+  <li>打开看日历：这个月渥太华有什么联名，哪天开卖，规则是什么</li>
+  <li>点进一个联名，看地图：哪家店有人报告「还有」，几小时前报的</li>
+  <li>到店之后打卡：有 / 没有 / 限购几个，一键提交，可选拍张照</li>
+  <li>订阅：关注某个联名或某个城市，开卖前一天和有人打卡「有货」时收到提醒</li>
+</ol>
 
-<pre>掉落 (drop)          门店 (store)          打卡 (report)              提醒 (alert)
- 什么 · 哪天 · 哪牌   OSM + Places 月更      谁 · 哪店 · 有/无 · 几点   谁订了哪个掉落 / 哪个城市
- 新闻稿 RSS 自动种    5,300 家加拿大         带时间戳，2 小时变灰       Discord bot → App 推送 → 邮件 → SMS(付费)
-        └────────────── 一张地图 ──────────────┘</pre>
+<h3>数据长什么样</h3>
+
+<pre>drop      什么 · 哪个牌子 · 开卖日 · 结束日 · 规则文本 · 款式列表 · 城市
+store     OSM id · 牌子 · 坐标 · 地址 · 营业时间 · 城市
+report    store · drop · 款式 · 有/无/限购 N · 时间戳 · 用户 · 照片(可选,不公开)
+subscribe 用户 · drop 或 city · 渠道(discord / push / email)
+alert     subscribe × report 触发,去重,合并成一条</pre>
+
+<p>打卡两小时后自动变灰，页面上永远显示「N 人 X 小时前报告」，不显示「有货」两个字。这是免责，也是你担心的「限量的东西 50 人打卡就废了」的答案：半衰期短才有人要提醒。</p>
+
+<h3>v0.1 范围</h3>
 
 <div class="tw"><table>
-  <tr><th>层</th><th>选什么</th><th>为什么</th><th>10 万用户月成本</th></tr>
-  <tr><td>API</td><td>Cloudflare Workers</td><td>$5 含 1000 万请求<a class="c" href="#Q33">Q33</a></td><td>约 $6</td></tr>
-  <tr><td>数据库</td><td>D1，登录自己写</td><td>Supabase 登录按用户数收，100 万用户光登录 $2,925<a class="c" href="#Q35">Q35</a></td><td>$0</td></tr>
-  <tr><td>缓存 / 限流</td><td>Upstash Redis</td><td>geohash 热点 + 令牌桶</td><td>约 $20</td></tr>
-  <tr><td>地图</td><td>MapLibre + PMTiles 切片放 R2</td><td>Google Dynamic Maps 10 万用户 $4,130，自托管 $6<a class="c" href="#Q38">Q38</a>；绝不按用户请求调 Places Nearby，$32/千次</td><td>约 $6</td></tr>
-  <tr><td>门店库</td><td>OSM + Google Place Details 月更</td><td>5,300 家在一万次免费额内；ODbL 署名，跟众包数据分表存</td><td>$0</td></tr>
-  <tr><td>推送</td><td>Expo（App）+ 自建 Web Push + 你的 Discord bot</td><td>全免费<a class="c" href="#Q45">Q45</a>；Discord 全局 50 请求/秒<a class="c" href="#Q49">Q49</a></td><td>$0</td></tr>
-  <tr><td>邮件 / SMS</td><td>Resend；Twilio 只给付费层</td><td>邮件每人每月两分钱，SMS 一毛四</td><td>约 $350 / 按付费人数</td></tr>
-  <tr><td>支付</td><td>Stripe 网页结账</td><td>2.9% + C$0.30<a class="c" href="#Q50">Q50</a>；避开 App 内购 15%</td><td>按量</td></tr>
-  <tr><td>前端</td><td>H5 先，Expo 后</td><td>推送在 App 上最稳，但先用网页验证</td><td>—</td></tr>
+  <tr><th>必须</th><th>以后</th><th>永远不</th></tr>
+  <tr><td>日历页、地图页、打卡、订阅、Discord 推送</td><td>App 推送、邮件、SMS、换玩具板块、二手价参考、卡牌品类</td><td>爬社交平台、代抢、交易、评论区、精确定位、问年龄</td></tr>
 </table></div>
 
-<h3>你能从 Jonathan 直接搬过来的</h3>
+<h3>硬约束</h3>
 
 <div class="tw"><table>
-  <tr><th>Jonathan 已有</th><th>新项目里对应</th></tr>
-  <tr><td>定时任务（周四 Epic、每日 13:30 史低）</td><td>新闻稿 RSS 轮询 + 门店库月更 + 打卡过期变灰的 cron</td></tr>
-  <tr><td>多源接入（CheapShark + Steam）</td><td>OSM + Places + PR Newswire + 用户提交，四个源合一张表</td></tr>
-  <tr><td>Discord 推送</td><td>第一个触达渠道，按城市开频道；后面加 App 推送</td></tr>
-  <tr><td>愿望单匹配（用户关注 → 触发）</td><td>用户订阅「城市 × 品牌 × 掉落」→ 打卡触发提醒</td></tr>
+  <tr><th>约束</th><th>数字</th><th>为什么</th></tr>
+  <tr><td>成本上限</td><td>验证期每月 50 美元以内；每个云账号设硬上限</td><td>Netlify 有人被刷出 10 万美元账单，Happy Toy Scout 两天烧光免费额度</td></tr>
+  <tr><td>地图</td><td>自托管 MapLibre + OSM 切片放 R2；不接 Google Maps SDK；Places 只用来月更门店库</td><td>10 万用户时 Google 一个月 4,130 美元，自托管 6 美元；按请求调 Places Nearby 要 2.5 万美元</td></tr>
+  <tr><td>四件套</td><td>限流、缓存、队列、预算告警第一周就配</td><td>一个联名开售一万人同时被推</td></tr>
+  <tr><td>数据来源</td><td>OSM + Google Place Details 月更 + PR Newswire RSS + 用户打卡；登出爬、低频爬、只爬门店不爬人</td><td>北美爬公开数据是民事不是刑事，但 Reddit API 收费、Facebook 禁自动采集</td></tr>
+  <tr><td>隐私</td><td>不问年龄，13+ 声明，不存精确 GPS，照片不公开只核验，不接广告 SDK</td><td>COPPA 每次违规最高 53,088 美元；魁北克 Law 25 第二阶段再管</td></tr>
+  <tr><td>消息</td><td>所有渠道共用一张同意表：渠道、时间戳、IP、退订时间</td><td>CASL 一次做对，美国自动满足</td></tr>
 </table></div>
 
-<h3>要练的四件事，加一件</h3>
+<h3>技术栈建议，你可以全换</h3>
 
 <div class="tw"><table>
-  <tr><th>事</th><th>做法</th><th>会翻车的样子</th></tr>
-  <tr><td>限流</td><td>按用户 / IP 令牌桶；打卡接口单独限</td><td>一个人刷 1000 条假打卡</td></tr>
-  <tr><td>缓存</td><td>门店和历史打卡进缓存，只有实时打卡回源；feed 缓存 5 到 15 分钟</td><td>Happy Toy Scout 两天烧光免费额度就是每次回源<a class="c" href="#H1">H1</a></td></tr>
-  <tr><td>队列</td><td>抓取和推送都进队列，削峰 + 重试 + 死信</td><td>一个联名开售，一万人同时被推，接口挂</td></tr>
-  <tr><td>预算告警</td><td>每个云账号设硬上限；免费档当会突然消失来设计</td><td>Netlify 有人被刷出 $104k 账单<a class="c" href="#Q59">Q59</a></td></tr>
-  <tr><td>地图切片</td><td>Protomaps 出加拿大 PMTiles 放 R2，MapLibre 读</td><td>接了 Google Maps SDK，用户一多账单先到</td></tr>
+  <tr><th>层</th><th>建议</th><th>一句话理由</th></tr>
+  <tr><td>API</td><td>Cloudflare Workers</td><td>5 美元含一千万请求</td></tr>
+  <tr><td>数据库</td><td>D1，登录自己写</td><td>Supabase 登录按用户数收，规模上来单这一项就几千美元</td></tr>
+  <tr><td>缓存 / 限流</td><td>Upstash Redis</td><td>geohash 热点 + 令牌桶</td></tr>
+  <tr><td>地图</td><td>MapLibre + Protomaps PMTiles 放 R2</td><td>零出口费</td></tr>
+  <tr><td>推送</td><td>你的 Discord bot 先；然后自建 Web Push；App 用 Expo</td><td>全免费</td></tr>
+  <tr><td>邮件 / SMS</td><td>Resend；Twilio 只给付费层</td><td>邮件每人每月两分钱，SMS 一毛四</td></tr>
+  <tr><td>前端</td><td>H5 先，四周后再看要不要 App</td><td>先验证</td></tr>
+</table></div>
+
+<h3>Jonathan 能直接搬的</h3>
+
+<div class="tw"><table>
+  <tr><th>Jonathan 已有</th><th>这里对应</th></tr>
+  <tr><td>定时任务</td><td>新闻稿 RSS 轮询、门店库月更、打卡过期变灰</td></tr>
+  <tr><td>多源接入</td><td>OSM + Places + RSS + 用户提交，四个源合一张表</td></tr>
+  <tr><td>Discord 推送</td><td>第一个触达渠道，按城市开频道</td></tr>
+  <tr><td>愿望单匹配</td><td>订阅「城市 × 品牌 × 掉落」，打卡触发提醒</td></tr>
 </table></div>
 
 <h3>第一个月</h3>
 
 <div class="tw"><table>
   <tr><th>周</th><th>你</th><th>我</th></tr>
-  <tr><td>1</td><td>Workers + D1 骨架、门店库导入（OSM 拉渥太华多伦多的麦当劳 / Tims / Starbucks）、Discord bot 开渥太华频道</td><td>域名（不带品牌词）、隐私政策英法版、免责声明、13+、CASL 同意表；挑下一个联名活动</td></tr>
-  <tr><td>2</td><td>打卡接口 + 限流 + 缓存；地图页；订阅 → 推送</td><td>H5 页面；新闻稿 RSS 种日历；r/ottawa、r/toronto、RFD 冷启动帖子准备</td></tr>
-  <tr><td>3 到 4</td><td>跑一次真实活动，盯队列和成本；预算告警</td><td>人肉冷启动：看到求助帖就查 + 截图回；记打卡数、48 小时回访、分享来源</td></tr>
+  <tr><td>1</td><td>骨架 + 门店库导入（渥太华、多伦多的麦当劳 / Tims / Starbucks / Wendy's）+ Discord 渥太华频道</td><td>域名、隐私政策英法版、免责声明、同意文本；挑下一个联名活动，做日历种子</td></tr>
+  <tr><td>2</td><td>打卡接口 + 限流 + 缓存；地图页；订阅到推送</td><td>H5 页面文案和流程；Reddit 城市版、RFD、华人群的冷启动帖准备好</td></tr>
+  <tr><td>3 到 4</td><td>跑真实活动，盯队列和成本，预算告警</td><td>人肉冷启动，看到求助帖就查、截图回；记打卡数、回访、分享来源</td></tr>
 </table></div>
 
-<h2>我要定的，和要你一起定的</h2>
+<h2>你要回我的就一件事</h2>
 
-<div class="ask">
-  <h3>一、第二品类（我定，你参考）</h3>
-  <p class="q">快餐联名先跑，引擎通了之后接哪个。</p>
-  <div class="opts">
-    <div class="opt me"><b>A</b><div>卡牌<small>唯一有人真付 $20/月的；加拿大没有跨店聚合。风险是黄牛定性和美国大站。我倾向这个。</small></div></div>
-    <div class="opt"><b>B</b><div>Pop Mart / Jellycat<small>同一批用户，渥太华零店是空位；但 Pop Mart 官网自己有日历，差异化小。</small></div></div>
-    <div class="opt"><b>C</b><div>不加，把快餐做深<small>最省力；天花板就是 HTS 加拿大版。</small></div></div>
-  </div>
-  <p class="hint">Discord 回我，或者 <a class="btn" href="https://github.com/MtsYama/collab-intel-step0/issues/new?title=V3-Q1%20第二品类：我选%20__&amp;body=我选：A%20/%20B%20/%20C%0A%0A理由：%0A" target="_blank" rel="noopener">在这条上留言</a></p>
-</div>
-
-<div class="ask">
-  <h3>二、第一个触达渠道（你定，我参考）</h3>
-  <p class="q">决定第一周搭什么。</p>
-  <div class="opts">
-    <div class="opt me"><b>A</b><div>Discord bot 先<small>你现成的，零成本，渥太华华人群和收藏群都在 Discord。缺点是普通家长不用 Discord。</small></div></div>
-    <div class="opt"><b>B</b><div>网页推送先<small>谁都能收，免费；iOS 要加到主屏才行。</small></div></div>
-    <div class="opt"><b>C</b><div>两个一起<small>多一周工作量。</small></div></div>
-  </div>
-  <p class="hint">Discord 回我，或者 <a class="btn" href="https://github.com/MtsYama/collab-intel-step0/issues/new?title=V3-Q2%20第一个触达渠道：我选%20__&amp;body=我选：A%20/%20B%20/%20C%0A%0A理由：%0A" target="_blank" rel="noopener">在这条上留言</a></p>
-</div>
-
-<div class="tw"><table>
-  <tr><th>我自己定的</th><th>定法</th></tr>
-  <tr><td>北美先，中国第二阶段</td><td>定了</td></tr>
-  <tr><td>加拿大多品牌，渥太华多伦多起</td><td>定了</td></tr>
-  <tr><td>不做代抢、交易、城市活动地图、华人资讯站</td><td>定了</td></tr>
-  <tr><td>第一年只求不亏</td><td>定了</td></tr>
-  <tr><td>每周投入</td><td>我先说我的：10 小时。你报你的</td></tr>
-</table></div>
-
-<h2>这轮没查到的</h2>
-
-<ul>
-  <li>eBay 真实成交价；Timbiebs 对 RBI 财报的百分比；Tims Rewards 会员数；加拿大玩具市场金额</li>
-  <li>cook group 和 Sole Retriever 的价格没能独立核实；Pop Mart 美洲分区营收</li>
-  <li>Indigo 的 Jellycat 上新和限购；小红书在海外华人本地信息里的量化角色</li>
-  <li>搜索配额今天用完了，北美这轮全是直接读页面拼的，可能有我没找到的加拿大同类产品</li>
-</ul>
-
-<h2>出处</h2>
-<p class="small">N 北美联名市场 · P 北美竞品与变现 · Q 北美运维与法律 · S 方向脑暴 · M/D/O/R 国内版各路 · H Happy Toy Scout 一手。编号对角标。检索日期 2026-09-09。</p>
-<details open><summary>H · Happy Toy Scout 一手来源（2 条）</summary><ol>
-  <li id="H1">SA 社区帖 · 一个程序员爸爸的 Side Project（2026-08-29，含 14 条评论）· <a href="https://www.superlinear.academy/c/share-your-projects/side-project-7-9" target="_blank" rel="noopener">superlinear.academy/c/share-your-projects/side-project-7-9</a>（需登录）</li>
-  <li id="H2">Happy Toy Scout 线上页面（2026-09-09 抓取）· <a href="https://happytoyscout.com/en" target="_blank" rel="noopener">happytoyscout.com/en</a></li>
-</ol></details>
-<!--REFS:START-->
-<details><summary>D · 优惠券 / 比价 / 值得买类聚合（69 条）</summary><ol>
-<li id="D1" value="1">北京值得买科技股份有限公司 2025 年年度报告摘要（公告编号 2026-014，2026-04-24）· <a href="http://notice.10jqka.com.cn/api/pdf/296d7f134e690999.pdf" target="_blank" rel="noopener">http://notice.10jqka.com.cn/api/pdf/296d7f134e690999.pdf</a> · 本地 pdfplumber 解析 ✅</li>
-<li id="D2" value="2">证券之星 · 财报快递｜值得买（300785）2025 年度营收下降 15% 净利反增 15%，商誉减值拖累扣非净利仅微增 2% · <a href="https://stock.stockstar.com/RB2026042400016600.shtml" target="_blank" rel="noopener">https://stock.stockstar.com/RB2026042400016600.shtml</a> ✅</li>
-<li id="D3" value="3">IT 之家 · 值得买科技 2025 年净利润同比增长 14.99%，全年「AI 相关收入」8716.60 万元 · <a href="https://www.ithome.com/0/942/934.htm" target="_blank" rel="noopener">https://www.ithome.com/0/942/934.htm</a> 🟡（抓取 404，仅搜索摘要）</li>
-<li id="D4" value="4">东方证券（新浪财经转载）· 值得买 24 年年报及 25 年一季报点评：主业稳健，AI 赋能 + 出海增量可期（2025-05-14）· <a href="https://finance.sina.com.cn/roll/2025-05-14/doc-inewpfia1102807.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/roll/2025-05-14/doc-inewpfia1102807.shtml</a> ✅</li>
-<li id="D5" value="5">值得买 · 投资者关系活动记录表 编号 2025-003（2025-08-26 电话会议）· <a href="https://file.finance.qq.com/finance/hs/pdf/2025/08/26/1224586429.PDF" target="_blank" rel="noopener">https://file.finance.qq.com/finance/hs/pdf/2025/08/26/1224586429.PDF</a> · 本地解析 ✅</li>
-<li id="D6" value="6">腾讯新闻 · 值得买（300785）2025 年中报简析：净利润同比增长 65.75% · <a href="https://view.inews.qq.com/a/20250827A01DXO00" target="_blank" rel="noopener">https://view.inews.qq.com/a/20250827A01DXO00</a> ✅</li>
-<li id="D7" value="7">和讯 · 值得买（300785）2025 年半年报点评：收入承压经营提效 持续推进全面 AI 战略 · <a href="https://m.hexun.com/stock/2025-09-22/221480207.html" target="_blank" rel="noopener">https://m.hexun.com/stock/2025-09-22/221480207.html</a> 🟡（抓取失败，仅搜索摘要）</li>
-<li id="D8" value="8">什么值得买 · 麦当劳优惠券 标签页 · <a href="https://www.smzdm.com/tag/t8dpjqk/" target="_blank" rel="noopener">https://www.smzdm.com/tag/t8dpjqk/</a> ✅</li>
-<li id="D9" value="9">什么值得买 · 麦当劳品牌优惠页 · <a href="https://pinpai.smzdm.com/13831/youhui/" target="_blank" rel="noopener">https://pinpai.smzdm.com/13831/youhui/</a> ✅</li>
-<li id="D10" value="10">什么值得买社区 · 肯德基、麦当劳、必胜客又出新周边啦！（潮流玩具频道，2023-08-13）· <a href="https://post.smzdm.com/p/a5oq7rdx/" target="_blank" rel="noopener">https://post.smzdm.com/p/a5oq7rdx/</a> ✅</li>
-<li id="D11" value="11">什么值得买 · 食品君 · 周末陪伴你 麦当劳、汉堡王、肯德基那些值得薅羊毛的电子券（2023-09-22）· <a href="https://www.smzdm.com/p/91199299/" target="_blank" rel="noopener">https://www.smzdm.com/p/91199299/</a> ✅</li>
-<li id="D12" value="12">腾讯云开发者社区 · 从零搭建 CPS 返利系统：平台对接全攻略（淘宝/京东/拼多多/抖音/美团）· <a href="https://cloud.tencent.com/developer/article/2649564" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/2649564</a> ✅</li>
-<li id="D13" value="13">数字营销 · 京东联盟怎么推广赚钱（附佣金规则和推广流程，2021-09-17）· <a href="https://m.shuziyingxiao.net/dzsw/B2cyx/89308.html" target="_blank" rel="noopener">https://m.shuziyingxiao.net/dzsw/B2cyx/89308.html</a> ✅</li>
-<li id="D14" value="14">新浪科技 · 2025 京东返利 app 哪个佣金高一点?拼多多返利软件平台哪个最好用?（2025-07-15，软文）· <a href="https://finance.sina.com.cn/tech/roll/2025-07-15/doc-inffpncr5705733.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/tech/roll/2025-07-15/doc-inffpncr5705733.shtml</a> 🟡</li>
-<li id="D15" value="15">聚推客 · 美团优选 CPS+CPA 结算介绍说明 · <a href="https://www.jutuike.com/article/1013.html" target="_blank" rel="noopener">https://www.jutuike.com/article/1013.html</a> ✅</li>
-<li id="D16" value="16">minibiye · 美团饿了么外卖 cps 项目怎么做（2021-10-06）· <a href="https://www.minibiye.com/news/9.html" target="_blank" rel="noopener">https://www.minibiye.com/news/9.html</a> 🟡</li>
-<li id="D17" value="17">知乎专栏 · 美团、抖音、饿了么、京东：2026 年外卖平台佣金到底差多少？· <a href="https://zhuanlan.zhihu.com/p/2042928968735643188" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/2042928968735643188</a> 🟡（抓取 403，仅搜索摘要）</li>
-<li id="D18" value="18">返利网数字科技股份有限公司 2024 年年度报告摘要 · <a href="https://file.finance.qq.com/finance/hs/pdf/2025/04/25/1223283623.PDF" target="_blank" rel="noopener">https://file.finance.qq.com/finance/hs/pdf/2025/04/25/1223283623.PDF</a> · 本地解析 ✅</li>
-<li id="D19" value="19">乐居财经 · 返利科技（600228.SH）2024 年净利润为 -1166.89 万元，同比由盈转亏 · <a href="https://m.lejucaijing.com/news-7321495788331923147.html" target="_blank" rel="noopener">https://m.lejucaijing.com/news-7321495788331923147.html</a> 🟡</li>
-<li id="D20" value="20">网经社 · 【电商评测】比价返利 APP 哪家强？什么值得买 返利网 省钱快报 一淘 淘粉吧评测报告（2022-12-15）· <a href="https://www.100ec.cn/detail--6621916.html" target="_blank" rel="noopener">https://www.100ec.cn/detail--6621916.html</a> ✅</li>
-<li id="D21" value="21">知乎 · 【惠惠购物助手】停止运营，现在还有啥好的价格走势、比价插件？（2019-11）· <a href="https://www.zhihu.com/question/355590889/answer/929324872" target="_blank" rel="noopener">https://www.zhihu.com/question/355590889/answer/929324872</a> 🟡</li>
-<li id="D22" value="22">Retail Dive · PayPal buys rewards app Honey for $4B in e-commerce push（2019-11）· <a href="https://www.retaildive.com/news/paypal-buys-rewards-app-honey-for-4b-in-e-commerce-push/567843" target="_blank" rel="noopener">https://www.retaildive.com/news/paypal-buys-rewards-app-honey-for-4b-in-e-commerce-push/567843</a> ✅</li>
-<li id="D23" value="23">The Motley Fool · The Reason PayPal Just Spent $4 Billion on Honey（2019-12-08）· <a href="https://www.fool.com/investing/2019/12/08/the-reason-paypal-just-spent-4-billion-on-honey.aspx" target="_blank" rel="noopener">https://www.fool.com/investing/2019/12/08/the-reason-paypal-just-spent-4-billion-on-honey.aspx</a> ✅</li>
-<li id="D24" value="24">ppc.land · How PayPal's Honey manipulated coupon codes and diverted affiliate commissions · <a href="https://ppc.land/how-paypals-honey-manipulated-coupon-codes-and-diverted-affiliate-commissions/" target="_blank" rel="noopener">https://ppc.land/how-paypals-honey-manipulated-coupon-codes-and-diverted-affiliate-commissions/</a> 🟡</li>
-<li id="D25" value="25">ppc.land · Honey loses 7,000 merchants as judge lets creator lawsuit proceed（2026-06）· <a href="https://ppc.land/honey-loses-7-000-merchants-as-judge-lets-creator-lawsuit-proceed/" target="_blank" rel="noopener">https://ppc.land/honey-loses-7-000-merchants-as-judge-lets-creator-lawsuit-proceed/</a> ✅</li>
-<li id="D26" value="26">ppc.land · PayPal fails to compel arbitration in Honey affiliate commission lawsuit · <a href="https://ppc.land/paypal-fails-to-compel-arbitration-in-honey-affiliate-commission-lawsuit/" target="_blank" rel="noopener">https://ppc.land/paypal-fails-to-compel-arbitration-in-honey-affiliate-commission-lawsuit/</a> 🟡</li>
-<li id="D27" value="27">Cohen Milstein · In Re PayPal Honey Browser Extension Litigation · <a href="https://www.cohenmilstein.com/case-study/in-re-paypal-honey-browser-extension-litigation/" target="_blank" rel="noopener">https://www.cohenmilstein.com/case-study/in-re-paypal-honey-browser-extension-litigation/</a> 🟡</li>
-<li id="D28" value="28">ABC News (AU) · Honey's bittersweet business model leads YouTube stars to launch class action（2025-01-09）· <a href="https://www.abc.net.au/news/2025-01-09/paypal-sued-by-youtubers-over-honey-extension/104791528" target="_blank" rel="noopener">https://www.abc.net.au/news/2025-01-09/paypal-sued-by-youtubers-over-honey-extension/104791528</a> 🟡</li>
-<li id="D29" value="29">PR Newswire · RetailMeNot to Be Acquired by Harland Clarke Holdings for $11.60 per share in Cash（2017-04）· <a href="https://www.prnewswire.com/news-releases/retailmenot-to-be-acquired-by-harland-clarke-holdings-for-1160-per-share-in-cash-300437514.html" target="_blank" rel="noopener">https://www.prnewswire.com/news-releases/retailmenot-to-be-acquired-by-harland-clarke-holdings-for-1160-per-share-in-cash-300437514.html</a> ✅</li>
-<li id="D30" value="30">PitchBook · RetailMeNot to change hands for $420M · <a href="https://pitchbook.com/newsletter/retailmenot-to-change-hands-for-420m" target="_blank" rel="noopener">https://pitchbook.com/newsletter/retailmenot-to-change-hands-for-420m</a> 🟡（抓取 403）</li>
-<li id="D31" value="31">Mergr · Ziff Davis Acquires RetailMeNot · <a href="https://mergr.com/ziff-davis-acquires-retailmenot" target="_blank" rel="noopener">https://mergr.com/ziff-davis-acquires-retailmenot</a> 🟡</li>
-<li id="D32" value="32">Wikipedia · RetailMeNot · <a href="https://en.wikipedia.org/wiki/Retailmenot" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Retailmenot</a> ✅</li>
-<li id="D33" value="33">Simply Wall St · Ziff Davis Refocuses On Core Business As RetailMeNot Bets On Cash Back · <a href="https://simplywall.st/stocks/us/media/nasdaq-zd/ziff-davis/news/ziff-davis-refocuses-on-core-business-as-retailmenot-bets-on" target="_blank" rel="noopener">https://simplywall.st/stocks/us/media/nasdaq-zd/ziff-davis/news/ziff-davis-refocuses-on-core-business-as-retailmenot-bets-on</a> 🟡</li>
-<li id="D34" value="34">Los Angeles Business Journal · Slickdeals Seeks 'Up-Funnel' Action（2024-01-15）· <a href="https://labusinessjournal.com/featured/slickdeals/" target="_blank" rel="noopener">https://labusinessjournal.com/featured/slickdeals/</a> ✅</li>
-<li id="D35" value="35">PR Newswire · Warburg Pincus Announces Sale Of Slickdeals To Goldman Sachs Merchant Banking Division And Hearst（2018-06-14）· <a href="https://www.prnewswire.com/news-releases/warburg-pincus-announces-sale-of-slickdeals-to-goldman-sachs-merchant-banking-division-and-hearst-300666227.html" target="_blank" rel="noopener">https://www.prnewswire.com/news-releases/warburg-pincus-announces-sale-of-slickdeals-to-goldman-sachs-merchant-banking-division-and-hearst-300666227.html</a> ✅</li>
-<li id="D36" value="36">Wikipedia · Slickdeals · <a href="https://en.wikipedia.org/wiki/Slickdeals" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Slickdeals</a> ✅</li>
-<li id="D37" value="37">Sunset · Slickdeals Layoffs: What Happened &amp; Why? · <a href="https://www.sunsethq.com/layoff-tracker/slickdeals" target="_blank" rel="noopener">https://www.sunsethq.com/layoff-tracker/slickdeals</a> 🟡（抓取 403，仅搜索摘要「裁员 33%」）</li>
-<li id="D38" value="38">Tracxn · Slickdeals 2026 Company Profile · <a href="https://tracxn.com/d/companies/slickdeals/__TgOH2jJsQpmNYCH90LpPdC65C17zkhkOX3YBUwdRpGM" target="_blank" rel="noopener">https://tracxn.com/d/companies/slickdeals/__TgOH2jJsQpmNYCH90LpPdC65C17zkhkOX3YBUwdRpGM</a> 🟡</li>
-<li id="D39" value="39">Built In LA · Online Shopping Platform Slickdeals Announces Leadership Transition · <a href="https://www.builtinla.com/articles/slickdeals-leadership-transition" target="_blank" rel="noopener">https://www.builtinla.com/articles/slickdeals-leadership-transition</a> 🟡</li>
-<li id="D40" value="40">Rakuten Rewards · business.rakuten.com 官方商户页 · <a href="https://business.rakuten.com/" target="_blank" rel="noopener">https://business.rakuten.com/</a> ✅</li>
-<li id="D41" value="41">Statista · Rakuten Rewards (Ebates) operating income per quarter 2018-2024 · <a href="https://www.statista.com/statistics/586583/ebates-operating-income-quarter/" target="_blank" rel="noopener">https://www.statista.com/statistics/586583/ebates-operating-income-quarter/</a> ✅</li>
-<li id="D42" value="42">Wikipedia · Rakuten Rewards · <a href="https://en.wikipedia.org/wiki/Rakuten_Rewards" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Rakuten_Rewards</a> ✅</li>
-<li id="D43" value="43">FinanceBuzz · How Does Rakuten Make Money if They Pay You to Shop? · <a href="https://financebuzz.com/how-rakuten-makes-money" target="_blank" rel="noopener">https://financebuzz.com/how-rakuten-makes-money</a> 🟡</li>
-<li id="D44" value="44">OpenClassActions · Capital One Shopping Affiliate Marketing Settlement · <a href="https://openclassactions.com/settlements/capital-one-shopping-affiliate-settlement.php" target="_blank" rel="noopener">https://openclassactions.com/settlements/capital-one-shopping-affiliate-settlement.php</a> ✅</li>
-<li id="D45" value="45">PR Newswire · If you advertised online with merchants and affiliate networks who partnered with Capital One Shopping, you may be entitled to a payment（2026-02）· <a href="https://www.prnewswire.com/news-releases/if-you-advertised-online-with-merchants-and-affiliate-networks-who-partnered-with-capital-one-shopping-you-may-be-entitled-to-a-payment-from-a-class-action-settlement-302686979.html" target="_blank" rel="noopener">https://www.prnewswire.com/news-releases/if-you-advertised-online-with-merchants-and-affiliate-networks-who-partnered-with-capital-one-shopping-you-may-be-entitled-to-a-payment-from-a-class-action-settlement-302686979.html</a> ✅</li>
-<li id="D46" value="46">ClassAction.org · Capital One Steals Content Creators' Online Sales Commissions Through Shopping Extension, Class Action Claims · <a href="https://www.classaction.org/news/capital-one-steals-content-creators-online-sales-commissions-through-shopping-extension-class-action-claims" target="_blank" rel="noopener">https://www.classaction.org/news/capital-one-steals-content-creators-online-sales-commissions-through-shopping-extension-class-action-claims</a> 🟡</li>
-<li id="D47" value="47">雷峰网 · 卧底薅羊毛 QQ 群，月入 N 万？（2017-11）· <a href="https://www.leiphone.com/news/201711/vCvFCTGmLoE3NqPM.html" target="_blank" rel="noopener">https://www.leiphone.com/news/201711/vCvFCTGmLoE3NqPM.html</a> ✅</li>
-<li id="D48" value="48">界面新闻 · 疯狂羊毛党：小白薅汽水、职业薅 iPhone、大牛薅元宇宙（2021-12-13）· <a href="https://www.jiemian.com/article/6907706.html" target="_blank" rel="noopener">https://www.jiemian.com/article/6907706.html</a> ✅</li>
-<li id="D49" value="49">美国信用卡攻略 · 『美卡攻略-潮酷社群』知识星球介绍（2025-03 更新）· <a href="https://usccstrategy.com/zsxq/" target="_blank" rel="noopener">https://usccstrategy.com/zsxq/</a> ✅</li>
-<li id="D50" value="50">知乎专栏 · 日入 10W，知识星球的星主如何通过知识生财？· <a href="https://zhuanlan.zhihu.com/p/342186369" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/342186369</a> 🟡</li>
-<li id="D51" value="51">证券时报 · 知名经济学家洪灏开通知识星球，11 天收入超 800 万元（2025-11）· <a href="https://www.stcn.com/article/detail/3477342.html" target="_blank" rel="noopener">https://www.stcn.com/article/detail/3477342.html</a> 🟡</li>
-<li id="D52" value="52">猎者出海 · telegram 怎么赚钱？3 个 telegram 赚钱项目教程（2024-11-15）· <a href="https://www.liezhe.com/telegramzhuanqian/" target="_blank" rel="noopener">https://www.liezhe.com/telegramzhuanqian/</a> ✅</li>
-<li id="D53" value="53">知乎专栏 · 信息差：一个业内不公开的社群赚钱项目 · <a href="https://zhuanlan.zhihu.com/p/364241909" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/364241909</a> 🟡</li>
-<li id="D54" value="54">澎湃新闻 · 只要用过代下单，这辈子基本「定型了」?（2024）· <a href="https://www.thepaper.cn/newsDetail_forward_26910122" target="_blank" rel="noopener">https://www.thepaper.cn/newsDetail_forward_26910122</a> ✅</li>
-<li id="D55" value="55">新浪财经 · 「代下单」一次能省一半钱？专家：新型消费方式虽划算却有风险（2024-10-10）· <a href="https://finance.sina.com.cn/jjxw/2024-10-10/doc-incsamep2094083.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/jjxw/2024-10-10/doc-incsamep2094083.shtml</a> ✅</li>
-<li id="D56" value="56">小蚂蚁资源网 · 闲鱼发布肯德基商品代下单目月入 1W+（2022-11，2024-04 更新）· <a href="https://www.xmy7.com/jiaocheng/taobao/18973.html" target="_blank" rel="noopener">https://www.xmy7.com/jiaocheng/taobao/18973.html</a> 🟡（引流课程）</li>
-<li id="D57" value="57">CSDN · 代下单项目 - 肯德基代下单之独立系统 - 自动发货 - 自动退款 - 自动封禁 · <a href="https://blog.csdn.net/weixin_56201300/article/details/142455594" target="_blank" rel="noopener">https://blog.csdn.net/weixin_56201300/article/details/142455594</a> 🟡（抓取 521）</li>
-<li id="D58" value="58">澎湃新闻 · 是谁在创造肯德基「疯狂星期四」｜营销观察（2022）· <a href="https://www.thepaper.cn/newsDetail_forward_19498426" target="_blank" rel="noopener">https://www.thepaper.cn/newsDetail_forward_19498426</a> ✅</li>
-<li id="D59" value="59">数英 · 肯德基「疯狂星期四」营销，深扒这些年一步步走向发疯之路 · <a href="https://www.digitaling.com/articles/858451.html" target="_blank" rel="noopener">https://www.digitaling.com/articles/858451.html</a> ✅</li>
-<li id="D60" value="60">数英项目 · 肯德基疯狂星期四：V 我 50，发个神金 · <a href="https://www.digitaling.com/projects/317162.html" target="_blank" rel="noopener">https://www.digitaling.com/projects/317162.html</a> 🟡</li>
-<li id="D61" value="61">百胜中国 · 2025 年第四季度财务业绩报告（PDF）· <a href="https://ir.yumchina.com/static-files/f9199357-ae20-4c8d-a0fd-ddc767bc5b1b" target="_blank" rel="noopener">https://ir.yumchina.com/static-files/f9199357-ae20-4c8d-a0fd-ddc767bc5b1b</a> 🟡（抓取超时，仅搜索摘要）</li>
-<li id="D62" value="62">百胜中国 · 2025 年第二季度财务业绩报告（PDF）· <a href="https://ir.yumchina.com/static-files/e85483df-1308-48e6-a439-5bbecff3d510" target="_blank" rel="noopener">https://ir.yumchina.com/static-files/e85483df-1308-48e6-a439-5bbecff3d510</a> 🟡（抓取超时）</li>
-<li id="D63" value="63">搜狐 · 麦当劳中国会员超 3.8 亿（2025-12）· <a href="https://m.sohu.com/a/970069492_121010226" target="_blank" rel="noopener">https://m.sohu.com/a/970069492_121010226</a> ✅</li>
-<li id="D64" value="64">Foodaily · 狂揽 2.6 亿会员，麦当劳到底有多「心机」？（2024-12-28）· <a href="https://www.foodaily.com/articles/38657" target="_blank" rel="noopener">https://www.foodaily.com/articles/38657</a> ✅</li>
-<li id="D65" value="65">人人都是产品经理 · 4.5 万个社群，社群会员率高达 92%，麦当劳私域运营拆解（2022-06-27）· <a href="https://www.woshipm.com/operate/5503626.html" target="_blank" rel="noopener">https://www.woshipm.com/operate/5503626.html</a> ✅</li>
-<li id="D66" value="66">麦当劳中国官网 · 专人服务！麦麦团餐升级 66 折起！（2025-05-06）· <a href="https://www.mcdonalds.com.cn/news/20250506-to-business" target="_blank" rel="noopener">https://www.mcdonalds.com.cn/news/20250506-to-business</a> ✅</li>
-<li id="D67" value="67">中国广告网 cnad · 肯德基、麦当劳卖玩具，瑞幸、喜茶卖社交？过六一的品牌「火拼童年」（2026-06-04，36 氪同稿）· <a href="http://www.cnad.com/index.php?act=view&amp;mod=article&amp;titleId=356708" target="_blank" rel="noopener">http://www.cnad.com/index.php?act=view&amp;mod=article&amp;titleId=356708</a> ✅</li>
-<li id="D68" value="68">Foodaily · 带玩具的「儿童套餐」，中年人抢疯了 · <a href="https://www.foodaily.com/articles/36899" target="_blank" rel="noopener">https://www.foodaily.com/articles/36899</a> ✅</li>
-<li id="D69" value="69">麦当劳中国官网 · 官方渠道 · <a href="https://www.mcdonalds.com.cn/page/offical-channels/" target="_blank" rel="noopener">https://www.mcdonalds.com.cn/page/offical-channels/</a> 🟡</li>
-</ol></details>
-<details><summary>M · 国内联动市场（59 条）</summary><ol>
-<li id="M1" value="1">腾讯新闻 · 一年卖15亿个"食玩"，麦当劳成了全球最大玩具经销商（2025-05-29）· <a href="https://news.qq.com/rain/a/20250529A05AJY00" target="_blank" rel="noopener">https://news.qq.com/rain/a/20250529A05AJY00</a></li>
-<li id="M2" value="2">21经济网 · 麦当劳"对讲机"玩具爆火，原价38元被炒到420元（2024-05-28）· <a href="https://www.21jingji.com/article/20240528/herald/6f53c3dc90fa7f27acb36298ee1d8215.html" target="_blank" rel="noopener">https://www.21jingji.com/article/20240528/herald/6f53c3dc90fa7f27acb36298ee1d8215.html</a></li>
-<li id="M3" value="3">新浪财经 · 麦当劳"对讲机"玩具爆火：有商家3天赚50万（2024-05-26）· <a href="https://finance.sina.cn/2024-05-26/detail-inawqepm4622902.d.html" target="_blank" rel="noopener">https://finance.sina.cn/2024-05-26/detail-inawqepm4622902.d.html</a></li>
-<li id="M4" value="4">腾讯新闻 · 溢价10倍也要抢！麦当劳的玩具们为啥让年轻人如此上头（2024-06-15）· <a href="https://news.qq.com/rain/a/20240615A04M6N00" target="_blank" rel="noopener">https://news.qq.com/rain/a/20240615A04M6N00</a></li>
-<li id="M5" value="5">麦当劳中国官网 · Oi~chiikawa玩具上新！送全套！（2026-07-29）· <a href="https://www.mcdonalds.com.cn/news/20260729-HM" target="_blank" rel="noopener">https://www.mcdonalds.com.cn/news/20260729-HM</a></li>
-<li id="M6" value="6">网易新闻 · 溢价300%！黄牛挤爆「麦当劳 x Chiikawa」发售现场（2025-05）· <a href="https://c.m.163.com/news/a/K035PV6F0538V6NF.html" target="_blank" rel="noopener">https://c.m.163.com/news/a/K035PV6F0538V6NF.html</a></li>
-<li id="M7" value="7">腾讯新闻 · 有偿代吃麦当劳？Chiikawa x 麦当劳新联名急速售罄中（2025-05-20）· <a href="https://news.qq.com/rain/a/20250520A0482600" target="_blank" rel="noopener">https://news.qq.com/rain/a/20250520A0482600</a></li>
-<li id="M8" value="8">搜狐 · 去年门店被黄牛疯抢今年"禁止转售"，日本麦当劳 x Chiikawa联名明日回归（2026）· <a href="https://m.sohu.com/a/1022405283_121119309" target="_blank" rel="noopener">https://m.sohu.com/a/1022405283_121119309</a></li>
-<li id="M9" value="9">麦当劳中国官网 · 六一来了！星星答案机！免费迷你圆筒！（2026-06-01）· <a href="https://www.mcdonalds.com.cn/news/20260601-children-day-event/" target="_blank" rel="noopener">https://www.mcdonalds.com.cn/news/20260601-children-day-event/</a></li>
-<li id="M10" value="10">虎嗅 · 肯德基、麦当劳卖玩具，瑞幸、喜茶卖社交？过六一的品牌"火拼童年"（2026-05）· <a href="https://www.huxiu.com/article/4862419.html（36氪镜像" target="_blank" rel="noopener">https://www.huxiu.com/article/4862419.html（36氪镜像</a> <a href="https://36kr.com/p/3828807365202561" target="_blank" rel="noopener">https://36kr.com/p/3828807365202561</a>）</li>
-<li id="M11" value="11">华声在线 · 侃财邦｜"六一"联名疯抢背后：成年人抢玩具，品牌抢流量（2026-05）· <a href="https://m.voc.com.cn/xhn/news/202605/32732675.html" target="_blank" rel="noopener">https://m.voc.com.cn/xhn/news/202605/32732675.html</a></li>
-<li id="M12" value="12">Morketing · 六一还有一波？成年人在肯德基和小孩抢玩具（2023）· <a href="https://www.morketing.com/detail/24643" target="_blank" rel="noopener">https://www.morketing.com/detail/24643</a></li>
-<li id="M13" value="13">界面新闻 · 没有一只可达鸭现在还能躺在肯德基店里（2022-05）· <a href="https://www.jiemian.com/article/7506588.html" target="_blank" rel="noopener">https://www.jiemian.com/article/7506588.html</a></li>
-<li id="M14" value="14">网易 · 肯德基"可达鸭"炒到500一只，刷屏背后原因（2022-05）· <a href="https://m.163.com/dy/article/H85GH1EM05149B41.html" target="_blank" rel="noopener">https://m.163.com/dy/article/H85GH1EM05149B41.html</a></li>
-<li id="M15" value="15">界面 JMedia · 年内联名70起，谁是快餐界的联名之王？（2024-12）· <a href="https://www.jiemian.com/article/12089105.html" target="_blank" rel="noopener">https://www.jiemian.com/article/12089105.html</a></li>
-<li id="M16" value="16">雷报 via 腾讯新闻 · 半年103场IP联名，休闲餐饮品牌的联名战争越"卷"越焦虑？（2026-07-02）· <a href="https://news.qq.com/rain/a/20260702A09YZD00" target="_blank" rel="noopener">https://news.qq.com/rain/a/20260702A09YZD00</a></li>
-<li id="M17" value="17">CBNData · 115起食品餐饮IP联名盘点：热门品牌、IP及行业新趋势解读（2025-03）· <a href="https://m.cbndata.com/information/293807" target="_blank" rel="noopener">https://m.cbndata.com/information/293807</a></li>
-<li id="M18" value="18">界面 JMedia · 数读2025：181起新茶饮联名，瑞幸库迪"杀疯了"，喜茶奈雪"踩刹车"（2026-02）· <a href="https://www.jiemian.com/article/13968772.html" target="_blank" rel="noopener">https://www.jiemian.com/article/13968772.html</a></li>
-<li id="M19" value="19">雷报 via 腾讯新闻 · 年内IP联名28+起，罗森等便利店正成为年轻人的"情绪消费"新阵地？（2025-09-11）· <a href="https://news.qq.com/rain/a/20250911A0922F00" target="_blank" rel="noopener">https://news.qq.com/rain/a/20250911A0922F00</a></li>
-<li id="M20" value="20">明日方舟官网 · 明日方舟携手合作伙伴罗森LAWSON · <a href="https://ak.hypergryph.com/special/lawson/index.html" target="_blank" rel="noopener">https://ak.hypergryph.com/special/lawson/index.html</a></li>
-<li id="M21" value="21">TapTap · 明日方舟：终末地联动罗森确认 · <a href="https://www.taptap.cn/moment/762342434184104899" target="_blank" rel="noopener">https://www.taptap.cn/moment/762342434184104899</a></li>
-<li id="M22" value="22">原神官网 · 原神 x 罗森 联动活动即将于9月26日正式开启（2022）· <a href="https://ys.mihoyo.com/main/m/news/detail/117673" target="_blank" rel="noopener">https://ys.mihoyo.com/main/m/news/detail/117673</a></li>
-<li id="M23" value="23">央广网 · 瑞幸酱香拿铁首日销量突破542万杯，销售额超1亿元（2023-09-05）· <a href="https://ent.cnr.cn/canyin/zixun/20230905/t20230905_526408844.shtml" target="_blank" rel="noopener">https://ent.cnr.cn/canyin/zixun/20230905/t20230905_526408844.shtml</a></li>
-<li id="M24" value="24">餐饮界 / FBIF · 瑞幸回应40万张光栅卡售罄：联名《黑神话·悟空》为何火出圈？（2024-08-21）· <a href="https://m.canyin88.com/zhuanlan/FBIF/2024/0821/95882.html" target="_blank" rel="noopener">https://m.canyin88.com/zhuanlan/FBIF/2024/0821/95882.html</a></li>
-<li id="M25" value="25">Morketing · 神一下鬼一下？瑞幸1-8月联名"汇报表"（2026）· <a href="https://www.morketing.com/detail/28755" target="_blank" rel="noopener">https://www.morketing.com/detail/28755</a></li>
-<li id="M26" value="26">搜狐 · 瑞幸2025自媒体与联名合作复盘 · <a href="https://www.sohu.com/a/981654470_121852051" target="_blank" rel="noopener">https://www.sohu.com/a/981654470_121852051</a></li>
-<li id="M27" value="27">雪球 · 瑞幸2025年销量41亿杯，累计交易客户数超4.5亿 · <a href="https://xueqiu.com/3338215700/377260965" target="_blank" rel="noopener">https://xueqiu.com/3338215700/377260965</a></li>
-<li id="M28" value="28">腾讯新闻 · 名创优品X Chiikawa上海快闪店10小时销售额达268万（2024-03-29）· <a href="https://news.qq.com/rain/a/20240329A09NQM00" target="_blank" rel="noopener">https://news.qq.com/rain/a/20240329A09NQM00</a></li>
-<li id="M29" value="29">腾讯新闻 · 销售额破千万，快闪店被挤爆，谁接住了Chiikawa的泼天富贵？（2024-04-21）· <a href="https://news.qq.com/rain/a/20240421A0311A00" target="_blank" rel="noopener">https://news.qq.com/rain/a/20240421A0311A00</a></li>
-<li id="M30" value="30">腾讯新闻 · 联名疲劳时代，喜茶们出了什么新招？（2026-01-29）· <a href="https://news.qq.com/rain/a/20260129A04HD700" target="_blank" rel="noopener">https://news.qq.com/rain/a/20260129A04HD700</a></li>
-<li id="M31" value="31">数英 · 年度热点 | "联名"流量的泼天富贵怎么接？ · <a href="https://www.digitaling.com/articles/1030553.html" target="_blank" rel="noopener">https://www.digitaling.com/articles/1030553.html</a></li>
-<li id="M32" value="32">青瓜传媒 · 拆解麦当劳×肯德基的竞合营销策略 · <a href="https://www.opp2.com/365857.html（原文抓取失败，数字来自搜索摘要" target="_blank" rel="noopener">https://www.opp2.com/365857.html（原文抓取失败，数字来自搜索摘要</a>）</li>
-<li id="M33" value="33">人人都是产品经理 · 4.5万个社群，社群会员率高达92%，麦当劳私域运营拆解（2022-06-27）· <a href="https://www.woshipm.com/operate/5503626.html" target="_blank" rel="noopener">https://www.woshipm.com/operate/5503626.html</a></li>
-<li id="M34" value="34">搜狐 · 麦当劳中国会员超3.8亿（2025-12-28）· <a href="https://m.sohu.com/a/970069492_121010226" target="_blank" rel="noopener">https://m.sohu.com/a/970069492_121010226</a></li>
-<li id="M35" value="35">CBNData · 2025年要新开1000家店，麦当劳中国仍在"万店长跑" · <a href="https://m.cbndata.com/information/293643" target="_blank" rel="noopener">https://m.cbndata.com/information/293643</a></li>
-<li id="M36" value="36">豆瓣 · 最爱♥麦当劳玩具♥收集小组 · <a href="https://www.douban.com/group/mtoy/" target="_blank" rel="noopener">https://www.douban.com/group/mtoy/</a></li>
-<li id="M37" value="37">什么值得买 · 肯德基、麦当劳、必胜客又出新周边啦！联名玩具你更看好哪一家 · <a href="https://post.smzdm.com/p/a5oq7rdx/" target="_blank" rel="noopener">https://post.smzdm.com/p/a5oq7rdx/</a></li>
-<li id="M38" value="38">新浪财经 · "扇巴掌才能退款"的千岛是谁？（2025-10-23）· <a href="https://finance.sina.cn/cj/2025-10-23/detail-infuwwwf6818833.d.html" target="_blank" rel="noopener">https://finance.sina.cn/cj/2025-10-23/detail-infuwwwf6818833.d.html</a></li>
-<li id="M39" value="39">澎湃新闻 · 千岛潮玩族宣布融资近亿美元（2021-12）· <a href="https://www.thepaper.cn/newsDetail_forward_15893673" target="_blank" rel="noopener">https://www.thepaper.cn/newsDetail_forward_15893673</a></li>
-<li id="M40" value="40">数英 · 2025谷子经济行业报告：从二次元走向大众市场（QuestMobile）· <a href="https://www.digitaling.com/articles/1412543.html" target="_blank" rel="noopener">https://www.digitaling.com/articles/1412543.html</a></li>
-<li id="M41" value="41">艾媒咨询 · 2024-2025年中国谷子经济市场分析报告 · <a href="https://www.iimedia.cn/c400/103806.html（抓取超时，数字来自搜索摘要" target="_blank" rel="noopener">https://www.iimedia.cn/c400/103806.html（抓取超时，数字来自搜索摘要</a>）</li>
-<li id="M42" value="42">新浪财经 · 1500亿中国IP授权市场，玩法变了（2025-04-09，引《2025中国授权业白皮书》）· <a href="https://finance.sina.com.cn/roll/2025-04-09/doc-inesqrfm2706236.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/roll/2025-04-09/doc-inesqrfm2706236.shtml</a></li>
-<li id="M43" value="43">新浪财经 · 2025年中国潮玩行业产业链图谱及投资布局分析（2025-06-17）· <a href="https://finance.sina.com.cn/stock/relnews/cn/2025-06-17/doc-infaismq0103935.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/stock/relnews/cn/2025-06-17/doc-infaismq0103935.shtml</a></li>
-<li id="M44" value="44">collabo-cafe.com · コラボカフェ 站点首页 · <a href="https://collabo-cafe.com/" target="_blank" rel="noopener">https://collabo-cafe.com/</a></li>
-<li id="M45" value="45">アプリブ · 『コラボカフェ-アニメ・漫画の期間限定イベント情報』App 页 · <a href="https://app-liv.jp/5344016/" target="_blank" rel="noopener">https://app-liv.jp/5344016/</a></li>
-<li id="M46" value="46">Gamer · コラボカフェ・ポップアップの最新情報 · <a href="https://www.gamer.ne.jp/news/コラボカフェ" target="_blank" rel="noopener">https://www.gamer.ne.jp/news/コラボカフェ</a></li>
-<li id="M47" value="47">eathealthy365 · The Complete 2026 McDonald's Happy Meal Toy Calendar · <a href="https://eathealthy365.com/the-complete-2026-mcdonalds-happy-meal-toy-calendar/" target="_blank" rel="noopener">https://eathealthy365.com/the-complete-2026-mcdonalds-happy-meal-toy-calendar/</a></li>
-<li id="M48" value="48">Mc Menu Talk · McDonald's Happy Meal Toys: Complete Archive · <a href="https://mcmenutalk.com/mcdonalds-happy-meal-toys/" target="_blank" rel="noopener">https://mcmenutalk.com/mcdonalds-happy-meal-toys/</a></li>
-<li id="M49" value="49">toyful.hateblo.jp · 【2026年最新】マクドナルドのハッピーセット情報まとめ · <a href="https://toyful.hateblo.jp/entry/mcd-happyset" target="_blank" rel="noopener">https://toyful.hateblo.jp/entry/mcd-happyset</a></li>
-<li id="M50" value="50">哈啰日本 · 麦当劳xchiikawa联名来袭！速看这份情报整理 · <a href="https://www.lpzine.com/post/1026611812067905536" target="_blank" rel="noopener">https://www.lpzine.com/post/1026611812067905536</a></li>
-<li id="M51" value="51">角研社 via 网易 · 一季度，14个餐饮品牌和27起IP联名合作 · <a href="https://www.163.com/dy/article/JTRN6N8005567CI0.html" target="_blank" rel="noopener">https://www.163.com/dy/article/JTRN6N8005567CI0.html</a></li>
-<li id="M52" value="52">搜狗微信搜索 · "联名情报" / "联名日历" 公众号检索（均返回"暂无相关官方认证订阅号"）· <a href="https://weixin.sogou.com/weixin?type=1&amp;query=联名情报" target="_blank" rel="noopener">https://weixin.sogou.com/weixin?type=1&amp;query=联名情报</a></li>
-<li id="M53" value="53">证券时报 · 肯德基、麦当劳儿童节玩具断货背后："代吃"现象卷土重来？ · <a href="https://www.stcn.com/article/detail/878924.html" target="_blank" rel="noopener">https://www.stcn.com/article/detail/878924.html</a></li>
-<li id="M54" value="54">日本麦当劳官网 · 次回のハッピーセット おもちゃ紹介 · <a href="https://www.mcdonalds.co.jp/family/happyset/new01/" target="_blank" rel="noopener">https://www.mcdonalds.co.jp/family/happyset/new01/</a></li>
-<li id="M55" value="55">PRELOADED · Happy Meal App case study（117 markets / 44 languages）· <a href="https://preloaded.com/work/happy-meal-app/" target="_blank" rel="noopener">https://preloaded.com/work/happy-meal-app/</a></li>
-<li id="M56" value="56">餐饮界 · 麦肯疯卷玩具、新茶饮联名大乱斗……这个六一，餐饮品牌们打起来了（2024-05-31）· <a href="https://m.canyin88.com/zixun/2024/05/31/94888.html" target="_blank" rel="noopener">https://m.canyin88.com/zixun/2024/05/31/94888.html</a></li>
-<li id="M57" value="57">17173 · 吉伊卡哇和麦当劳联动后，中国黄牛被日本粉丝怒骂（2025-05-22）· <a href="https://news.17173.com/content/05222025/150002858.shtml" target="_blank" rel="noopener">https://news.17173.com/content/05222025/150002858.shtml</a></li>
-<li id="M58" value="58">联合新闻网 · 吉伊卡哇之亂！日麥當勞急喊卡 宣布提早停售「第3彈活動」（2025）· <a href="https://travel.udn.com/travel/story/9650/8762006" target="_blank" rel="noopener">https://travel.udn.com/travel/story/9650/8762006</a></li>
-<li id="M59" value="59">同 58（第 3 弹提前停售）</li>
-</ol></details>
-<details><summary>O · 海外做国内产品的运维 / 合规 / 模型 / 扩容（72 条）</summary><ol>
-<li id="O1" value="1">阿里云帮助中心 · 不同场景下 ICP 备案的常见问题 · <a href="https://help.aliyun.com/zh/icp-filing/basic-icp-service/product-overview/faq-about-icp-filing-applications-in-different-scenarios" target="_blank" rel="noopener">https://help.aliyun.com/zh/icp-filing/basic-icp-service/product-overview/faq-about-icp-filing-applications-in-different-scenarios</a></li>
-<li id="O2" value="2">阿里云帮助中心 · 备案前期准备工作 · <a href="https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/overview" target="_blank" rel="noopener">https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/overview</a></li>
-<li id="O3" value="3">阿里云开发者社区问答 · 持有外国手机号码,如何绑定阿里云?还有备案的问题 · <a href="https://developer.aliyun.com/ask/164094" target="_blank" rel="noopener">https://developer.aliyun.com/ask/164094</a></li>
-<li id="O4" value="4">腾讯云开发者社区 · 2025 年使用国内服务器,并且域名不备案的唯一方法 · <a href="https://cloud.tencent.com/developer/article/2498643" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/2498643</a></li>
-<li id="O5" value="5">BytePort · 中国 ICP 备案全解析:外资企业必读指南(2026)· <a href="https://byte-port.com/zhongguo-icp-beian-waizi-qiye-zhinan-2026/" target="_blank" rel="noopener">https://byte-port.com/zhongguo-icp-beian-waizi-qiye-zhinan-2026/</a></li>
-<li id="O6" value="6">CSDN · 阿里云域名 ICP 备案超详细图文流程 · 个人/企业备案完整操作指南(2026 最新)· <a href="https://blog.csdn.net/powubaiyu/article/details/163292657" target="_blank" rel="noopener">https://blog.csdn.net/powubaiyu/article/details/163292657</a></li>
-<li id="O7" value="7">CSDN · Hexo 博客:您备案的网站未指向阿里云国内节点(不含香港)服务器,备案号可能被取消接入 · <a href="https://blog.csdn.net/qq_36759224/article/details/104210934" target="_blank" rel="noopener">https://blog.csdn.net/qq_36759224/article/details/104210934</a></li>
-<li id="O8" value="8">微信开放文档 · 小程序网络 · 服务器域名要求 · <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/ability/network.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/ability/network.html</a></li>
-<li id="O9" value="9">微信开放文档 · 小程序备案指引 · <a href="https://developers.weixin.qq.com/miniprogram/product/record/record_guidelines.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/product/record/record_guidelines.html</a></li>
-<li id="O10" value="10">微信开放文档 · 小程序服务类目 · <a href="https://developers.weixin.qq.com/miniprogram/product/material/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/product/material/</a></li>
-<li id="O11" value="11">CSDN · 微信小程序个人主体的权限限制 · <a href="https://blog.csdn.net/yangguangxiadewo/article/details/158381880" target="_blank" rel="noopener">https://blog.csdn.net/yangguangxiadewo/article/details/158381880</a></li>
-<li id="O12" value="12">微信开放文档 · 微信认证 · <a href="https://developers.weixin.qq.com/miniprogram/product/renzheng.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/product/renzheng.html</a></li>
-<li id="O13" value="13">腾讯客服 · 境外主体小程序注册流程(中文版)· <a href="https://kf.qq.com/faq/200528fUzIry200528beUBBj.html" target="_blank" rel="noopener">https://kf.qq.com/faq/200528fUzIry200528beUBBj.html</a></li>
-<li id="O14" value="14">微信开放社区 · 目前境外主体支持企业、个体工商户、政府、学校、其他组织类型注册 · <a href="https://developers.weixin.qq.com/community/business/doc/0006eaf7f14ae8155172387406b80d" target="_blank" rel="noopener">https://developers.weixin.qq.com/community/business/doc/0006eaf7f14ae8155172387406b80d</a></li>
-<li id="O15" value="15">微信支付 · 小微商户介绍 · <a href="https://pay.weixin.qq.com/core/affiliate/micro_intro" target="_blank" rel="noopener">https://pay.weixin.qq.com/core/affiliate/micro_intro</a></li>
-<li id="O16" value="16">微信支付商户平台 · 小程序接入指引 · <a href="https://pay.weixin.qq.com/static/applyment_guide/applyment_detail_miniapp.shtml" target="_blank" rel="noopener">https://pay.weixin.qq.com/static/applyment_guide/applyment_detail_miniapp.shtml</a></li>
-<li id="O17" value="17">腾讯客服 · 微信支付境外商户常见 Q&amp;A · <a href="https://kf.qq.com/faq/120911VrYVrA160426ry2y2M.html" target="_blank" rel="noopener">https://kf.qq.com/faq/120911VrYVrA160426ry2y2M.html</a></li>
-<li id="O18" value="18">Stripe · Cross-border Payments(China)· <a href="https://stripe.com/lp/china-cross-border" target="_blank" rel="noopener">https://stripe.com/lp/china-cross-border</a></li>
-<li id="O19" value="19">金数据 · 2026 年无营业执照的个人收款方案对比 · <a href="https://jinshuju.net/guides/personal-payment-solutions-2026-comparison-jsj" target="_blank" rel="noopener">https://jinshuju.net/guides/personal-payment-solutions-2026-comparison-jsj</a></li>
-<li id="O20" value="20">移动支付网 · 微信跨境支付已经覆盖 74 个境外国家和地区,境外商户超 600 万(2025-01)· <a href="https://m.mpaypass.com.cn/news/202501/06151500.html" target="_blank" rel="noopener">https://m.mpaypass.com.cn/news/202501/06151500.html</a></li>
-<li id="O21" value="21">Vercel Knowledge Base · Accessing Vercel-hosted sites from mainland China · <a href="https://vercel.com/kb/guide/accessing-vercel-hosted-sites-from-mainland-china" target="_blank" rel="noopener">https://vercel.com/kb/guide/accessing-vercel-hosted-sites-from-mainland-china</a></li>
-<li id="O22" value="22">GreatFire · vercel.app in mainland China · <a href="https://en.greatfire.org/domain/vercel.app" target="_blank" rel="noopener">https://en.greatfire.org/domain/vercel.app</a></li>
-<li id="O23" value="23">GitHub vercel/community #803 · vercel.app Blocked by SNI and DNS Pollution in China · <a href="https://github.com/vercel/community/discussions/803" target="_blank" rel="noopener">https://github.com/vercel/community/discussions/803</a></li>
-<li id="O24" value="24">GreatFire · workers.dev in mainland China · <a href="https://en.greatfire.org/domain/workers.dev" target="_blank" rel="noopener">https://en.greatfire.org/domain/workers.dev</a></li>
-<li id="O25" value="25">GreatFire · pages.dev in mainland China · <a href="https://en.greatfire.org/domain/pages.dev" target="_blank" rel="noopener">https://en.greatfire.org/domain/pages.dev</a></li>
-<li id="O26" value="26">GreatFire · netlify.app in mainland China · <a href="https://en.greatfire.org/domain/netlify.app" target="_blank" rel="noopener">https://en.greatfire.org/domain/netlify.app</a></li>
-<li id="O27" value="27">GreatFire · github.io in mainland China · <a href="https://en.greatfire.org/domain/github.io" target="_blank" rel="noopener">https://en.greatfire.org/domain/github.io</a></li>
-<li id="O28" value="28">GreatFire · supabase.co in mainland China · <a href="https://en.greatfire.org/domain/supabase.co" target="_blank" rel="noopener">https://en.greatfire.org/domain/supabase.co</a></li>
-<li id="O29" value="29">AppInChina · Does Firebase Work in China? · <a href="https://appinchina.co/does-firebase-work-in-china/" target="_blank" rel="noopener">https://appinchina.co/does-firebase-work-in-china/</a></li>
-<li id="O30" value="30">阿里云开发者社区 · 2026 阿里云轻量应用服务器价格表:38 元 1 年抢 2 核 2G,199 元 1 年抢 2 核 4G · <a href="https://developer.aliyun.com/article/1724308" target="_blank" rel="noopener">https://developer.aliyun.com/article/1724308</a></li>
-<li id="O31" value="31">知乎 · 2026 年腾讯云轻量应用服务器优惠价格表 · <a href="https://zhuanlan.zhihu.com/p/1992371274484310820" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/1992371274484310820</a></li>
-<li id="O32" value="32">阿里云帮助中心 · 函数计算 3.0 计费概述 · <a href="https://help.aliyun.com/zh/functioncompute/fc-3-0/product-overview/billing-overview-1" target="_blank" rel="noopener">https://help.aliyun.com/zh/functioncompute/fc-3-0/product-overview/billing-overview-1</a></li>
-<li id="O33" value="33">腾讯云文档 · 云函数 SCF 计费 · <a href="https://cloud.tencent.com/document/product/583/12281" target="_blank" rel="noopener">https://cloud.tencent.com/document/product/583/12281</a></li>
-<li id="O34" value="34">微信开放文档 · 云开发 计费说明 · <a href="https://developers.weixin.qq.com/minigame/dev/wxcloud/billing/price.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/minigame/dev/wxcloud/billing/price.html</a></li>
-<li id="O35" value="35">OpenAI · Supported countries and territories(API)· <a href="https://developers.openai.com/api/docs/supported-countries" target="_blank" rel="noopener">https://developers.openai.com/api/docs/supported-countries</a></li>
-<li id="O36" value="36">Anthropic · Supported countries &amp; regions · <a href="https://anthropic.com/supported-countries" target="_blank" rel="noopener">https://anthropic.com/supported-countries</a></li>
-<li id="O37" value="37">Anthropic · Updating restrictions of sales to unsupported regions(2025-09-04)· <a href="https://www.anthropic.com/news/updating-restrictions-of-sales-to-unsupported-regions" target="_blank" rel="noopener">https://www.anthropic.com/news/updating-restrictions-of-sales-to-unsupported-regions</a></li>
-<li id="O38" value="38">Google AI for Developers · Gemini API available regions · <a href="https://ai.google.dev/gemini-api/docs/available-regions" target="_blank" rel="noopener">https://ai.google.dev/gemini-api/docs/available-regions</a></li>
-<li id="O39" value="39">DeepSeek API 文档 · 模型 &amp; 价格 · <a href="https://api-docs.deepseek.com/zh-cn/quick_start/pricing" target="_blank" rel="noopener">https://api-docs.deepseek.com/zh-cn/quick_start/pricing</a></li>
-<li id="O40" value="40">CSDN · DeepSeek API 涨价:8 月 17 日起正式调整价格,最高涨至 27 元/百万 Tokens · <a href="https://blog.csdn.net/weixin_41961749/article/details/163732919" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41961749/article/details/163732919</a></li>
-<li id="O41" value="41">阿里云帮助中心 · 阿里云百炼模型价格 · <a href="https://help.aliyun.com/zh/model-studio/model-pricing" target="_blank" rel="noopener">https://help.aliyun.com/zh/model-studio/model-pricing</a></li>
-<li id="O42" value="42">技术栈 · 2026 大模型 API 定价全景图:DeepSeek、豆包、Qwen、GLM、MiniMax、Kimi、Claude、Gemini、GPT 谁最便宜?(2026-06-07)· <a href="https://jishuzhan.net/article/2063616944229658626" target="_blank" rel="noopener">https://jishuzhan.net/article/2063616944229658626</a></li>
-<li id="O43" value="43">AIEII · Kimi、豆包、DeepSeek 免费额度和 API 价格 2026 对比(2026-08-19)· <a href="https://aieii.com/posts/2026-08-19-kimi-doubao-deepseek-free-quota-pricing/" target="_blank" rel="noopener">https://aieii.com/posts/2026-08-19-kimi-doubao-deepseek-free-quota-pricing/</a></li>
-<li id="O44" value="44">奇连 AI · GLM API 价格怎么算?智谱各模型 token 单价、分段定价与省钱用法(2026-08-09 更新)· <a href="https://iqilian.com/learn/glm-api-jifei/" target="_blank" rel="noopener">https://iqilian.com/learn/glm-api-jifei/</a></li>
-<li id="O45" value="45">Kimi · Kimi K2.6 定价 · <a href="https://www.kimi.com/zh-cn/resources/kimi-k2-6-pricing" target="_blank" rel="noopener">https://www.kimi.com/zh-cn/resources/kimi-k2-6-pricing</a></li>
-<li id="O46" value="46">新浪科技 · 蚁坊软件非法抓取并使用微博数据 二审被判不正当竞争(2021-03-31)· <a href="https://finance.sina.com.cn/tech/2021-03-31/doc-ikmyaawa2788098.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/tech/2021-03-31/doc-ikmyaawa2788098.shtml</a></li>
-<li id="O47" value="47">知产力 · 刍议北京法院两份数据抓取判决书的典型意义 · <a href="https://www.zhichanli.com/p/406320400" target="_blank" rel="noopener">https://www.zhichanli.com/p/406320400</a></li>
-<li id="O48" value="48">无讼 · 大众点评诉百度不正当竞争一审宣判,百度赔偿 300 万 · <a href="http://victory.itslaw.cn/victory/api/v1/articles/article/f3371c99-b629-49ea-ba2f-2ba094b109bd" target="_blank" rel="noopener">http://victory.itslaw.cn/victory/api/v1/articles/article/f3371c99-b629-49ea-ba2f-2ba094b109bd</a></li>
-<li id="O49" value="49">21 财经 · 大众点评网诉百度不正当竞争 索赔 9000 万(2016-04-13)· <a href="http://m.21jingji.com/article/20160413/d060bc5aafe30471d7916344683daa62.html" target="_blank" rel="noopener">http://m.21jingji.com/article/20160413/d060bc5aafe30471d7916344683daa62.html</a></li>
-<li id="O50" value="50">腾讯新闻 · 非法爬取小红书数据牟利,侵权公司终审败诉被判赔 490 万(2025-04-27)· <a href="https://news.qq.com/rain/a/20250427A05HPL00" target="_blank" rel="noopener">https://news.qq.com/rain/a/20250427A05HPL00</a></li>
-<li id="O51" value="51">天同律师事务所 · 天同代理「小红书」数据抓取不正当竞争纠纷案(2024-06-27)· <a href="https://www.tiantonglaw.com/Content/2024/06-27/1022448210.html" target="_blank" rel="noopener">https://www.tiantonglaw.com/Content/2024/06-27/1022448210.html</a></li>
-<li id="O52" value="52">德恒律师事务所 · 反不正当竞争法(2025 修订)解读系列(二):厘清算法、数据、平台规则的边界 · <a href="https://www.dehenglaw.com/cn/newscontent/0008/034390/2.aspx?MID=0902" target="_blank" rel="noopener">https://www.dehenglaw.com/cn/newscontent/0008/034390/2.aspx?MID=0902</a></li>
-<li id="O53" value="53">环球律师事务所 · 《反不正当竞争法》2025 年修订评析:数据抓取规制与……(2025-10-24)· <a href="https://www.glo.com.cn/Content/2025/10-24/1107527632.html(抓取" target="_blank" rel="noopener">https://www.glo.com.cn/Content/2025/10-24/1107527632.html(抓取</a> 403,按搜索摘要引用)</li>
-<li id="O54" value="54">金杜律师事务所 · 《反不正当竞争法》2025 修订要点解读 · <a href="https://www.kingandwood.com/cn/zh/insights/latest-thinking/key-takeaways-of-the-2025-revision-of-china-s-anti-unfair-competition-law.html(抓取" target="_blank" rel="noopener">https://www.kingandwood.com/cn/zh/insights/latest-thinking/key-takeaways-of-the-2025-revision-of-china-s-anti-unfair-competition-law.html(抓取</a> 403,按搜索摘要引用)</li>
-<li id="O55" value="55">Vercel Docs · Pro Plan(last updated 2026-09-02)· <a href="https://vercel.com/docs/plans/pro-plan" target="_blank" rel="noopener">https://vercel.com/docs/plans/pro-plan</a></li>
-<li id="O56" value="56">Cloudflare Docs · Workers Pricing · <a href="https://developers.cloudflare.com/workers/platform/pricing/" target="_blank" rel="noopener">https://developers.cloudflare.com/workers/platform/pricing/</a></li>
-<li id="O57" value="57">Supabase · Pricing · <a href="https://supabase.com/pricing" target="_blank" rel="noopener">https://supabase.com/pricing</a></li>
-<li id="O58" value="58">Upstash · Redis Pricing · <a href="https://upstash.com/pricing/redis" target="_blank" rel="noopener">https://upstash.com/pricing/redis</a></li>
-<li id="O59" value="59">Cybernews · User got a $104K bill from hosting provider: "I thought it was a joke" · <a href="https://cybernews.com/news/ddos-attack-104k-bill-from-hosting-provider/" target="_blank" rel="noopener">https://cybernews.com/news/ddos-attack-104k-bill-from-hosting-provider/</a></li>
-<li id="O60" value="60">Netlify Support Forums · Netlify billing horror story · <a href="https://answers.netlify.com/t/netlify-billing-horror-story/113392" target="_blank" rel="noopener">https://answers.netlify.com/t/netlify-billing-horror-story/113392</a></li>
-<li id="O61" value="61">微信开放文档 · 小程序订阅消息 · <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/subscribe-message-overview.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/subscribe-message-overview.html</a></li>
-<li id="O62" value="62">微信开放社区 · 一次性订阅消息,用户授权次数可以累加么? · <a href="https://developers.weixin.qq.com/community/develop/doc/0002a017a14828ae309909d1151800" target="_blank" rel="noopener">https://developers.weixin.qq.com/community/develop/doc/0002a017a14828ae309909d1151800</a></li>
-<li id="O63" value="63">微信开放社区 · 小程序模板消息能力调整通知 · <a href="https://developers.weixin.qq.com/community/develop/doc/00008a8a7d8310b6bf4975b635a401" target="_blank" rel="noopener">https://developers.weixin.qq.com/community/develop/doc/00008a8a7d8310b6bf4975b635a401</a></li>
-<li id="O64" value="64">GreatFire · discord.com in mainland China · <a href="https://en.greatfire.org/domain/discord.com" target="_blank" rel="noopener">https://en.greatfire.org/domain/discord.com</a></li>
-<li id="O65" value="65">GreatFire · telegram.org in mainland China · <a href="https://en.greatfire.org/domain/telegram.org" target="_blank" rel="noopener">https://en.greatfire.org/domain/telegram.org</a></li>
-<li id="O66" value="66">QQ 开放平台 · 机器人常见问题整理 · <a href="https://q.qq.com/wiki/FAQ/robot/" target="_blank" rel="noopener">https://q.qq.com/wiki/FAQ/robot/</a></li>
-<li id="O67" value="67">QQ 机器人官方文档 · 发送消息 · <a href="https://bot.q.qq.com/wiki/develop/api-v2/server-inter/message/send-receive/send.html" target="_blank" rel="noopener">https://bot.q.qq.com/wiki/develop/api-v2/server-inter/message/send-receive/send.html</a></li>
-<li id="O68" value="68">企业微信开发者社区 · 企微机器人 webhook 的调用限制? · <a href="https://developer.work.weixin.qq.com/community/question/detail?content_id=16547899322417682326" target="_blank" rel="noopener">https://developer.work.weixin.qq.com/community/question/detail?content_id=16547899322417682326</a></li>
-<li id="O69" value="69">腾讯云文档 · 使用企业微信群接收告警通知(外部群不支持配置群机器人)· <a href="https://cloud.tencent.com/document/product/248/50413" target="_blank" rel="noopener">https://cloud.tencent.com/document/product/248/50413</a></li>
-<li id="O70" value="70">阿里云开发者社区问答 · 国内域名解析到国外服务器(没有备案),有问题吗? · <a href="https://developer.aliyun.com/ask/189174" target="_blank" rel="noopener">https://developer.aliyun.com/ask/189174</a></li>
-<li id="O71" value="71">知乎 · 个人主体小程序和企业主体小程序有什么区别 · <a href="https://zhuanlan.zhihu.com/p/36621408" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/36621408</a></li>
-<li id="O72" value="72">eimoon · Anthropic 支持哪些国家和地区?Claude 与 API 可用范围整理(2026 年 4 月)· <a href="https://blog.eimoon.com/p/anthropic-supported-countries-regions-2026-04/" target="_blank" rel="noopener">https://blog.eimoon.com/p/anthropic-supported-countries-regions-2026-04/</a></li>
-</ol></details>
-<details><summary>R · 变现路径与数字基准（73 条）</summary><ol>
-<li id="R1" value="1">AMZ123 · 美客多平台佣金怎么算？淘宝客佣金如何收取 · <a href="https://www.amz123.com/ask/0jrK6j5f" target="_blank" rel="noopener">https://www.amz123.com/ask/0jrK6j5f</a></li>
-<li id="R2" value="2">淘客导航 · 淘宝联盟部分类目的类目最低佣金率调整通知 · <a href="https://www.taokenav.com/bulletin/2377.html" target="_blank" rel="noopener">https://www.taokenav.com/bulletin/2377.html</a></li>
-<li id="R3" value="3">搜狐 · 2026 主流淘宝京东查券返利 APP 对比 · <a href="https://www.sohu.com/a/991190044_121476648" target="_blank" rel="noopener">https://www.sohu.com/a/991190044_121476648</a></li>
-<li id="R4" value="4">武汉火蝠电商 · 多多进宝推广怎么收费？佣金设置多少最合适 · <a href="https://www.huofuad.com/pddnews/5360.html" target="_blank" rel="noopener">https://www.huofuad.com/pddnews/5360.html</a></li>
-<li id="R5" value="5">看云 · 京东联盟佣金规则是哪些 · <a href="https://www.kancloud.cn/a6572012/yphapp/1824688" target="_blank" rel="noopener">https://www.kancloud.cn/a6572012/yphapp/1824688</a></li>
-<li id="R6" value="6">新榜有赚 · 抖音精选联盟佣金比例及计算方式详解 · <a href="https://a.newrank.cn/trade/news/4187" target="_blank" rel="noopener">https://a.newrank.cn/trade/news/4187</a></li>
-<li id="R7" value="7">新榜有赚 · 抖音精选联盟佣金查看方法及平台抽成比例解析 · <a href="https://a.newrank.cn/trade/news/4349" target="_blank" rel="noopener">https://a.newrank.cn/trade/news/4349</a></li>
-<li id="R8" value="8">淘口令网 · 饿了么聚合页 CPS 推广活动政策，佣金 6% 起 · <a href="https://www.taokouling.com/html/25.html" target="_blank" rel="noopener">https://www.taokouling.com/html/25.html</a></li>
-<li id="R9" value="9">TaoKeShow · 外卖 CPS 从入门到精通 · <a href="https://www.taokeshow.com/52856.html" target="_blank" rel="noopener">https://www.taokeshow.com/52856.html</a></li>
-<li id="R10" value="10">造梦开发 · 造梦聚合外卖 CPS 系统 · <a href="https://www.zaomengkaifang.com/waimai.html" target="_blank" rel="noopener">https://www.zaomengkaifang.com/waimai.html</a></li>
-<li id="R11" value="11">搜狐（微客云）· 肯德基 + 麦当劳 + 星巴克 + 瑞幸等 11 个大牌点餐 API 接口对接（2026-05-28）· <a href="https://www.sohu.com/a/1028765432_121896265" target="_blank" rel="noopener">https://www.sohu.com/a/1028765432_121896265</a></li>
-<li id="R12" value="12">迷你毕业 · 美团饿了么外卖 CPS 项目怎么做 · <a href="https://www.minibiye.com/news/9.html" target="_blank" rel="noopener">https://www.minibiye.com/news/9.html</a></li>
-<li id="R13" value="13">美团联盟 官网（需 Chrome 渲染，细则未核实）· <a href="https://union.meituan.com/" target="_blank" rel="noopener">https://union.meituan.com/</a></li>
-<li id="R14" value="14">DCloud 插件市场 · 爱享外卖优惠券 CPS 源码（列出官方联盟入口）· <a href="https://ext.dcloud.net.cn/plugin?id=6327" target="_blank" rel="noopener">https://ext.dcloud.net.cn/plugin?id=6327</a></li>
-<li id="R15" value="15">Amazon Associates · Commission Income Statement（官方费率表）· <a href="https://affiliate-program.amazon.com/help/node/topic/GRXPHT8U84RAYDXZ" target="_blank" rel="noopener">https://affiliate-program.amazon.com/help/node/topic/GRXPHT8U84RAYDXZ</a></li>
-<li id="R16" value="16">AzonPress · Amazon Affiliate Commission Rates By Category 2026（2026-04-08 更新）· <a href="https://azonpress.com/amazon-affiliate-commission-rates/" target="_blank" rel="noopener">https://azonpress.com/amazon-affiliate-commission-rates/</a></li>
-<li id="R17" value="17">Nichehacks · Rakuten Advertising 2026 Review · <a href="https://nichehacks.com/rakuten-advertising-review/" target="_blank" rel="noopener">https://nichehacks.com/rakuten-advertising-review/</a> ；UpPromote · Rakuten Affiliate Program Commissions · <a href="https://uppromote.com/affiliate-program-directory/rakuten/" target="_blank" rel="noopener">https://uppromote.com/affiliate-program-directory/rakuten/</a></li>
-<li id="R18" value="18">First Page Sage · SaaS Freemium Conversion Rates: 2026 Report（2026-06-12）· <a href="https://firstpagesage.com/seo-blog/saas-freemium-conversion-rates/" target="_blank" rel="noopener">https://firstpagesage.com/seo-blog/saas-freemium-conversion-rates/</a></li>
-<li id="R19" value="19">daydream · Freemium Conversion Rate Benchmarks · <a href="https://www.withdaydream.com/library/insights/freemium-conversion-rate" target="_blank" rel="noopener">https://www.withdaydream.com/library/insights/freemium-conversion-rate</a></li>
-<li id="R20" value="20">蓝鲸财经 · AI 时代，中国人终于愿意为软件付费了（2025-11-07）· <a href="https://www.lanjinger.com/d/1762166868881534870" target="_blank" rel="noopener">https://www.lanjinger.com/d/1762166868881534870</a></li>
-<li id="R21" value="21">V2EX · 独立开发一年半，一个丑工具月流水 4700 · <a href="https://www.v2ex.com/t/1231498" target="_blank" rel="noopener">https://www.v2ex.com/t/1231498</a></li>
-<li id="R22" value="22">V2EX · 失业后独立站上线 7 个月 收获月度订阅收入 5000$+ · <a href="https://www.v2ex.com/t/1233180" target="_blank" rel="noopener">https://www.v2ex.com/t/1233180</a></li>
-<li id="R23" value="23">少数派 · 如何开发小程序 3 个月赚 6.18 元 · <a href="https://sspai.com/post/82448" target="_blank" rel="noopener">https://sspai.com/post/82448</a></li>
-<li id="R24" value="24">蓝鲸财经 · 知识星球吴鲁加和他的 2000 万名星球成员（2020-03-11）· <a href="https://www.lanjinger.com/d/132206" target="_blank" rel="noopener">https://www.lanjinger.com/d/132206</a></li>
-<li id="R25" value="25">知识星球知识库 · 关于企业星球手续费调整的通知（2023-09-10 生效）· <a href="http://doc.zsxq.com/enterprise-planet-fee-adjustment-notice.html" target="_blank" rel="noopener">http://doc.zsxq.com/enterprise-planet-fee-adjustment-notice.html</a></li>
-<li id="R26" value="26">知识星球知识库 · 常见问题（Apple 27% 手续费）· <a href="http://doc.zsxq.com/zsxq-faq.html" target="_blank" rel="noopener">http://doc.zsxq.com/zsxq-faq.html</a> ；知乎 · 关于知识星球收费的问题 · <a href="https://zhuanlan.zhihu.com/p/454763026" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/454763026</a></li>
-<li id="R27" value="27">一伴 · 2025 年公众号流量主收益如何计算 · <a href="https://yiban.io/geo/32079" target="_blank" rel="noopener">https://yiban.io/geo/32079</a></li>
-<li id="R28" value="28">人人都是产品经理 · 掌握这个核心技巧，公众号流量主 eCPM 收益轻松翻 4 倍 · <a href="https://www.woshipm.com/operate/5948062.html" target="_blank" rel="noopener">https://www.woshipm.com/operate/5948062.html</a></li>
-<li id="R29" value="29">微信开放社区 · 小程序流量主、广告位类型和广告收益分析 · <a href="https://developers.weixin.qq.com/community/develop/article/doc/0004c22a9742d02205991e4ae56413" target="_blank" rel="noopener">https://developers.weixin.qq.com/community/develop/article/doc/0004c22a9742d02205991e4ae56413</a></li>
-<li id="R30" value="30">微信开放社区 · 小程序流量主运营之 ECPM 怎么提高 · <a href="https://developers.weixin.qq.com/community/develop/article/doc/00088c04b302e8e3b66b0430051813" target="_blank" rel="noopener">https://developers.weixin.qq.com/community/develop/article/doc/00088c04b302e8e3b66b0430051813</a></li>
-<li id="R31" value="31">鸟哥笔记 · 品牌推广报价表（小红书达人 KOL / KOC 种草什么价格）（2023-04-17）· <a href="https://www.niaogebiji.com/article-556509-1.html" target="_blank" rel="noopener">https://www.niaogebiji.com/article-556509-1.html</a></li>
-<li id="R32" value="32">AMZ123 · KOL 推广一般多少钱？小红书 KOL 推广费用明细 · <a href="https://www.amz123.com/ask/9pUFfpfh" target="_blank" rel="noopener">https://www.amz123.com/ask/9pUFfpfh</a></li>
-<li id="R33" value="33">This Week in Blogging · Mediavine vs Raptive（数据至 2026-08）· <a href="https://thisweekinblogging.com/mediavine-vs-raptive/" target="_blank" rel="noopener">https://thisweekinblogging.com/mediavine-vs-raptive/</a></li>
-<li id="R34" value="34">Publift · Mediavine vs AdSense vs Publift: Who Pays Better in 2026 · <a href="https://www.publift.com/blog/mediavine-vs-adsense-vs-publift" target="_blank" rel="noopener">https://www.publift.com/blog/mediavine-vs-adsense-vs-publift</a></li>
-<li id="R35" value="35">Newor Media · Best AdSense Alternatives in 2026 · <a href="https://newormedia.com/blog/best-adsense-alternatives/" target="_blank" rel="noopener">https://newormedia.com/blog/best-adsense-alternatives/</a></li>
-<li id="R36" value="36">华龙网 · 酱香拿铁带"火"免费周边 二手交易平台售价 5-60 元不等 · <a href="https://news.cqnews.net/1/detail/1149096493190041600/app/content_1149096493190041600.html" target="_blank" rel="noopener">https://news.cqnews.net/1/detail/1149096493190041600/app/content_1149096493190041600.html</a></li>
-<li id="R37" value="37">新京报 · Labubu 新品遭黄牛哄抢高价转卖，律师：涉嫌多重违法 · <a href="https://m.bjnews.com.cn/detail/1749955429168027.html" target="_blank" rel="noopener">https://m.bjnews.com.cn/detail/1749955429168027.html</a></li>
-<li id="R38" value="38">法治日报 · "黄牛"加价倒卖网红点心"刑"吗 · <a href="http://www.legaldaily.com.cn/sylm/content/2023-02/28/content_8826914.html" target="_blank" rel="noopener">http://www.legaldaily.com.cn/sylm/content/2023-02/28/content_8826914.html</a></li>
-<li id="R39" value="39">新华网 · 打击"黄牛"倒票，如何快准狠（2025-02-12）· <a href="https://www.news.cn/government/20250212/3c1339e3bbd9458299edf9372811db43/c.html" target="_blank" rel="noopener">https://www.news.cn/government/20250212/3c1339e3bbd9458299edf9372811db43/c.html</a></li>
-<li id="R40" value="40">Nikkei Asia · $70 for a Happy Meal toy? Resellers snap up popular characters（2025-06-14）· <a href="https://asia.nikkei.com/business/consumer/70-for-a-happy-meal-toy-resellers-snap-up-popular-characters" target="_blank" rel="noopener">https://asia.nikkei.com/business/consumer/70-for-a-happy-meal-toy-resellers-snap-up-popular-characters</a></li>
-<li id="R41" value="41">SoraNews24 · McDonald's Japan's new Chiikawa Happy Meal figures are here（2026-05-19）· <a href="https://soranews24.com/2026/05/19/mcdonalds-japans-new-chiikawa-happy-meal-figures-are-herephotos/" target="_blank" rel="noopener">https://soranews24.com/2026/05/19/mcdonalds-japans-new-chiikawa-happy-meal-figures-are-herephotos/</a></li>
-<li id="R42" value="42">Japan Today · Japan's largest online resale site banning scalper sales of McDonald's new anime Happy Meal toys（2026-05-13）· <a href="https://japantoday.com/category/business/japan%E2%80%99s-largest-online-resale-site-banning-scalper-sales-of-mcdonald%E2%80%99s-new-anime-happy-meal-toys" target="_blank" rel="noopener">https://japantoday.com/category/business/japan%E2%80%99s-largest-online-resale-site-banning-scalper-sales-of-mcdonald%E2%80%99s-new-anime-happy-meal-toys</a></li>
-<li id="R43" value="43">搜狐 · 去年门店被黄牛疯抢今年"禁止转售"，日本麦当劳 x Chiikawa（2026-05-14）· <a href="https://m.sohu.com/a/1022405283_121119309" target="_blank" rel="noopener">https://m.sohu.com/a/1022405283_121119309</a></li>
-<li id="R44" value="44">Funliday · 2026 年日本麦当劳「吉伊卡哇」第二波 5/29 开跑 · <a href="https://www.funliday.com/posts/mcdonalds2026-japan-chiikawa/" target="_blank" rel="noopener">https://www.funliday.com/posts/mcdonalds2026-japan-chiikawa/</a></li>
-<li id="R45" value="45">Tokyo Weekender · Chiikawa Happy Set Returns to McDonald's Japan（403，仅搜索摘要）· <a href="https://www.tokyoweekender.com/food-and-drink/chiikawa-mcdonalds-happy-set-2026/" target="_blank" rel="noopener">https://www.tokyoweekender.com/food-and-drink/chiikawa-mcdonalds-happy-set-2026/</a></li>
-<li id="R46" value="46">腾讯新闻 · 最高收取 1.6%！闲鱼服务费新政引争议（2024-09-05）· <a href="https://news.qq.com/rain/a/20240905A05HIL00" target="_blank" rel="noopener">https://news.qq.com/rain/a/20240905A05HIL00</a></li>
-<li id="R47" value="47">澎湃新闻 · 闲鱼涨佣超 100%：卖家慌张，美团小红书抢蛋糕（2026-04）· <a href="https://m.thepaper.cn/newsDetail_forward_33090197" target="_blank" rel="noopener">https://m.thepaper.cn/newsDetail_forward_33090197</a></li>
-<li id="R48" value="48">网经社 · 服务费暴涨 167%！闲鱼被指"吃相难看" · <a href="https://www.100ec.cn/detail--6658454.html" target="_blank" rel="noopener">https://www.100ec.cn/detail--6658454.html</a></li>
-<li id="R49" value="49">新浪科技 · 得物发布最新费率下调政策，最高直降 16%（2025-03-15）· <a href="https://finance.sina.com.cn/tech/roll/2025-03-15/doc-inepthkt5908115.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/tech/roll/2025-03-15/doc-inepthkt5908115.shtml</a></li>
-<li id="R50" value="50">百度 AI 法律 · 得物扣点手续费一览表 · <a href="https://ailegal.baidu.com/legalarticle/qadetail?id=0b5a26a48e9ea1250709" target="_blank" rel="noopener">https://ailegal.baidu.com/legalarticle/qadetail?id=0b5a26a48e9ea1250709</a></li>
-<li id="R51" value="51">Mercari Help · Fees on Mercari（2025-01-06 生效）· <a href="https://www.mercari.com/us/help_center/article/169/" target="_blank" rel="noopener">https://www.mercari.com/us/help_center/article/169/</a></li>
-<li id="R52" value="52">网经社 · 值得买科技 2025 年营收 12.88 亿元 净利润 8651.65 万元 · <a href="https://www.100ec.cn/detail--6658816.html" target="_blank" rel="noopener">https://www.100ec.cn/detail--6658816.html</a></li>
-<li id="R53" value="53">搜狐 · 值得买的前世今生：2025 年营收 12.88 亿行业第三 · <a href="https://m.sohu.com/a/1015791538_122014422" target="_blank" rel="noopener">https://m.sohu.com/a/1015791538_122014422</a></li>
-<li id="R54" value="54">什么值得买商家平台 · 新巢平台合作总则 · <a href="https://shangjia.smzdm.com/help/service/4_289/" target="_blank" rel="noopener">https://shangjia.smzdm.com/help/service/4_289/</a></li>
-<li id="R55" value="55">hobbyDB Blog · A New Phase for hobbyDB Begins Monday（2024-09-05）· <a href="https://blog.hobbydb.com/2024/09/05/new-phase-for-hobbydb-begins-monday/" target="_blank" rel="noopener">https://blog.hobbydb.com/2024/09/05/new-phase-for-hobbydb-begins-monday/</a></li>
-<li id="R56" value="56">hobbyDB · Pop Price Guide Subscriptions · <a href="https://www.hobbydb.com/marketplaces/poppriceguide/subscriptions" target="_blank" rel="noopener">https://www.hobbydb.com/marketplaces/poppriceguide/subscriptions</a></li>
-<li id="R57" value="57">Latka · How Deku Deals hit $330K revenue with a 3 person team in 2025 · <a href="https://getlatka.com/companies/dekudeals.com" target="_blank" rel="noopener">https://getlatka.com/companies/dekudeals.com</a></li>
-<li id="R58" value="58">Deku Deals · About · <a href="https://www.dekudeals.com/about" target="_blank" rel="noopener">https://www.dekudeals.com/about</a></li>
-<li id="R59" value="59">frota's data glitch · How DekuDeals creator helped his community save millions（2021-03）· <a href="https://dataglitch.frotograf.com/how-dekudeals-creator-helped-his-community-do-save-millions-of-dollars-interview-with-michael-fairley/" target="_blank" rel="noopener">https://dataglitch.frotograf.com/how-dekudeals-creator-helped-his-community-do-save-millions-of-dollars-interview-with-michael-fairley/</a></li>
-<li id="R60" value="60">Similarweb · isthereanydeal.com Traffic Analytics（2026-08）· <a href="https://www.similarweb.com/website/isthereanydeal.com/" target="_blank" rel="noopener">https://www.similarweb.com/website/isthereanydeal.com/</a></li>
-<li id="R61" value="61">Patreon · IsThereAnyDeal · <a href="https://www.patreon.com/cw/IsThereAnyDeal" target="_blank" rel="noopener">https://www.patreon.com/cw/IsThereAnyDeal</a></li>
-<li id="R62" value="62">IsThereAnyDeal · Privacy Policy（联盟机制说明）· <a href="https://isthereanydeal.com/legal/privacy/" target="_blank" rel="noopener">https://isthereanydeal.com/legal/privacy/</a></li>
-<li id="R63" value="63">SteamDB · Donate to SteamDB · <a href="https://steamdb.info/donate/" target="_blank" rel="noopener">https://steamdb.info/donate/</a></li>
-<li id="R64" value="64">GamingOnLinux · Nexus Mods acquires the popular community site SteamDB（2026-09-02）· <a href="https://www.gamingonlinux.com/2026/09/nexus-mods-acquires-the-popular-community-site-steamdb/" target="_blank" rel="noopener">https://www.gamingonlinux.com/2026/09/nexus-mods-acquires-the-popular-community-site-steamdb/</a></li>
-<li id="R65" value="65">Brickset · About Brickset · <a href="https://brickset.com/article/52659/about-brickset" target="_blank" rel="noopener">https://brickset.com/article/52659/about-brickset</a></li>
-<li id="R66" value="66">Playwire · Ad Monetization Case Study: Brickset.com · <a href="https://www.playwire.com/case-studies/brickset" target="_blank" rel="noopener">https://www.playwire.com/case-studies/brickset</a></li>
-<li id="R67" value="67">Owler · Brickset Company Profile（营收为估算，不可靠）· <a href="https://www.owler.com/company/brickset1" target="_blank" rel="noopener">https://www.owler.com/company/brickset1</a></li>
-<li id="R68" value="68">App Store · Sole Retriever - Sneakers · <a href="https://apps.apple.com/us/app/sole-retriever-sneakers/id1553374770" target="_blank" rel="noopener">https://apps.apple.com/us/app/sole-retriever-sneakers/id1553374770</a></li>
-<li id="R69" value="69">Yahoo Finance · Sole Retriever App Users Secure over 110,000 Sneakers（2025-08-15）· <a href="https://finance.yahoo.com/news/sole-retriever-app-users-secure-092300826.html" target="_blank" rel="noopener">https://finance.yahoo.com/news/sole-retriever-app-users-secure-092300826.html</a></li>
-<li id="R70" value="70">知乎 · 从淘客发展看四大电商平台 CPS 发展逻辑 · <a href="https://zhuanlan.zhihu.com/p/409374779" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/409374779</a></li>
-<li id="R71" value="71">人人都是产品经理 · 订阅制消费在中国为什么这么难 · <a href="https://www.woshipm.com/operate/6207278.html" target="_blank" rel="noopener">https://www.woshipm.com/operate/6207278.html</a></li>
-<li id="R72" value="72">hobbyDB Blog · Pop Price Guide Now Fully Integrated（2025-03-24）· <a href="https://blog.hobbydb.com/2025/03/24/pop-price-guide-now-fully-integrated/" target="_blank" rel="noopener">https://blog.hobbydb.com/2025/03/24/pop-price-guide-now-fully-integrated/</a></li>
-<li id="R73" value="73">PC Gamer · SteamDB changes hands to Nexus Mods（付费墙，仅搜索摘要）· <a href="https://www.pcgamer.com/gaming-industry/steamdb-changes-hands-to-nexus-mods-which-means-it-needs-to-make-money-now-but-there-wont-be-ads-or-paywalls/" target="_blank" rel="noopener">https://www.pcgamer.com/gaming-industry/steamdb-changes-hands-to-nexus-mods-which-means-it-needs-to-make-money-now-but-there-wont-be-ads-or-paywalls/</a></li>
-</ol></details>
-<details><summary>N · 北美联名市场（74 条）</summary><ol>
-<li id="N1" value="1">Wikipedia — Happy Meal · <a href="https://en.wikipedia.org/wiki/Happy_Meal" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Happy_Meal</a> ✅</li>
-<li id="N2" value="2">Wikipedia — Cactus Plant Flea Market · <a href="https://en.wikipedia.org/wiki/Cactus_Plant_Flea_Market" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Cactus_Plant_Flea_Market</a> ✅</li>
-<li id="N3" value="3">Salon 2022-10-22 — "My price will only go up": Collectors bet on nostalgia as they resell McDonald's Adult Happy Meals · <a href="https://www.salon.com/2022/10/22/my-price-will-only-go-up-collectors-bet-on-nostalgia-as-they-resell-mcdonalds-adult-happy-meals/" target="_blank" rel="noopener">https://www.salon.com/2022/10/22/my-price-will-only-go-up-collectors-bet-on-nostalgia-as-they-resell-mcdonalds-adult-happy-meals/</a> ✅</li>
-<li id="N4" value="4">Google News RSS — 查询 "adult Happy Meal" sold out resale(US)· <a href="https://news.google.com/rss/search?q=%22adult+Happy+Meal%22+sold+out+resale&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22adult+Happy+Meal%22+sold+out+resale&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 CNBC 2022-10-19 / Axios 2022-10-07 / Pioneer Press 2022-10-07 / KMPH 2022-10-11 / Business Insider 2022-10-20 / Daily Hive 2022-10-25 / Narcity 2022-10-19 / Fortune 2024-08-19 / Men's Journal 2024-08-21 / Quartz 2024-08-16 / Courier-Journal 2024-08-14 / Reel Chicago 2023-11-28 / Forbes 2025-04-03 / TODAY 2025-09-03 / Resell Calendar 2025-12-06 / nxsmediawire 2026-03-25 / Clarion-Ledger 2026-04-06 / LADbible 2022-10-01 等标题 🟡</li>
-<li id="N5" value="5">Wikipedia — Kerwin Frost · <a href="https://en.wikipedia.org/wiki/Kerwin_Frost" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Kerwin_Frost</a> ✅(引 CNBC 2023-11-29)</li>
-<li id="N6" value="6">Google News RSS — "Kerwin Frost" McDonald's sold out / eBay / golden · <a href="https://news.google.com/rss/search?q=%22Kerwin+Frost%22+McDonald%27s+%22sold+out%22+OR+eBay+OR+resale+OR+%22McNugget+Buddies%22+golden&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22Kerwin+Frost%22+McDonald%27s+%22sold+out%22+OR+eBay+OR+resale+OR+%22McNugget+Buddies%22+golden&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 KTLA 2023-11-29 / Daily Hive 2023-12-12 / Yahoo Finance AU 2024-02-18 🟡</li>
-<li id="N7" value="7">Google News RSS(CA)— "McDonald's Canada" Minecraft / Pokémon / Kerwin Frost · <a href="https://news.google.com/rss/search?q=%22McDonald%27s+Canada%22+Minecraft+OR+Pok%C3%A9mon+OR+%22Kerwin+Frost%22+OR+%22McNugget+Buddies%22+Happy+Meal&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22McDonald%27s+Canada%22+Minecraft+OR+Pok%C3%A9mon+OR+%22Kerwin+Frost%22+OR+%22McNugget+Buddies%22+Happy+Meal&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 PR Newswire Canada 2025-03-20 / To Do Canada 2023-11-29 / 604 Now 2021-05-03 🟡</li>
-<li id="N8" value="8">Wikipedia — Grimace Shake · <a href="https://en.wikipedia.org/wiki/Grimace_Shake" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Grimace_Shake</a> ✅</li>
-<li id="N9" value="9">Google News RSS(CA)— Grimace shake Canada 2024 · <a href="https://news.google.com/rss/search?q=%22Grimace%22+shake+Canada+McDonald%27s+2024&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22Grimace%22+shake+Canada+McDonald%27s+2024&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 PR Newswire Canada 2024-05-13 / Toronto Star 2024-05-14 / blogTO 2024-05-13 🟡</li>
-<li id="N10" value="10">Wikipedia — Squishmallows · <a href="https://en.wikipedia.org/wiki/Squishmallows" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Squishmallows</a> ✅</li>
-<li id="N11" value="11">Google News RSS(CA)— Squishmallows McDonald's Canada · <a href="https://news.google.com/rss/search?q=%22Squishmallows%22+%22McDonald%27s+Canada%22+OR+%22Happy+Meal%22+Canada+Squishmallows&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22Squishmallows%22+%22McDonald%27s+Canada%22+OR+%22Happy+Meal%22+Canada+Squishmallows&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 PR Newswire Canada 2023-08-01 / Daily Hive 2023-08-01 / PR Newswire Canada 2026-06-02 / Providence Journal 2026-06-10 🟡</li>
-<li id="N12" value="12">Google News RSS — McDonald's Crocs Happy Meal · <a href="https://news.google.com/rss/search?q=McDonald%27s+Crocs+Happy+Meal+2023+launch+OR+%22sold+out%22&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=McDonald%27s+Crocs+Happy+Meal+2023+launch+OR+%22sold+out%22&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 NBC 5 Chicago 2024-09-12/16 / WFLA 2024-09-12 / NRN 2025-01-31 / thestreet 2026-03-05 / Metro UK 2026-08-04 🟡</li>
-<li id="N13" value="13">Google News RSS — Pokémon Happy Meal 2025 scalpers · <a href="https://news.google.com/rss/search?q=McDonald%27s+%22Pok%C3%A9mon%22+Happy+Meal+2025+cards+scalpers+OR+%22sold+out%22+OR+limit+OR+eBay&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=McDonald%27s+%22Pok%C3%A9mon%22+Happy+Meal+2025+cards+scalpers+OR+%22sold+out%22+OR+limit+OR+eBay&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 SoraNews24 2025-01-22 / NY Post 2025-01-22 / Providence Journal 2025-01-23 🟡</li>
-<li id="N14" value="14">Google News RSS — Minecraft Movie Meal / Crocs / Collector's Meal · <a href="https://news.google.com/rss/search?q=McDonald%27s+%22Minecraft+Movie+Meal%22+OR+%22Crocs%22+Happy+Meal+OR+%22Collector%27s+Meal%22+sold+out+OR+Canada+OR+eBay&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=McDonald%27s+%22Minecraft+Movie+Meal%22+OR+%22Crocs%22+Happy+Meal+OR+%22Collector%27s+Meal%22+sold+out+OR+Canada+OR+eBay&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 McDonald's Corp 2025-03-20 / Restaurant Business 2025-03-20 🟡</li>
-<li id="N15" value="15">Wikipedia — A Minecraft Movie · <a href="https://en.wikipedia.org/wiki/A_Minecraft_Movie" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/A_Minecraft_Movie</a> ✅</li>
-<li id="N16" value="16">Google News RSS — Kempczinski Minecraft earnings · <a href="https://news.google.com/rss/search?q=Kempczinski+Minecraft+McDonald%27s+earnings+OR+%22same-store%22+2025+quarter&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=Kempczinski+Minecraft+McDonald%27s+earnings+OR+%22same-store%22+2025+quarter&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 AP 2025-08-06 / Restaurant Business 2025-08-05 / Quartz 2025-08-06 / CNBC 2025-05-01 / Restaurant Business 2026-02-11 🟡</li>
-<li id="N17" value="17">Google News RSS — Hello Kitty Godzilla Happy Meal · <a href="https://news.google.com/rss/search?q=%22Hello+Kitty%22+Godzilla+Happy+Meal+sold+out+OR+resale+OR+eBay+OR+Canada&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22Hello+Kitty%22+Godzilla+Happy+Meal+sold+out+OR+resale+OR+eBay+OR+Canada&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 Bergen Record 2026-08-18 / Good Housekeeping 2026-08-19 🟡</li>
-<li id="N18" value="18">Happy Toy Scout 首页 · <a href="https://happytoyscout.com/en" target="_blank" rel="noopener">https://happytoyscout.com/en</a> ✅</li>
-<li id="N19" value="19">Happy Toy Scout Collections · <a href="https://happytoyscout.com/en/collections" target="_blank" rel="noopener">https://happytoyscout.com/en/collections</a> ✅</li>
-<li id="N20" value="20">Instagram @happytoyscout · <a href="https://www.instagram.com/happytoyscout/" target="_blank" rel="noopener">https://www.instagram.com/happytoyscout/</a> ✅</li>
-<li id="N21" value="21">Google News RSS(CA)— McDonald's Canada Happy Meal collab · <a href="https://news.google.com/rss/search?q=McDonald%27s+Canada+Happy+Meal+collab+OR+Squishmallows+OR+Pok%C3%A9mon+OR+Minecraft&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=McDonald%27s+Canada+Happy+Meal+collab+OR+Squishmallows+OR+Pok%C3%A9mon+OR+Minecraft&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 Access Winnipeg 2026-08-18 / PR Newswire Canada 2026-06-02 / canoe 2026-06-04 / NOW Toronto 2026-02-17 / Toronto Life 2026-02-18 / About Netflix 2026-04-23 / TODAY 2026-08-12 / Food Network 2026-07-13 🟡</li>
-<li id="N22" value="22">Google News RSS(CA)— McDonald's Canada Happy Meal 2025/2026 · <a href="https://news.google.com/rss/search?q=%22McDonald%27s+Canada%22+%22Happy+Meal%22+2025+OR+2026+toys+OR+collab&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22McDonald%27s+Canada%22+%22Happy+Meal%22+2025+OR+2026+toys+OR+collab&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 foodology.ca 2025-07-19 / Access Winnipeg 2025-08-19 &amp; 2025-08-31 / foodology.ca 2025-09-16 / Dexerto 2026-03-03 &amp; 2026-03-04 🟡</li>
-<li id="N23" value="23">Wikipedia — McDonald's Canada · <a href="https://en.wikipedia.org/wiki/McDonald%27s_Canada" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/McDonald%27s_Canada</a> ✅</li>
-<li id="N24" value="24">Wikipedia — McDonald's · <a href="https://en.wikipedia.org/wiki/McDonald%27s" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/McDonald%27s</a> ✅</li>
-<li id="N25" value="25">Wikipedia — Krabby Patty · <a href="https://en.wikipedia.org/wiki/Krabby_Patty" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Krabby_Patty</a> ✅</li>
-<li id="N26" value="26">Google News RSS — Wendy's Krabby Patty sales · <a href="https://news.google.com/rss/search?q=Wendy%27s+%22Krabby+Patty%22+sales+OR+earnings+OR+%22sold+out%22+OR+Canada&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=Wendy%27s+%22Krabby+Patty%22+sales+OR+earnings+OR+%22sold+out%22+OR+Canada&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 Wendy's IR 2024-10-02 / Daily Hive 2024-10-02 / QSR 2025-02-18 / Restaurant Business 2025-02-13 &amp; 2024-10-31 🟡</li>
-<li id="N27" value="27">QSR Magazine 2025-02-18 — SpongeBob Gives Wendy's a Boost as Voice AI Growth Looms · <a href="https://www.qsrmagazine.com/story/spongebob-gives-wendys-a-boost-as-voice-ai-growth-looms/(经" target="_blank" rel="noopener">https://www.qsrmagazine.com/story/spongebob-gives-wendys-a-boost-as-voice-ai-growth-looms/(经</a> r.jina.ai 代理读取,数字为工具摘要)🟡</li>
-<li id="N28" value="28">Wendy's 官网首页 · <a href="https://www.wendys.com/" target="_blank" rel="noopener">https://www.wendys.com/</a> ✅</li>
-<li id="N29" value="29">Wikipedia — Wendy's · <a href="https://en.wikipedia.org/wiki/Wendy%27s" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Wendy%27s</a> ✅</li>
-<li id="N30" value="30">Google News RSS — Burger King collab toys · <a href="https://news.google.com/rss/search?q=%22Burger+King%22+collab+toys+OR+%22King+Jr%22+OR+merch+2024+OR+2025+OR+2026&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22Burger+King%22+collab+toys+OR+%22King+Jr%22+OR+merch+2024+OR+2025+OR+2026&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> 🟡</li>
-<li id="N31" value="31">Wikipedia — Burger King advertising · <a href="https://en.wikipedia.org/wiki/Burger_King_advertising" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Burger_King_advertising</a> ✅</li>
-<li id="N32" value="32">Wikipedia — Tim Hortons · <a href="https://en.wikipedia.org/wiki/Tim_Hortons" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Tim_Hortons</a> ✅</li>
-<li id="N33" value="33">Global News 2021-11-10 — Tim Hortons partners with Justin Bieber · <a href="https://globalnews.ca/news/8364059/tim-hortons-partners-with-justin-bieber/" target="_blank" rel="noopener">https://globalnews.ca/news/8364059/tim-hortons-partners-with-justin-bieber/</a> ✅</li>
-<li id="N34" value="34">Global News 2021-11-29 — Fans frenzy over Tim Hortons' newly dropped Justin Bieber merchandise · <a href="https://globalnews.ca/news/8410010/tim-hortons-justin-bieber-merchandise/" target="_blank" rel="noopener">https://globalnews.ca/news/8410010/tim-hortons-justin-bieber-merchandise/</a> ✅</li>
-<li id="N35" value="35">Global News 2021-12-03 — TimBiebs doughnut boxes, merchandise being resold online for high prices · <a href="https://globalnews.ca/news/8423945/timbiebs-merchandise-resales-high-prices/" target="_blank" rel="noopener">https://globalnews.ca/news/8423945/timbiebs-merchandise-resales-high-prices/</a> ✅</li>
-<li id="N36" value="36">Google News RSS(CA)— Timbiebs sales / RBI / Ryan Reynolds · <a href="https://news.google.com/rss/search?q=%22Tim+Hortons%22+%22Timbiebs%22+OR+%22Tim+Biebs%22+sales+OR+RBI+OR+earnings+OR+%22Ryan+Reynolds%22&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22Tim+Hortons%22+%22Timbiebs%22+OR+%22Tim+Biebs%22+sales+OR+RBI+OR+earnings+OR+%22Ryan+Reynolds%22&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 Narcity 2022-02-16 / Business Insider 2022-02-15 / Restaurant Business 2022-02-15 / CNN 2022-02-15 &amp; 02-16 / Fortune 2022-02-15 / CityNews 2022-05-17 / Kool FM 2025-05-05 🟡</li>
-<li id="N37" value="37">Google News RSS(CA)— Tim Hortons collab / Roll Up / Reynolds / merch · <a href="https://news.google.com/rss/search?q=Tim+Hortons+collab+OR+%22Roll+Up+To+Win%22+OR+%22Ryan+Reynolds%22+OR+merch&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=Tim+Hortons+collab+OR+%22Roll+Up+To+Win%22+OR+%22Ryan+Reynolds%22+OR+merch&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 Tim Hortons Newsroom 2026-03-19 / PR Newswire Canada 2026-07-27 / CBC 2026-07-28 / PinkNews 2026-07-29 🟡</li>
-<li id="N38" value="38">Google News RSS(CA)— Roll Up To Win prizes / Tims Rewards · <a href="https://news.google.com/rss/search?q=%22Roll+Up+To+Win%22+Tim+Hortons+prizes+OR+%22Tims+Rewards%22+members&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22Roll+Up+To+Win%22+Tim+Hortons+prizes+OR+%22Tims+Rewards%22+members&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 BNN Bloomberg 2026-02-18 / To Do Canada 2026-02-18 &amp; 2025-02-24 / PR Newswire 2026-02-23 &amp; 2025-02-24 / MediaPost 2024-02-24 🟡</li>
-<li id="N39" value="39">newswire.ca 站内搜索 "Roll Up To Win" · <a href="https://www.newswire.ca/search/news/?keyword=%22Roll%20Up%20To%20Win%22" target="_blank" rel="noopener">https://www.newswire.ca/search/news/?keyword=%22Roll%20Up%20To%20Win%22</a> ✅(2026-02-18 / 02-23 新闻稿标题)</li>
-<li id="N40" value="40">Milesopedia — Tims Rewards: Everything You Need to Know (2026) · <a href="https://milesopedia.com/en/loyalty-programs/tims-rewards/" target="_blank" rel="noopener">https://milesopedia.com/en/loyalty-programs/tims-rewards/</a> 🟡</li>
-<li id="N41" value="41">newswire.ca 站内搜索 "Tim Hortons" "Tims Rewards" members · <a href="https://www.newswire.ca/search/news/?keyword=%22Tim%20Hortons%22%20%22Tims%20Rewards%22%20members" target="_blank" rel="noopener">https://www.newswire.ca/search/news/?keyword=%22Tim%20Hortons%22%20%22Tims%20Rewards%22%20members</a> ✅(Canadian Tire × Tim Hortons 2025-09-15)</li>
-<li id="N42" value="42">PullPush Reddit API — r/TimHortons "roll up" 2024+ · <a href="https://api.pullpush.io/reddit/search/submission/?q=%22roll%20up%22&amp;subreddit=TimHortons&amp;after=1704067200&amp;size=40&amp;sort=desc&amp;sort_type=score" target="_blank" rel="noopener">https://api.pullpush.io/reddit/search/submission/?q=%22roll%20up%22&amp;subreddit=TimHortons&amp;after=1704067200&amp;size=40&amp;sort=desc&amp;sort_type=score</a> ✅</li>
-<li id="N43" value="43">PullPush Reddit API — "Timbiebs" 全站 · <a href="https://api.pullpush.io/reddit/search/submission/?q=Timbiebs&amp;size=40&amp;sort=desc&amp;sort_type=score" target="_blank" rel="noopener">https://api.pullpush.io/reddit/search/submission/?q=Timbiebs&amp;size=40&amp;sort=desc&amp;sort_type=score</a> ✅</li>
-<li id="N44" value="44">Google News RSS — Starbucks Bearista / Stanley · <a href="https://news.google.com/rss/search?q=Starbucks+%22Bearista%22+cup+OR+%22Stanley%22+Target+resale+eBay+lineup&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=Starbucks+%22Bearista%22+cup+OR+%22Stanley%22+Target+resale+eBay+lineup&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 NY Post 2025-11-05 / People 2025-11-07 / Yahoo 2025-11-10 / FOX 5 NY 2025-11-10 🟡</li>
-<li id="N45" value="45">Google News RSS(CA)— Starbucks Bearista Canada · <a href="https://news.google.com/rss/search?q=Starbucks+Bearista+Canada+OR+%22Tim+Hortons%22+Bearista+resale&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=Starbucks+Bearista+Canada+OR+%22Tim+Hortons%22+Bearista+resale&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 CBC 2025-11-07 / Fortune 2025-11-07 / Yahoo News Canada 2025-11-06 / ABC 2025-12-08 / To Do Canada 2026-06-23 🟡</li>
-<li id="N46" value="46">Google News RSS — Popeyes / Taco Bell / Chick-fil-A collab resale · <a href="https://news.google.com/rss/search?q=Popeyes+OR+%22Taco+Bell%22+OR+%22Chick-fil-A%22+collab+collectible+OR+merch+OR+toy+resale+OR+%22sold+out%22&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=Popeyes+OR+%22Taco+Bell%22+OR+%22Chick-fil-A%22+collab+collectible+OR+merch+OR+toy+resale+OR+%22sold+out%22&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 NY Post 2026-04-15 / IGN 2026-04-15 / USA Today 2026-04-15 / Resell Calendar 2026-04-14 &amp; 2024-10-04 / Dexerto 2026-04-14 🟡</li>
-<li id="N47" value="47">Google News RSS — Chick-fil-A merch/plush · <a href="https://news.google.com/rss/search?q=%22Chick-fil-A%22+plush+OR+collectible+OR+merch+OR+toy+%22sold+out%22+OR+resale+OR+eBay&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22Chick-fil-A%22+plush+OR+collectible+OR+merch+OR+toy+%22sold+out%22+OR+resale+OR+eBay&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> 🟡</li>
-<li id="N48" value="48">Google News RSS(CA)— KPop Demon Hunters / Dragon Discovery Canada · <a href="https://news.google.com/rss/search?q=%22KPop+Demon+Hunters%22+McDonald%27s+Canada+OR+%22Dragon+Discovery%22+Pok%C3%A9mon+McDonald%27s+Canada&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22KPop+Demon+Hunters%22+McDonald%27s+Canada+OR+%22Dragon+Discovery%22+Pok%C3%A9mon+McDonald%27s+Canada&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 Providence Journal 2026-04-06 / Yahoo 2026-03-25 / Dexerto 2026-04-10 &amp; 2026-08-18 🟡</li>
-<li id="N49" value="49">Google News RSS — Happy Meal scalpers / limit per customer · <a href="https://news.google.com/rss/search?q=Happy+Meal+toys+scalpers+OR+resale+OR+eBay+OR+limit+per+customer&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=Happy+Meal+toys+scalpers+OR+resale+OR+eBay+OR+limit+per+customer&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 Newsweek 2025-09-12 / Business Insider 2025-09-11 / Japan Today 2025-09-11 / SoraNews24 2026-05-12 / Tokyo Weekender 2026-05-11 🟡</li>
-<li id="N50" value="50">Google News RSS(CA)— "adult Happy Meal" Canada 2022 · <a href="https://news.google.com/rss/search?q=%22adult+Happy+Meal%22+Canada+2022+%22Cactus+Plant%22+OR+%22not+available+in+Canada%22&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=%22adult+Happy+Meal%22+Canada+2022+%22Cactus+Plant%22+OR+%22not+available+in+Canada%22&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 mtlblog 2022-10-06 / Narcity 2022-10-04 &amp; 10-05 &amp; 10-19 / Business Insider 2023-01-31 / CBS News 2023-01-31 🟡</li>
-<li id="N51" value="51">PullPush Reddit API — r/McDonalds "happy meal" 2024+ · <a href="https://api.pullpush.io/reddit/search/submission/?q=%22happy%20meal%22&amp;subreddit=McDonalds&amp;after=1704067200&amp;size=60&amp;sort=desc&amp;sort_type=score" target="_blank" rel="noopener">https://api.pullpush.io/reddit/search/submission/?q=%22happy%20meal%22&amp;subreddit=McDonalds&amp;after=1704067200&amp;size=60&amp;sort=desc&amp;sort_type=score</a> ✅</li>
-<li id="N52" value="52">PullPush Reddit API — 全站 "happy meal toy" 2024+ · <a href="https://api.pullpush.io/reddit/search/submission/?q=%22happy%20meal%20toy%22&amp;after=1704067200&amp;size=60&amp;sort=desc&amp;sort_type=score" target="_blank" rel="noopener">https://api.pullpush.io/reddit/search/submission/?q=%22happy%20meal%20toy%22&amp;after=1704067200&amp;size=60&amp;sort=desc&amp;sort_type=score</a> ✅</li>
-<li id="N53" value="53">PullPush Reddit API — "which mcdonalds" toy / "anyone know" · <a href="https://api.pullpush.io/reddit/search/submission/?q=%22which%20mcdonalds%22%20toy%20OR%20%22happy%20meal%20toy%22%20%22anyone%20know%22&amp;after=1704067200&amp;size=50&amp;sort=desc&amp;sort_type=score" target="_blank" rel="noopener">https://api.pullpush.io/reddit/search/submission/?q=%22which%20mcdonalds%22%20toy%20OR%20%22happy%20meal%20toy%22%20%22anyone%20know%22&amp;after=1704067200&amp;size=50&amp;sort=desc&amp;sort_type=score</a> ✅</li>
-<li id="N54" value="54">PullPush Reddit API — "happy meal" trade · <a href="https://api.pullpush.io/reddit/search/submission/?q=%22happy%20meal%22%20trade&amp;after=1704067200&amp;size=40&amp;sort=desc&amp;sort_type=score" target="_blank" rel="noopener">https://api.pullpush.io/reddit/search/submission/?q=%22happy%20meal%22%20trade&amp;after=1704067200&amp;size=40&amp;sort=desc&amp;sort_type=score</a> ✅</li>
-<li id="N55" value="55">PullPush Reddit API — r/McDonaldsEmployees "happy meal" 2024+ · <a href="https://api.pullpush.io/reddit/search/submission/?q=%22happy%20meal%22&amp;subreddit=McDonaldsEmployees&amp;after=1704067200&amp;size=50&amp;sort=desc&amp;sort_type=score" target="_blank" rel="noopener">https://api.pullpush.io/reddit/search/submission/?q=%22happy%20meal%22&amp;subreddit=McDonaldsEmployees&amp;after=1704067200&amp;size=50&amp;sort=desc&amp;sort_type=score</a> ✅</li>
-<li id="N56" value="56">PullPush Reddit API — r/McDonalds "toy number" · <a href="https://api.pullpush.io/reddit/search/submission/?q=toy%20number&amp;subreddit=McDonalds&amp;size=50&amp;sort=desc&amp;sort_type=score" target="_blank" rel="noopener">https://api.pullpush.io/reddit/search/submission/?q=toy%20number&amp;subreddit=McDonalds&amp;size=50&amp;sort=desc&amp;sort_type=score</a> ✅</li>
-<li id="N57" value="57">Slickdeals 站内搜索 "happy meal" · <a href="https://slickdeals.net/newsearch.php?q=happy+meal&amp;searcharea=deals&amp;searchin=first" target="_blank" rel="noopener">https://slickdeals.net/newsearch.php?q=happy+meal&amp;searcharea=deals&amp;searchin=first</a> ✅</li>
-<li id="N58" value="58">RedFlagDeals 论坛搜索 · <a href="https://forums.redflagdeals.com/search.php?keywords=happy+meal+toy" target="_blank" rel="noopener">https://forums.redflagdeals.com/search.php?keywords=happy+meal+toy</a> → 307 至 tollbit.redflagdeals.com → 402 ⛔</li>
-<li id="N59" value="59">Instagram 标签 #happymealtoys · <a href="https://www.instagram.com/explore/tags/happymealtoys/" target="_blank" rel="noopener">https://www.instagram.com/explore/tags/happymealtoys/</a> ✅</li>
-<li id="N60" value="60">Instagram 标签 #adulthappymeal · <a href="https://www.instagram.com/explore/tags/adulthappymeal/" target="_blank" rel="noopener">https://www.instagram.com/explore/tags/adulthappymeal/</a> ✅</li>
-<li id="N61" value="61">Instagram @snackolator · <a href="https://www.instagram.com/snackolator/" target="_blank" rel="noopener">https://www.instagram.com/snackolator/</a> ✅</li>
-<li id="N62" value="62">Instagram @markie_devo · <a href="https://www.instagram.com/markie_devo/" target="_blank" rel="noopener">https://www.instagram.com/markie_devo/</a> ✅</li>
-<li id="N63" value="63">Resell Calendar 首页 · <a href="https://resellcalendar.com/" target="_blank" rel="noopener">https://resellcalendar.com/</a> ✅</li>
-<li id="N64" value="64">eathealthy365 — The Complete 2026 McDonald's Happy Meal Toy Calendar · <a href="https://eathealthy365.com/the-complete-2026-mcdonalds-happy-meal-toy-calendar/" target="_blank" rel="noopener">https://eathealthy365.com/the-complete-2026-mcdonalds-happy-meal-toy-calendar/</a> 🟡</li>
-<li id="N65" value="65">McMenuTalk — McDonald's Happy Meal Toys · <a href="https://mcmenutalk.com/mcdonalds-happy-meal-toys/" target="_blank" rel="noopener">https://mcmenutalk.com/mcdonalds-happy-meal-toys/</a> 🟡</li>
-<li id="N66" value="66">Wikipedia — Kidult · <a href="https://en.wikipedia.org/wiki/Kidult" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Kidult</a> 🟡</li>
-<li id="N67" value="67">Retail Dive 2026-08-20 — US toy industry has best first-half performance in 6 years · <a href="https://www.retaildive.com/news/us-toy-industry-best-first-half-performance-six-years/828162/" target="_blank" rel="noopener">https://www.retaildive.com/news/us-toy-industry-best-first-half-performance-six-years/828162/</a> ✅</li>
-<li id="N68" value="68">Retail Dive 2026-06-30 — Adult women are driving toy industry growth · <a href="https://www.retaildive.com/news/adult-women-driving-toy-industry-sales-growth/824039/" target="_blank" rel="noopener">https://www.retaildive.com/news/adult-women-driving-toy-industry-sales-growth/824039/</a> ✅</li>
-<li id="N69" value="69">The Toy Book 2026-02-14 — Circana: The Comeback was Collectible · <a href="https://toybook.com/circana-the-comeback-was-collectible/" target="_blank" rel="noopener">https://toybook.com/circana-the-comeback-was-collectible/</a> ✅</li>
-<li id="N70" value="70">The Toy Book 2026-01-29 — Circana: Toys Stage a Global Comeback in 2025 · <a href="https://toybook.com/circana-toys-stage-a-global-comeback-in-2025/" target="_blank" rel="noopener">https://toybook.com/circana-toys-stage-a-global-comeback-in-2025/</a> ✅</li>
-<li id="N71" value="71">Google News RSS — Circana toy industry kidult · <a href="https://news.google.com/rss/search?q=Circana+toy+industry+sales+2025+kidult+adults+share&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=Circana+toy+industry+sales+2025+kidult+adults+share&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 Toy Association 2026-01-27 / Circana 2026-06-08 "$123B" / Morning Brew 2025-11-29 / Investopedia 2026-02-13 🟡</li>
-<li id="N72" value="72">Google News RSS(CA)— Canada toy industry Circana · <a href="https://news.google.com/rss/search?q=Canada+toy+industry+sales+Circana+OR+%22Canadian+Toy+Association%22+billion&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=Canada+toy+industry+sales+Circana+OR+%22Canadian+Toy+Association%22+billion&amp;hl=en-CA&amp;gl=CA&amp;ceid=CA:en</a> · 含 Circana/NPD 2023-01-26 标题 🟡</li>
-<li id="N73" value="73">Google News RSS — McDonald's "largest toy distributor" · <a href="https://news.google.com/rss/search?q=McDonald%27s+%22largest+toy+distributor%22+OR+%22billion+toys%22+Happy+Meal&amp;hl=en-US&amp;gl=US&amp;ceid=US:en" target="_blank" rel="noopener">https://news.google.com/rss/search?q=McDonald%27s+%22largest+toy+distributor%22+OR+%22billion+toys%22+Happy+Meal&amp;hl=en-US&amp;gl=US&amp;ceid=US:en</a> · 含 Chowhound 2024-10-07 / WSJ 2025-04-18 / CNBC 2021-09-21 / McDonald's Corp 2023-02-01 "New Menu Item Spotter" 🟡</li>
-<li id="N74" value="74">Wikipedia — Restaurant Brands International · <a href="https://en.wikipedia.org/wiki/Restaurant_Brands_International" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Restaurant_Brands_International</a> ✅</li>
-</ol></details>
-<details><summary>P · 北美竞品与变现（73 条）</summary><ol>
-<li id="P1" value="1"><a href="https://en.wikipedia.org/wiki/RedFlagDeals" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/RedFlagDeals</a> · RedFlagDeals · Wikipedia(创立、收购、流量、论坛统计、员工) · ✅</li>
-<li id="P2" value="2"><a href="https://www.redflagdeals.com/" target="_blank" rel="noopener">https://www.redflagdeals.com/</a> → <a href="https://tollbit.redflagdeals.com/" target="_blank" rel="noopener">https://tollbit.redflagdeals.com/</a> · RedFlagDeals 主站(307 → 402) · ⛔</li>
-<li id="P3" value="3"><a href="https://forums.redflagdeals.com/" target="_blank" rel="noopener">https://forums.redflagdeals.com/</a> · RedFlagDeals 论坛(307 → tollbit 402) · ⛔</li>
-<li id="P4" value="4"><a href="https://en.wikipedia.org/wiki/VerticalScope" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/VerticalScope</a> · VerticalScope · Wikipedia(Torstar 2015 持股、2021 IPO FORA) · ✅</li>
-<li id="P5" value="5"><a href="https://corp.flipp.com/" target="_blank" rel="noopener">https://corp.flipp.com/</a> · Flipp 企业站(1 亿购物者触达、1,600 零售商、Retail / Media Platform) · ✅</li>
-<li id="P6" value="6"><a href="https://corp.flipp.com/about-us/" target="_blank" rel="noopener">https://corp.flipp.com/about-us/</a> · Flipp About(2007 创立) · ✅</li>
-<li id="P7" value="7"><a href="https://flipp.com/" target="_blank" rel="noopener">https://flipp.com/</a> · Flipp 消费者站(2,000+ 门店、优惠券绑卡) · ✅</li>
-<li id="P8" value="8"><a href="https://www.newswire.ca/news-releases/flipp-acquires-reebee-strengthening-position-as-canada-s-largest-distributor-of-digital-savings-content-849195996.html" target="_blank" rel="noopener">https://www.newswire.ca/news-releases/flipp-acquires-reebee-strengthening-position-as-canada-s-largest-distributor-of-digital-savings-content-849195996.html</a> · Flipp 收购 reebee 新闻稿 2022-06-22 · ✅</li>
-<li id="P9" value="9"><a href="https://www.prnewswire.com/news/flipp-corporation/" target="_blank" rel="noopener">https://www.prnewswire.com/news/flipp-corporation/</a> · Flipp Corporation PR Newswire 索引(2017「tens of millions of shoppers」) · ✅</li>
-<li id="P10" value="10"><a href="https://www.checkout51.com/" target="_blank" rel="noopener">https://www.checkout51.com/</a> · Checkout 51 主页 · ✅</li>
-<li id="P11" value="11"><a href="https://www.checkout51.com/faq" target="_blank" rel="noopener">https://www.checkout51.com/faq</a> · Checkout 51 FAQ(20 美元提现、周四 / 周日上新、美加覆盖) · ✅</li>
-<li id="P12" value="12"><a href="https://www.neptuneretailsolutions.com/" target="_blank" rel="noopener">https://www.neptuneretailsolutions.com/</a> · Neptune Retail Solutions(列 Checkout 51 为自有数据源;Jersey City) · ✅</li>
-<li id="P13" value="13"><a href="https://getcaddle.com/" target="_blank" rel="noopener">https://getcaddle.com/</a> · Caddle 主页(consumer data marketplace) · ✅</li>
-<li id="P14" value="14"><a href="https://en.wikipedia.org/wiki/Slickdeals" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Slickdeals</a> · Slickdeals · Wikipedia · ✅</li>
-<li id="P15" value="15"><a href="https://slickdeals.net/" target="_blank" rel="noopener">https://slickdeals.net/</a> · Slickdeals 主页(披露语、Deal Alerts) · ✅</li>
-<li id="P16" value="16"><a href="https://slickdeals.net/corp/" target="_blank" rel="noopener">https://slickdeals.net/corp/</a> · Slickdeals 企业页(1,200 万月购物者、100 亿美元) · ✅</li>
-<li id="P17" value="17"><a href="https://en.wikipedia.org/wiki/DealNews" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/DealNews</a> · DealNews · Wikipedia · ✅</li>
-<li id="P18" value="18"><a href="https://www.dealnews.com/" target="_blank" rel="noopener">https://www.dealnews.com/</a> · DealNews 主页(披露语、10,000+ offers) · ✅</li>
-<li id="P19" value="19"><a href="https://corp.dealnews.com/" target="_blank" rel="noopener">https://corp.dealnews.com/</a> · DealNews 企业页(1,700 万月访客、300+ 条/日、6,000 零售商) · ✅</li>
-<li id="P20" value="20"><a href="https://www.hobbydb.com/" target="_blank" rel="noopener">https://www.hobbydb.com/</a> · hobbyDB 主页(freemium、All-In 才可挂牌) · ✅</li>
-<li id="P21" value="21"><a href="https://www.hobbydb.com/marketplaces/hobbydb/subscriptions" target="_blank" rel="noopener">https://www.hobbydb.com/marketplaces/hobbydb/subscriptions</a> · hobbyDB 订阅页(Lite / All In 价格) · ✅</li>
-<li id="P22" value="22"><a href="https://en.wikipedia.org/wiki/StockX" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/StockX</a> · StockX · Wikipedia(9.5% / 3% 费率、估值) · ✅</li>
-<li id="P23" value="23"><a href="https://www.stockx.com/" target="_blank" rel="noopener">https://www.stockx.com/</a> · StockX 主页(类目) · ✅</li>
-<li id="P24" value="24"><a href="https://en.wikipedia.org/wiki/Whatnot" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Whatnot</a> · Whatnot · Wikipedia(融资、GMV、员工) · ✅</li>
-<li id="P25" value="25"><a href="https://www.whatnot.com/" target="_blank" rel="noopener">https://www.whatnot.com/</a> · /sell · /faq · <a href="https://help.whatnot.com/hc/en-us" target="_blank" rel="noopener">https://help.whatnot.com/hc/en-us</a> · Whatnot 主站与帮助中心(403) · ⛔</li>
-<li id="P26" value="26"><a href="https://happytoyscout.com/en" target="_blank" rel="noopener">https://happytoyscout.com/en</a> · Happy Toy Scout 主页(报告数、Venmo / Ko-fi、数据源) · ✅</li>
-<li id="P27" value="27"><a href="https://happytoyscout.com/en/about" target="_blank" rel="noopener">https://happytoyscout.com/en/about</a> · Happy Toy Scout About(Brian、162,000 用户、GA4、GeoNames) · ✅</li>
-<li id="P28" value="28"><a href="https://affiliate-program.amazon.com/help/node/topic/GRXPHT8U84RAYDXZ" target="_blank" rel="noopener">https://affiliate-program.amazon.com/help/node/topic/GRXPHT8U84RAYDXZ</a> · Amazon Associates(US)Standard Commission Income Statement · ✅</li>
-<li id="P29" value="29"><a href="https://associates.amazon.ca/help/node/topic/GRXPHT8U84RAYDXZ" target="_blank" rel="noopener">https://associates.amazon.ca/help/node/topic/GRXPHT8U84RAYDXZ</a> · Amazon Associates(CA)Standard Commission Income Statement · ✅</li>
-<li id="P30" value="30"><a href="https://partnernetwork.ebay.com/our-program/rate-card" target="_blank" rel="noopener">https://partnernetwork.ebay.com/our-program/rate-card</a> + <a href="https://secureir.ebaystatic.com/cr/v/c1/EPN/Rate%20Card.pdf" target="_blank" rel="noopener">https://secureir.ebaystatic.com/cr/v/c1/EPN/Rate%20Card.pdf</a> · eBay Partner Network 费率卡页 + PDF(本地解析) · ✅</li>
-<li id="P31" value="31"><a href="https://partnernetwork.ebay.com/page/network-agreement" target="_blank" rel="noopener">https://partnernetwork.ebay.com/page/network-agreement</a> · EPN Network Agreement(参与站点含 ebay.ca、低 / 零佣金类目、封顶条款) · ✅</li>
-<li id="P32" value="32"><a href="https://partnernetwork.ebay.com/" target="_blank" rel="noopener">https://partnernetwork.ebay.com/</a> · EPN 主页(1.36 亿买家、190 市场) · ✅</li>
-<li id="P33" value="33"><a href="https://www.doordash.com/affiliate/" target="_blank" rel="noopener">https://www.doordash.com/affiliate/</a> · <a href="https://help.doordash.com/consumers/s/article/DoorDash-Affiliate-Program" target="_blank" rel="noopener">https://help.doordash.com/consumers/s/article/DoorDash-Affiliate-Program</a> · <a href="https://about.doordash.com/en-us/" target="_blank" rel="noopener">https://about.doordash.com/en-us/</a> · DoorDash 联盟相关(403 / 通用帮助页 / 页脚无 affiliate) · ⛔</li>
-<li id="P34" value="34"><a href="https://www.uber.com/us/en/affiliate-program/" target="_blank" rel="noopener">https://www.uber.com/us/en/affiliate-program/</a> · Uber Affiliate Program(自营、费率协商、首程 / 首单) · ✅</li>
-<li id="P35" value="35"><a href="https://www.skipthedishes.com/" target="_blank" rel="noopener">https://www.skipthedishes.com/</a> · /affiliates · /about · /partner · <a href="https://help.skipthedishes.com/" target="_blank" rel="noopener">https://help.skipthedishes.com/</a> · SkipTheDishes(403 / 404 / DNS 失败) · ⛔</li>
-<li id="P36" value="36"><a href="https://company.instacart.com/affiliate" target="_blank" rel="noopener">https://company.instacart.com/affiliate</a> · Instacart Affiliate / Influencer / Developer 计划(10 美元 CPA、Impact、美加) · ✅</li>
-<li id="P37" value="37"><a href="https://www.rakutenadvertising.com/" target="_blank" rel="noopener">https://www.rakutenadvertising.com/</a> · Rakuten Advertising 主页(区域含 Canada) · ✅</li>
-<li id="P38" value="38"><a href="https://impact.com/" target="_blank" rel="noopener">https://impact.com/</a> · impact.com 主页($100B+) · ✅</li>
-<li id="P39" value="39"><a href="https://affiliates.walmart.com/" target="_blank" rel="noopener">https://affiliates.walmart.com/</a> + <a href="https://affiliates.walmart.com/faqs" target="_blank" rel="noopener">https://affiliates.walmart.com/faqs</a> · Walmart Affiliates 主页 + FAQ(up to 4%、Impact Radius) · ✅</li>
-<li id="P40" value="40"><a href="https://partners.target.com/" target="_blank" rel="noopener">https://partners.target.com/</a> · /faq · /faqs · Target Partners(JS 壳) · ⛔</li>
-<li id="P41" value="41"><a href="https://www.walmart.ca/en/help/affiliate-program" target="_blank" rel="noopener">https://www.walmart.ca/en/help/affiliate-program</a> · Walmart Canada 联盟页(验证码墙) · ⛔</li>
-<li id="P42" value="42"><a href="https://www.mcdonalds.com/us/en-us/faq.html" target="_blank" rel="noopener">https://www.mcdonalds.com/us/en-us/faq.html</a> · /ca/en-ca/faq.html · /ca/en-ca/contact-us.html · <a href="https://corporate.mcdonalds.com/corpmcd/contact-us.html" target="_blank" rel="noopener">https://corporate.mcdonalds.com/corpmcd/contact-us.html</a> · /corpmcd/contact-us/mcdonalds-corporation-general-inquiries.html · 麦当劳各页(全部超时) · ⛔</li>
-<li id="P43" value="43"><a href="https://www.timhortons.ca/faq" target="_blank" rel="noopener">https://www.timhortons.ca/faq</a> · /contact-us · <a href="https://www.timhortons.ca/" target="_blank" rel="noopener">https://www.timhortons.ca/</a> · <a href="https://company.timhortons.com/ca/en/contact-us.html" target="_blank" rel="noopener">https://company.timhortons.com/ca/en/contact-us.html</a> · Tim Hortons 各页(JS 壳 / 404) · ⛔</li>
-<li id="P44" value="44"><a href="https://www.wendys.com/faq" target="_blank" rel="noopener">https://www.wendys.com/faq</a> · /en-ca/faq · /contact-us → <a href="https://customer-care.wendys.com/csp_us" target="_blank" rel="noopener">https://customer-care.wendys.com/csp_us</a> · Wendy's 各页(404 / JS 壳) · ⛔</li>
-<li id="P45" value="45"><a href="https://www.mediavine.com/mediavine-requirements/" target="_blank" rel="noopener">https://www.mediavine.com/mediavine-requirements/</a> · Mediavine Requirements(5,000 美元年广告收入;Journey 1,000 Tier-1 sessions) · ✅</li>
-<li id="P46" value="46"><a href="https://www.mediavine.com/" target="_blank" rel="noopener">https://www.mediavine.com/</a> · Mediavine 主页(20,000+ 发布者、1.14 亿月访客) · ✅</li>
-<li id="P47" value="47"><a href="https://raptive.com/creators/" target="_blank" rel="noopener">https://raptive.com/creators/</a> · Raptive For Creators(25,000 PV、地理要求、RPM lift 保证) · ✅</li>
-<li id="P48" value="48"><a href="https://raptive.com/requirements/" target="_blank" rel="noopener">https://raptive.com/requirements/</a> · /faq/ · Raptive(404) · ⛔</li>
-<li id="P49" value="49"><a href="https://support.google.com/adsense/answer/180195" target="_blank" rel="noopener">https://support.google.com/adsense/answer/180195</a> · AdSense 收入分成(80% / 约 68%) · ✅</li>
-<li id="P50" value="50"><a href="https://stripe.com/en-ca/pricing" target="_blank" rel="noopener">https://stripe.com/en-ca/pricing</a> · Stripe 加拿大定价 · ✅</li>
-<li id="P51" value="51"><a href="https://stripe.com/pricing" target="_blank" rel="noopener">https://stripe.com/pricing</a> · /us/pricing · /en-us/pricing · /pricing?locale=en-us · Stripe 美国定价(全部 geo 重定向为 CA$ 内容) · ⛔</li>
-<li id="P52" value="52"><a href="https://ko-fi.com/" target="_blank" rel="noopener">https://ko-fi.com/</a> · /about · /gold · <a href="https://help.ko-fi.com/hc/en-us/articles/360002506494" target="_blank" rel="noopener">https://help.ko-fi.com/hc/en-us/articles/360002506494</a> · <a href="https://more.ko-fi.com/" target="_blank" rel="noopener">https://more.ko-fi.com/</a> · /pricing · /gold · /ko-fi-gold · Ko-fi 各页(403 / 404 / 无费率文字) · ⛔</li>
-<li id="P53" value="53"><a href="https://www.patreon.com/pricing" target="_blank" rel="noopener">https://www.patreon.com/pricing</a> · Patreon Pricing(10%) · ✅</li>
-<li id="P54" value="54"><a href="https://docs.discord.com/developers/monetization/enabling-monetization" target="_blank" rel="noopener">https://docs.discord.com/developers/monetization/enabling-monetization</a> · Discord Enabling Monetization(美 / 欧 / 英限定、100 美元提现门槛) · ✅</li>
-<li id="P55" value="55"><a href="https://developer.apple.com/app-store/small-business-program/" target="_blank" rel="noopener">https://developer.apple.com/app-store/small-business-program/</a> · App Store Small Business Program(15% / 30%) · ✅</li>
-<li id="P56" value="56"><a href="https://support.google.com/googleplay/android-developer/answer/112622" target="_blank" rel="noopener">https://support.google.com/googleplay/android-developer/answer/112622</a> · Google Play 服务费(15% / 30%、2026-06-30 新结构) · ✅</li>
-<li id="P57" value="57"><a href="https://www.twilio.com/en-us/sms/pricing/us" target="_blank" rel="noopener">https://www.twilio.com/en-us/sms/pricing/us</a> · Twilio SMS 美国定价 · ✅</li>
-<li id="P58" value="58"><a href="https://www.twilio.com/en-us/sms/pricing/ca" target="_blank" rel="noopener">https://www.twilio.com/en-us/sms/pricing/ca</a> · Twilio SMS 加拿大定价 · ✅</li>
-<li id="P59" value="59"><a href="https://resend.com/pricing" target="_blank" rel="noopener">https://resend.com/pricing</a> · Resend 定价 · ✅</li>
-<li id="P60" value="60"><a href="https://onesignal.com/pricing" target="_blank" rel="noopener">https://onesignal.com/pricing</a> · OneSignal 定价 · ✅</li>
-<li id="P61" value="61"><a href="https://getlatka.com/companies/dekudeals.com" target="_blank" rel="noopener">https://getlatka.com/companies/dekudeals.com</a> · Latka · Deku Deals(ARR 33 万美元估算,「estimation」,无访谈) · 🟡</li>
-<li id="P62" value="62"><a href="https://www.dekudeals.com/supporters" target="_blank" rel="noopener">https://www.dekudeals.com/supporters</a> · DekuDeals Supporters(7 美元/月、40 美元/年、权益、联盟披露、3 人) · ✅</li>
-<li id="P63" value="63"><a href="https://www.indiehackers.com/product/deku-deals" target="_blank" rel="noopener">https://www.indiehackers.com/product/deku-deals</a> · Indie Hackers · Deku Deals(2018-03-02 上线;2020-02 Patreon 41 人 115 美元/月) · ✅</li>
-<li id="P64" value="64"><a href="https://www.indiehackers.com/products?revenueVerification=stripe" target="_blank" rel="noopener">https://www.indiehackers.com/products?revenueVerification=stripe</a> · /products?q=price+tracker · /products?q=alert · /search?q=deals · Indie Hackers 列表 / 搜索(无 deal / alert 类产品;搜索页为空) · ⛔</li>
-<li id="P65" value="65"><a href="https://www.soleretriever.com/" target="_blank" rel="noopener">https://www.soleretriever.com/</a> · /about · <a href="https://soleretriever.com/" target="_blank" rel="noopener">https://soleretriever.com/</a> · <a href="https://apps.apple.com/us/app/sole-retriever/id1451337224" target="_blank" rel="noopener">https://apps.apple.com/us/app/sole-retriever/id1451337224</a> · Sole Retriever(403 / 404) · ⛔</li>
-<li id="P66" value="66"><a href="https://www.solelinks.com/" target="_blank" rel="noopener">https://www.solelinks.com/</a> · /about · /faq · /sitemap.xml · SoleLinks(仅返回站名) · ⛔</li>
-<li id="P67" value="67"><a href="https://en.wikipedia.org/wiki/Flipp" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Flipp</a> · /Flipp_(company) · /Flipp_Corporation · /Wishabi · Flipp 维基(乐队条目 / 404) · ⛔</li>
-<li id="P68" value="68"><a href="https://en.wikipedia.org/wiki/Whatnot_(company" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Whatnot_(company</a>) · Whatnot 公司条目(404,改用 /wiki/Whatnot) · ⛔</li>
-<li id="P69" value="69"><a href="https://www.checkout51.com/about-us" target="_blank" rel="noopener">https://www.checkout51.com/about-us</a> · /press · <a href="https://en.wikipedia.org/wiki/Checkout_51" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Checkout_51</a> · Checkout 51(404) · ⛔</li>
-<li id="P70" value="70"><a href="https://help.twilio.com/hc/en-us/articles/1260803965530" target="_blank" rel="noopener">https://help.twilio.com/hc/en-us/articles/1260803965530</a> · <a href="https://www.twilio.com/docs/messaging/compliance/a2p-10dlc" target="_blank" rel="noopener">https://www.twilio.com/docs/messaging/compliance/a2p-10dlc</a> · Twilio A2P 10DLC 费用(帮助页只返回站名;文档确认有费但无数字) · ⛔</li>
-<li id="P71" value="71"><a href="https://getcaddle.com/about" target="_blank" rel="noopener">https://getcaddle.com/about</a> · /about-us · /press · /faq · /business · /brands · /answers · <a href="https://betakit.com/tag/caddle/" target="_blank" rel="noopener">https://betakit.com/tag/caddle/</a> · <a href="https://www.newswire.ca/news/caddle/" target="_blank" rel="noopener">https://www.newswire.ca/news/caddle/</a> · /caddle-inc/ · Caddle 各页(全部 404) · ⛔</li>
-<li id="P72" value="72"><a href="https://www.verticalscope.com/" target="_blank" rel="noopener">https://www.verticalscope.com/</a> · <a href="https://investors.verticalscope.com/" target="_blank" rel="noopener">https://investors.verticalscope.com/</a> · <a href="https://www.newswire.ca/news/verticalscope-holdings-inc./" target="_blank" rel="noopener">https://www.newswire.ca/news/verticalscope-holdings-inc./</a> · VerticalScope(工具拒抓 / 404) · ⛔</li>
-<li id="P73" value="73"><a href="https://en.wikipedia.org/wiki/HobbyDB" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/HobbyDB</a> · <a href="https://www.hobbydb.com/about" target="_blank" rel="noopener">https://www.hobbydb.com/about</a> · /faq · /pricing · /sell · /help · /pages/about-us · <a href="https://blog.hobbydb.com/" target="_blank" rel="noopener">https://blog.hobbydb.com/</a> · hobbyDB(404 / 无数据) · ⛔</li>
-</ol></details>
-<details><summary>Q · 北美运维与法律（68 条）</summary><ol>
-<li id="Q1" value="1">hiQ Labs v. LinkedIn · Wikipedia · <a href="https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn</a> · ✅</li>
-<li id="Q2" value="2">Web scraping § Legal issues · Wikipedia · <a href="https://en.wikipedia.org/wiki/Web_scraping#Legal_issues" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Web_scraping#Legal_issues</a> · ✅</li>
-<li id="Q3" value="3">Computer Fraud and Abuse Act · Wikipedia · <a href="https://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act</a> · ✅</li>
-<li id="Q4" value="4">EFF · Scraping Public Websites Still Isn't a Crime, Court of Appeals Declares (2022-04) · <a href="https://www.eff.org/deeplinks/2022/04/scraping-public-websites-still-isnt-crime-court-appeals-declares" target="_blank" rel="noopener">https://www.eff.org/deeplinks/2022/04/scraping-public-websites-still-isnt-crime-court-appeals-declares</a> · ✅</li>
-<li id="Q5" value="5">Bright Data · Wikipedia(含 Meta v. Bright Data 2024-01、X v. Bright Data 2024-05) · <a href="https://en.wikipedia.org/wiki/Bright_Data" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Bright_Data</a> · ✅</li>
-<li id="Q6" value="6">2023 Reddit API controversy · Wikipedia · <a href="https://en.wikipedia.org/wiki/2023_Reddit_API_controversy" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/2023_Reddit_API_controversy</a> · ✅</li>
-<li id="Q7" value="7">Reddit API rules · GitHub reddit-archive wiki · <a href="https://github.com/reddit-archive/reddit/wiki/API" target="_blank" rel="noopener">https://github.com/reddit-archive/reddit/wiki/API</a> · ✅(旧规则)</li>
-<li id="Q8" value="8">Meta Platform Terms · <a href="https://developers.facebook.com/terms/" target="_blank" rel="noopener">https://developers.facebook.com/terms/</a> · ✅</li>
-<li id="Q9" value="9">Meta Terms of Service §3.2 · <a href="https://www.facebook.com/terms.php" target="_blank" rel="noopener">https://www.facebook.com/terms.php</a> · ✅</li>
-<li id="Q10" value="10">Meta Automated Data Collection Terms · <a href="https://www.facebook.com/apps/site_scraping_tos_terms.php" target="_blank" rel="noopener">https://www.facebook.com/apps/site_scraping_tos_terms.php</a> · ✅</li>
-<li id="Q11" value="11">FTC · COPPA Six-Step Compliance Plan · <a href="https://www.ftc.gov/business-guidance/resources/childrens-online-privacy-protection-rule-six-step-compliance-plan-your-business" target="_blank" rel="noopener">https://www.ftc.gov/business-guidance/resources/childrens-online-privacy-protection-rule-six-step-compliance-plan-your-business</a> · ✅</li>
-<li id="Q12" value="12">Children's Online Privacy Protection Act · Wikipedia · <a href="https://en.wikipedia.org/wiki/Children%27s_Online_Privacy_Protection_Act" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Children%27s_Online_Privacy_Protection_Act</a> · ✅</li>
-<li id="Q13" value="13">FTC 新闻稿 · FTC Finalizes Changes to Children's Privacy Rule (2025-01) · <a href="https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-finalizes-changes-childrens-privacy-rule-limiting-companies-ability-monetize-kids-data" target="_blank" rel="noopener">https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-finalizes-changes-childrens-privacy-rule-limiting-companies-ability-monetize-kids-data</a> · ✅</li>
-<li id="Q14" value="14">OPC · PIPEDA overview · <a href="https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/" target="_blank" rel="noopener">https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/</a> · ✅(内容薄)</li>
-<li id="Q15" value="15">PIPEDA · Wikipedia · <a href="https://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Personal_Information_Protection_and_Electronic_Documents_Act</a> · ✅</li>
-<li id="Q16" value="16">LEGISinfo · Bill C-27 (44-1) · <a href="https://www.parl.ca/legisinfo/en/bill/44-1/c-27" target="_blank" rel="noopener">https://www.parl.ca/legisinfo/en/bill/44-1/c-27</a> · ✅</li>
-<li id="Q17" value="17">ISED · Consumer Privacy Protection Act · <a href="https://ised-isde.canada.ca/site/innovation-better-canada/en/consumer-privacy-protection-act" target="_blank" rel="noopener">https://ised-isde.canada.ca/site/innovation-better-canada/en/consumer-privacy-protection-act</a> · ✅</li>
-<li id="Q18" value="18">Osano · Quebec Law 25 · <a href="https://www.osano.com/articles/quebec-law-25" target="_blank" rel="noopener">https://www.osano.com/articles/quebec-law-25</a> · ✅(二手)</li>
-<li id="Q19" value="19">Commission d'accès à l'information du Québec(首页,法语) · <a href="https://www.cai.gouv.qc.ca/" target="_blank" rel="noopener">https://www.cai.gouv.qc.ca/</a> · 🟡</li>
-<li id="Q20" value="20">California AG · CCPA · <a href="https://oag.ca.gov/privacy/ccpa" target="_blank" rel="noopener">https://oag.ca.gov/privacy/ccpa</a> · ✅</li>
-<li id="Q21" value="21">Canada's Anti-Spam Legislation · Wikipedia · <a href="https://en.wikipedia.org/wiki/Canada%27s_Anti-Spam_Legislation" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Canada%27s_Anti-Spam_Legislation</a> · ✅</li>
-<li id="Q22" value="22">Justice Laws · S.C. 2010, c. 23(CASL 原文) · <a href="https://laws-lois.justice.gc.ca/eng/acts/E-1.6/page-1.html" target="_blank" rel="noopener">https://laws-lois.justice.gc.ca/eng/acts/E-1.6/page-1.html</a> · ✅</li>
-<li id="Q23" value="23">ISED · Canada's Anti-Spam Legislation · <a href="https://ised-isde.canada.ca/site/canada-anti-spam-legislation/en" target="_blank" rel="noopener">https://ised-isde.canada.ca/site/canada-anti-spam-legislation/en</a> · ✅</li>
-<li id="Q24" value="24">Telephone Consumer Protection Act of 1991 · Wikipedia · <a href="https://en.wikipedia.org/wiki/Telephone_Consumer_Protection_Act_of_1991" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Telephone_Consumer_Protection_Act_of_1991</a> · ✅</li>
-<li id="Q25" value="25">FTC · CAN-SPAM Act Compliance Guide · <a href="https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business" target="_blank" rel="noopener">https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business</a> · ✅</li>
-<li id="Q26" value="26">Nominative use · Wikipedia · <a href="https://en.wikipedia.org/wiki/Nominative_use" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Nominative_use</a> · ✅</li>
-<li id="Q27" value="27">Canadian trademark law · Wikipedia · <a href="https://en.wikipedia.org/wiki/Canadian_trademark_law" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Canadian_trademark_law</a> · ✅</li>
-<li id="Q28" value="28">Happy Toy Scout(EN 首页) · <a href="https://happytoyscout.com/en" target="_blank" rel="noopener">https://happytoyscout.com/en</a> · ✅</li>
-<li id="Q29" value="29">Happy Toy Scout · About · <a href="https://happytoyscout.com/en/about" target="_blank" rel="noopener">https://happytoyscout.com/en/about</a> · ✅</li>
-<li id="Q30" value="30">Section 230 · Wikipedia · <a href="https://en.wikipedia.org/wiki/Section_230" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Section_230</a> · ✅</li>
-<li id="Q31" value="31">Online Harms Act · Wikipedia · <a href="https://en.wikipedia.org/wiki/Online_Harms_Act" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Online_Harms_Act</a> · ✅</li>
-<li id="Q32" value="32">Vercel Pro Plan docs(2026-09-02 更新) · <a href="https://vercel.com/docs/plans/pro-plan" target="_blank" rel="noopener">https://vercel.com/docs/plans/pro-plan</a> · ✅</li>
-<li id="Q33" value="33">Cloudflare Workers pricing · <a href="https://developers.cloudflare.com/workers/platform/pricing/" target="_blank" rel="noopener">https://developers.cloudflare.com/workers/platform/pricing/</a> · ✅</li>
-<li id="Q34" value="34">Cloudflare R2 pricing · <a href="https://developers.cloudflare.com/r2/pricing/" target="_blank" rel="noopener">https://developers.cloudflare.com/r2/pricing/</a> · ✅</li>
-<li id="Q35" value="35">Supabase pricing · <a href="https://supabase.com/pricing" target="_blank" rel="noopener">https://supabase.com/pricing</a> · ✅</li>
-<li id="Q36" value="36">Upstash Redis pricing · <a href="https://upstash.com/pricing/redis" target="_blank" rel="noopener">https://upstash.com/pricing/redis</a> · ✅</li>
-<li id="Q37" value="37">Mapbox pricing · <a href="https://www.mapbox.com/pricing" target="_blank" rel="noopener">https://www.mapbox.com/pricing</a> · ✅(仅首档)</li>
-<li id="Q38" value="38">Google Maps Platform pricing · <a href="https://developers.google.com/maps/billing-and-pricing/pricing" target="_blank" rel="noopener">https://developers.google.com/maps/billing-and-pricing/pricing</a> · ✅</li>
-<li id="Q39" value="39">Google Places API policies · <a href="https://developers.google.com/maps/documentation/places/web-service/policies" target="_blank" rel="noopener">https://developers.google.com/maps/documentation/places/web-service/policies</a> · ✅</li>
-<li id="Q40" value="40">Google Geocoding API policies · <a href="https://developers.google.com/maps/documentation/geocoding/policies" target="_blank" rel="noopener">https://developers.google.com/maps/documentation/geocoding/policies</a> · ✅</li>
-<li id="Q41" value="41">Twilio SMS pricing · Canada · <a href="https://www.twilio.com/en-us/sms/pricing/ca" target="_blank" rel="noopener">https://www.twilio.com/en-us/sms/pricing/ca</a> · ✅</li>
-<li id="Q42" value="42">Resend pricing · <a href="https://resend.com/pricing" target="_blank" rel="noopener">https://resend.com/pricing</a> · ✅</li>
-<li id="Q43" value="43">OneSignal pricing · <a href="https://onesignal.com/pricing" target="_blank" rel="noopener">https://onesignal.com/pricing</a> · ✅</li>
-<li id="Q44" value="44">Expo pricing · <a href="https://expo.dev/pricing" target="_blank" rel="noopener">https://expo.dev/pricing</a> · ✅</li>
-<li id="Q45" value="45">Expo · Push notifications FAQ · <a href="https://docs.expo.dev/push-notifications/faq/" target="_blank" rel="noopener">https://docs.expo.dev/push-notifications/faq/</a> · ✅</li>
-<li id="Q46" value="46">Expo · Sending notifications · <a href="https://docs.expo.dev/push-notifications/sending-notifications/" target="_blank" rel="noopener">https://docs.expo.dev/push-notifications/sending-notifications/</a> · ✅</li>
-<li id="Q47" value="47">MDN · Push API · <a href="https://developer.mozilla.org/en-US/docs/Web/API/Push_API" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Push_API</a> · ✅</li>
-<li id="Q48" value="48">Apple Developer Program · <a href="https://developer.apple.com/programs/" target="_blank" rel="noopener">https://developer.apple.com/programs/</a> · ✅</li>
-<li id="Q49" value="49">Discord · Rate Limits · <a href="https://docs.discord.com/developers/topics/rate-limits" target="_blank" rel="noopener">https://docs.discord.com/developers/topics/rate-limits</a> · ✅</li>
-<li id="Q50" value="50">Stripe pricing · Canada · <a href="https://stripe.com/en-ca/pricing" target="_blank" rel="noopener">https://stripe.com/en-ca/pricing</a> · ✅</li>
-<li id="Q51" value="51">Interac(首页) · <a href="https://www.interac.ca/en/" target="_blank" rel="noopener">https://www.interac.ca/en/</a> · ✅</li>
-<li id="Q52" value="52">Apple · App Store Small Business Program · <a href="https://developer.apple.com/app-store/small-business-program/" target="_blank" rel="noopener">https://developer.apple.com/app-store/small-business-program/</a> · ✅</li>
-<li id="Q53" value="53">Google Play · Service fees · <a href="https://support.google.com/googleplay/android-developer/answer/112622" target="_blank" rel="noopener">https://support.google.com/googleplay/android-developer/answer/112622</a> · ✅</li>
-<li id="Q54" value="54">List of countries with McDonald's restaurants · Wikipedia · <a href="https://en.wikipedia.org/wiki/List_of_countries_with_McDonald%27s_restaurants" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/List_of_countries_with_McDonald%27s_restaurants</a> · ✅</li>
-<li id="Q55" value="55">McDonald's Canada · Wikipedia · <a href="https://en.wikipedia.org/wiki/McDonald%27s_Canada" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/McDonald%27s_Canada</a> · ✅</li>
-<li id="Q56" value="56">Tim Hortons · Wikipedia · <a href="https://en.wikipedia.org/wiki/Tim_Hortons" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Tim_Hortons</a> · ✅(加拿大数为 2018)</li>
-<li id="Q57" value="57">Restaurant Brands International · Wikipedia · <a href="https://en.wikipedia.org/wiki/Restaurant_Brands_International" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Restaurant_Brands_International</a> · ✅</li>
-<li id="Q58" value="58">Yelp API Terms of Use · <a href="https://terms.yelp.com/developers/api_terms" target="_blank" rel="noopener">https://terms.yelp.com/developers/api_terms</a> · ✅</li>
-<li id="Q59" value="59">Yelp Places API pricing · <a href="https://business.yelp.com/data/products/fusion/" target="_blank" rel="noopener">https://business.yelp.com/data/products/fusion/</a> · ✅</li>
-<li id="Q60" value="60">Yelp Fusion · Getting started · <a href="https://docs.developer.yelp.com/docs/fusion-intro" target="_blank" rel="noopener">https://docs.developer.yelp.com/docs/fusion-intro</a> · ✅</li>
-<li id="Q61" value="61">Overpass API · OSM wiki · <a href="https://wiki.openstreetmap.org/wiki/Overpass_API" target="_blank" rel="noopener">https://wiki.openstreetmap.org/wiki/Overpass_API</a> · ✅</li>
-<li id="Q62" value="62">OSMF · Licence and Legal FAQ · <a href="https://www.osmfoundation.org/wiki/Licence/Licence_and_Legal_FAQ" target="_blank" rel="noopener">https://www.osmfoundation.org/wiki/Licence/Licence_and_Legal_FAQ</a> · ✅</li>
-<li id="Q63" value="63">OPC · PIPEDA Findings #2021-001 (Clearview AI) · <a href="https://www.priv.gc.ca/en/opc-actions-and-decisions/investigations/investigations-into-businesses/2021/pipeda-2021-001/" target="_blank" rel="noopener">https://www.priv.gc.ca/en/opc-actions-and-decisions/investigations/investigations-into-businesses/2021/pipeda-2021-001/</a> · ✅</li>
-<li id="Q64" value="64">OPC · 2024-10 Concluding joint statement on data scraping · <a href="https://www.priv.gc.ca/en/opc-news/news-and-announcements/2024/nr-c_241028/" target="_blank" rel="noopener">https://www.priv.gc.ca/en/opc-news/news-and-announcements/2024/nr-c_241028/</a> · ✅</li>
-<li id="Q65" value="65">Bill 96 · Wikipedia · <a href="https://en.wikipedia.org/wiki/Bill_96" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Bill_96</a> · ✅</li>
-<li id="Q66" value="66">OQLF · Francisation des entreprises · <a href="https://www.oqlf.gouv.qc.ca/francisation/entreprises/index.html" target="_blank" rel="noopener">https://www.oqlf.gouv.qc.ca/francisation/entreprises/index.html</a> · ✅(内容薄)</li>
-<li id="Q67" value="67">McDonald's · Wikipedia(全球 45,356 @ 2025) · <a href="https://en.wikipedia.org/wiki/McDonald%27s" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/McDonald%27s</a> · ✅</li>
-<li id="Q68" value="68">Apollo (app) · Wikipedia · <a href="https://en.wikipedia.org/wiki/Apollo_(app" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Apollo_(app</a>) · ✅</li>
-</ol></details>
-<details><summary>S · 方向脑暴支撑数据（92 条）</summary><ol>
-<li id="S1" value="1">Wikipedia — Pokémon Trading Card Game — <a href="https://en.wikipedia.org/wiki/Pok%C3%A9mon_Trading_Card_Game" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Pok%C3%A9mon_Trading_Card_Game</a> ✅</li>
-<li id="S2" value="2">Kotaku 2026-05-27 — 10 Billion Pokémon Cards Were Printed Last Year And It Still Wasn't Enough — <a href="https://kotaku.com/10-billion-pokemon-cards-were-printed-last-year-and-it-still-wasnt-enough-2000699977" target="_blank" rel="noopener">https://kotaku.com/10-billion-pokemon-cards-were-printed-last-year-and-it-still-wasnt-enough-2000699977</a> ✅(经 r.jina.ai)</li>
-<li id="S3" value="3">Kotaku 2025-11-04 — Walmart Finally Takes Action Against Pokémon Scalpers After Video Of Guy Buying Thousands Of Cards Goes Viral — <a href="https://kotaku.com/pokemon-trading-card-tcg-scalper-walmart-purchase-limit-2000641073" target="_blank" rel="noopener">https://kotaku.com/pokemon-trading-card-tcg-scalper-walmart-purchase-limit-2000641073</a> ✅(经 r.jina.ai)</li>
-<li id="S4" value="4">Kotaku 2026-07-05 — Nintendo President Promises To Tackle Pokémon Card Scalpers After Billions Printed Fail To Satisfy Market — <a href="https://kotaku.com/nintendo-president-promises-to-tackle-pokemon-card-scalpers-after-billions-printed-fail-to-satisfy-market-2000712688" target="_blank" rel="noopener">https://kotaku.com/nintendo-president-promises-to-tackle-pokemon-card-scalpers-after-billions-printed-fail-to-satisfy-market-2000712688</a> ✅(经 r.jina.ai)</li>
-<li id="S5" value="5">Polygon 2026-08-31 — Walmart is selling hot Pokémon card sets in a new and improved way — <a href="https://www.polygon.com/walmart-drawing-pokemon-cards-raffle-drop-when-is-near-me/" target="_blank" rel="noopener">https://www.polygon.com/walmart-drawing-pokemon-cards-raffle-drop-when-is-near-me/</a> ✅(经 r.jina.ai)</li>
-<li id="S6" value="6">Polygon 2026-07-24 — Target is making some huge changes to how it sells Pokémon cards — <a href="https://www.polygon.com/target-pokemon-tcg-30th-anniversary-stock-tpc-stock-sale-changes-display/" target="_blank" rel="noopener">https://www.polygon.com/target-pokemon-tcg-30th-anniversary-stock-tpc-stock-sale-changes-display/</a> ✅(经 r.jina.ai)</li>
-<li id="S7" value="7">Polygon 2026-08-03 — A Pokémon Center update might change everything for fans who are sick of scalpers — <a href="https://www.polygon.com/pokemon-center-security-check-change-captcha-upc-price-preorder-drop/" target="_blank" rel="noopener">https://www.polygon.com/pokemon-center-security-check-change-captcha-upc-price-preorder-drop/</a> 🟡(仅搜索页标题)</li>
-<li id="S8" value="8">Kotaku 2026-07-26 — Pokémon Company Strikes Blow Against Scalpers With Facial Recognition Checks … In Japan — <a href="https://kotaku.com/pokemon-company-strikes-blow-against-scalpers-with-facial-recognition-checks-to-prevent-crime-at-card-stores-in-japan-2000719407" target="_blank" rel="noopener">https://kotaku.com/pokemon-company-strikes-blow-against-scalpers-with-facial-recognition-checks-to-prevent-crime-at-card-stores-in-japan-2000719407</a> 🟡(仅搜索页标题)</li>
-<li id="S9" value="9">The Verge 2023-09-29 — Pokémon's Van Gogh collaboration turned out to be kind of a disaster — <a href="https://www.theverge.com/23896251/pokemon-van-gogh-pikachu-sold-out-scalping-promos" target="_blank" rel="noopener">https://www.theverge.com/23896251/pokemon-van-gogh-pikachu-sold-out-scalping-promos</a> 🟡(仅搜索页摘要)</li>
-<li id="S10" value="10">Global News 2026-03-10 — Pokémon cards are a hot commodity, and B.C. thieves aren't playing around — <a href="https://globalnews.ca/news/11724701/pokemon-card-thefts-bc/" target="_blank" rel="noopener">https://globalnews.ca/news/11724701/pokemon-card-thefts-bc/</a> ✅</li>
-<li id="S11" value="11">Global News 搜索「pokemon cards」— <a href="https://globalnews.ca/?s=pokemon+cards" target="_blank" rel="noopener">https://globalnews.ca/?s=pokemon+cards</a> ✅(含 2025-11-18 Edmonton、2026-04-02 与 2026-08-05 Vancouver、2026-06-18 Laval 四篇)</li>
-<li id="S12" value="12">Retail Insider 搜索「pokemon」— <a href="https://www.retail-insider.com/?s=pokemon" target="_blank" rel="noopener">https://www.retail-insider.com/?s=pokemon</a> ✅</li>
-<li id="S13" value="13">401 Games 官网 — <a href="http://store.401games.ca/" target="_blank" rel="noopener">http://store.401games.ca/</a> ✅</li>
-<li id="S14" value="14">Face to Face Games 官网 — <a href="https://www.facetofacegames.com/" target="_blank" rel="noopener">https://www.facetofacegames.com/</a> ✅</li>
-<li id="S15" value="15">NowInStock — <a href="https://www.nowinstock.net/" target="_blank" rel="noopener">https://www.nowinstock.net/</a> ✅</li>
-<li id="S16" value="16">Card Ladder Pricing — <a href="https://www.cardladder.com/pricing" target="_blank" rel="noopener">https://www.cardladder.com/pricing</a> ✅(经 r.jina.ai;直连 403)</li>
-<li id="S17" value="17">Google Play 搜索「card ladder」— <a href="https://play.google.com/store/search?q=card%20ladder&amp;c=apps" target="_blank" rel="noopener">https://play.google.com/store/search?q=card%20ladder&amp;c=apps</a> ✅</li>
-<li id="S18" value="18">TCGplayer Help Center 搜索「seller fees」— <a href="https://help.tcgplayer.com/hc/en-us/search?query=seller+fees" target="_blank" rel="noopener">https://help.tcgplayer.com/hc/en-us/search?query=seller+fees</a> ✅(经 r.jina.ai)</li>
-<li id="S19" value="19">Wikipedia — TCGplayer — <a href="https://en.wikipedia.org/wiki/TCGplayer" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/TCGplayer</a> ✅</li>
-<li id="S20" value="20">Collectr 官网 — <a href="https://www.getcollectr.com/" target="_blank" rel="noopener">https://www.getcollectr.com/</a> ✅</li>
-<li id="S21" value="21">Wikipedia — Disney Lorcana — <a href="https://en.wikipedia.org/wiki/Disney_Lorcana" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Disney_Lorcana</a> ✅</li>
-<li id="S22" value="22">Wikipedia — One Piece Card Game — <a href="https://en.wikipedia.org/wiki/One_Piece_Card_Game" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/One_Piece_Card_Game</a> ✅</li>
-<li id="S23" value="23">Pokémon.com TCG hub — <a href="https://www.pokemon.com/us/pokemon-tcg" target="_blank" rel="noopener">https://www.pokemon.com/us/pokemon-tcg</a> ✅(经 r.jina.ai)</li>
-<li id="S24" value="24">PokéBeach — <a href="https://www.pokebeach.com/" target="_blank" rel="noopener">https://www.pokebeach.com/</a> ✅(经 r.jina.ai;无补货数据)</li>
-<li id="S25" value="25">StockAnalysis — Pop Mart (9992.HK) Revenue — <a href="https://stockanalysis.com/quote/hkg/9992/revenue/" target="_blank" rel="noopener">https://stockanalysis.com/quote/hkg/9992/revenue/</a> ✅</li>
-<li id="S26" value="26">StockAnalysis — Pop Mart (9992.HK) Overview — <a href="https://stockanalysis.com/quote/hkg/9992/" target="_blank" rel="noopener">https://stockanalysis.com/quote/hkg/9992/</a> ✅(两页 TTM 数字不一致:40.42B vs 46.66B,取 FY 年度数)</li>
-<li id="S27" value="27">Wikipedia — Pop Mart — <a href="https://en.wikipedia.org/wiki/Pop_Mart" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Pop_Mart</a> ✅</li>
-<li id="S28" value="28">Wikipedia — Labubu — <a href="https://en.wikipedia.org/wiki/Labubu" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Labubu</a> ✅(其中「2024 上半年 63 亿元」一句存疑 🟡)</li>
-<li id="S29" value="29">Global News 2025-06-24 — Meet Labubu, the wildly collectible doll that's causing a worldwide frenzy — <a href="https://globalnews.ca/news/11259457/labubu-doll-craze/" target="_blank" rel="noopener">https://globalnews.ca/news/11259457/labubu-doll-craze/</a> ✅</li>
-<li id="S30" value="30">Retail Insider 2025-09-17 — Pop Mart to Open 1st Canadian Store at CF Richmond Centre — <a href="https://retail-insider.com/retail-insider/2025/09/pop-mart-to-open-1s-canadian-store-at-cf-richmond-centre/" target="_blank" rel="noopener">https://retail-insider.com/retail-insider/2025/09/pop-mart-to-open-1s-canadian-store-at-cf-richmond-centre/</a> 🟡(仅标题)</li>
-<li id="S31" value="31">Retail Insider 2025-11-27 — Pop Mart Enters Canada With Multi-Store Launch Strategy — <a href="https://retail-insider.com/retail-insider/2025/11/pop-mart-enters-canada-with-multi-store-launch-strategy/" target="_blank" rel="noopener">https://retail-insider.com/retail-insider/2025/11/pop-mart-enters-canada-with-multi-store-launch-strategy/</a> ✅</li>
-<li id="S32" value="32">Retail Insider 2026-07-08 — Pop Mart Plans Major Canadian Expansion After Strong Early Demand — <a href="https://retail-insider.com/retail-insider/2026/07/pop-mart-plans-major-canadian-expansion-after-strong-early-demand/" target="_blank" rel="noopener">https://retail-insider.com/retail-insider/2026/07/pop-mart-plans-major-canadian-expansion-after-strong-early-demand/</a> ✅</li>
-<li id="S33" value="33">Retail Insider 2026-07-29 — Pop Mart to Relocate into Larger CF Toronto Eaton Centre Store — <a href="https://retail-insider.com/retail-insider/2026/07/pop-mart-to-relocate-into-larger-cf-toronto-eaton-centre-store/" target="_blank" rel="noopener">https://retail-insider.com/retail-insider/2026/07/pop-mart-to-relocate-into-larger-cf-toronto-eaton-centre-store/</a> ✅</li>
-<li id="S34" value="34">Pop Mart Canada Store List — <a href="https://www.popmart.com/ca/store-list" target="_blank" rel="noopener">https://www.popmart.com/ca/store-list</a> ✅(经 r.jina.ai)</li>
-<li id="S35" value="35">Pop Mart Canada 首页 — <a href="https://www.popmart.com/ca" target="_blank" rel="noopener">https://www.popmart.com/ca</a> ✅(经 r.jina.ai;直连空页)</li>
-<li id="S36" value="36">StockX Collectibles — <a href="https://stockx.com/collectibles" target="_blank" rel="noopener">https://stockx.com/collectibles</a> ✅(加元 ask 价)</li>
-<li id="S37" value="37">StockX 搜索「labubu」— <a href="https://stockx.com/search?s=labubu" target="_blank" rel="noopener">https://stockx.com/search?s=labubu</a> ✅(经 r.jina.ai)</li>
-<li id="S38" value="38">Wikipedia — StockX — <a href="https://en.wikipedia.org/wiki/StockX" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/StockX</a> ✅(费率为 2021 前数据 🟡)</li>
-<li id="S39" value="39">CBC 搜索「labubu」— <a href="https://www.cbc.ca/search?q=labubu" target="_blank" rel="noopener">https://www.cbc.ca/search?q=labubu</a> ✅(经 r.jina.ai)</li>
-<li id="S40" value="40">CBC 视频 2025-08-05 — Labubu frenzy reaches Ottawa — <a href="https://www.cbc.ca/player/play/9.6854213" target="_blank" rel="noopener">https://www.cbc.ca/player/play/9.6854213</a> ✅(仅简介文字)</li>
-<li id="S41" value="41">CBC Life 2025-06-11 — Why does everybody want a Labubu? — <a href="https://www.cbc.ca/life/style/labubu-viral-bag-charm-1.7557499" target="_blank" rel="noopener">https://www.cbc.ca/life/style/labubu-viral-bag-charm-1.7557499</a> ✅(经 r.jina.ai)</li>
-<li id="S42" value="42">Global News 搜索「labubu」— <a href="https://globalnews.ca/?s=labubu" target="_blank" rel="noopener">https://globalnews.ca/?s=labubu</a> ✅</li>
-<li id="S43" value="43">Wikipedia — Jellycat — <a href="https://en.wikipedia.org/wiki/Jellycat" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Jellycat</a> ✅</li>
-<li id="S44" value="44">Retail Insider 2025-10-02 — Jellycat opening 1st-ever Canadian shop-in-shop at Toronto's Distillery District — <a href="https://retail-insider.com/retail-insider/2025/10/jellycat-opening-first-ever-canadian-shop-in-shop-at-bergo-design/" target="_blank" rel="noopener">https://retail-insider.com/retail-insider/2025/10/jellycat-opening-first-ever-canadian-shop-in-shop-at-bergo-design/</a> ✅</li>
-<li id="S45" value="45">Global News 搜索「jellycat」— <a href="https://globalnews.ca/?s=jellycat" target="_blank" rel="noopener">https://globalnews.ca/?s=jellycat</a> ✅</li>
-<li id="S46" value="46">Indigo Jellycat — <a href="https://www.indigo.ca/en-ca/jellycat/" target="_blank" rel="noopener">https://www.indigo.ca/en-ca/jellycat/</a> 与 <a href="https://www.indigo.ca/collections/jellycat" target="_blank" rel="noopener">https://www.indigo.ca/collections/jellycat</a> ⛔ JS 渲染</li>
-<li id="S47" value="47">Wikipedia — Miniso — <a href="https://en.wikipedia.org/wiki/Miniso" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Miniso</a> ✅</li>
-<li id="S48" value="48">Retail Insider 2026-09-09 — Miniso Expands MINISO LAND in Canada as Retailer Shifts to 'Quality First' Growth — <a href="https://retail-insider.com/retail-insider/2026/09/miniso-expands-miniso-land-in-canada-as-retailer-shifts-to-quality-first-growth/" target="_blank" rel="noopener">https://retail-insider.com/retail-insider/2026/09/miniso-expands-miniso-land-in-canada-as-retailer-shifts-to-quality-first-growth/</a> ✅</li>
-<li id="S49" value="49">Retail Insider 搜索「miniso」— <a href="https://www.retail-insider.com/?s=miniso" target="_blank" rel="noopener">https://www.retail-insider.com/?s=miniso</a> ✅</li>
-<li id="S50" value="50">MINISO Canada 首页 — <a href="https://www.miniso-ca.com/" target="_blank" rel="noopener">https://www.miniso-ca.com/</a> ✅</li>
-<li id="S51" value="51">Wikipedia — Sonny Angel — <a href="https://en.wikipedia.org/wiki/Sonny_Angel" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Sonny_Angel</a> ✅</li>
-<li id="S52" value="52">Wikipedia — Smiski — <a href="https://en.wikipedia.org/wiki/Smiski" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Smiski</a> ✅</li>
-<li id="S53" value="53">Wikipedia — Eventbrite — <a href="https://en.wikipedia.org/wiki/Eventbrite" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Eventbrite</a> ✅</li>
-<li id="S54" value="54">Eventbrite About(2024 at a Glance)— <a href="https://www.eventbrite.ca/about/" target="_blank" rel="noopener">https://www.eventbrite.ca/about/</a> ✅</li>
-<li id="S55" value="55">Eventbrite Organizer Pricing — <a href="https://www.eventbrite.com/organizer/pricing/" target="_blank" rel="noopener">https://www.eventbrite.com/organizer/pricing/</a> ✅</li>
-<li id="S56" value="56">Wikipedia — Meetup — <a href="https://en.wikipedia.org/wiki/Meetup" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Meetup</a> ✅</li>
-<li id="S57" value="57">Meetup Help — Organizer subscription — <a href="https://help.meetup.com/hc/en-us/articles/360001620472" target="_blank" rel="noopener">https://help.meetup.com/hc/en-us/articles/360001620472</a> 🟡(经 r.jina.ai;无价格)</li>
-<li id="S58" value="58">Luma Pricing — <a href="https://luma.com/pricing" target="_blank" rel="noopener">https://luma.com/pricing</a> ✅</li>
-<li id="S59" value="59">Luma Toronto — <a href="https://luma.com/toronto" target="_blank" rel="noopener">https://luma.com/toronto</a> ✅</li>
-<li id="S60" value="60">Wikipedia — Fever (app) — <a href="https://en.wikipedia.org/wiki/Fever_(app" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Fever_(app</a>) ✅</li>
-<li id="S61" value="61">Fever Toronto — <a href="https://feverup.com/en/toronto" target="_blank" rel="noopener">https://feverup.com/en/toronto</a> ✅</li>
-<li id="S62" value="62">blogTO — <a href="https://www.blogto.com/" target="_blank" rel="noopener">https://www.blogto.com/</a> ✅</li>
-<li id="S63" value="63">Narcity — <a href="https://www.narcity.com/" target="_blank" rel="noopener">https://www.narcity.com/</a> ✅</li>
-<li id="S64" value="64">Daily Hive — <a href="https://dailyhive.com/" target="_blank" rel="noopener">https://dailyhive.com/</a> ✅</li>
-<li id="S65" value="65">To Do Canada — <a href="https://www.todocanada.ca/" target="_blank" rel="noopener">https://www.todocanada.ca/</a> ✅(经 r.jina.ai;直连 403)</li>
-<li id="S66" value="66">Ottawa Tourism — <a href="https://ottawatourism.ca/" target="_blank" rel="noopener">https://ottawatourism.ca/</a> ✅</li>
-<li id="S67" value="67">Devpost Hackathons — <a href="https://devpost.com/hackathons" target="_blank" rel="noopener">https://devpost.com/hackathons</a> ✅(经 r.jina.ai)</li>
-<li id="S68" value="68">MLH 2026 Season Events — <a href="https://www.mlh.com/seasons/2026/events" target="_blank" rel="noopener">https://www.mlh.com/seasons/2026/events</a> ✅</li>
-<li id="S69" value="69">Wikipedia — Yelp — <a href="https://en.wikipedia.org/wiki/Yelp" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Yelp</a> ✅</li>
-<li id="S70" value="70">Yelp Data — <a href="https://business.yelp.com/data/" target="_blank" rel="noopener">https://business.yelp.com/data/</a> 🟡</li>
-<li id="S71" value="71">Wikipedia — Foursquare City Guide — <a href="https://en.wikipedia.org/wiki/Foursquare_City_Guide" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Foursquare_City_Guide</a> ✅</li>
-<li id="S72" value="72">Wikipedia — Snapchat(Snap Map 段)— <a href="https://en.wikipedia.org/wiki/Snapchat" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Snapchat</a> 🟡</li>
-<li id="S73" value="73">Wikipedia — Meituan / Dianping — <a href="https://en.wikipedia.org/wiki/Dianping" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Dianping</a> ✅</li>
-<li id="S74" value="74">Eventbrite Toronto — <a href="https://www.eventbrite.ca/d/canada--toronto/events/" target="_blank" rel="noopener">https://www.eventbrite.ca/d/canada--toronto/events/</a> ✅</li>
-<li id="S75" value="75">Wikipedia — Chinese Canadians — <a href="https://en.wikipedia.org/wiki/Chinese_Canadians" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Chinese_Canadians</a> ✅</li>
-<li id="S76" value="76">Wikipedia — Demographics of Toronto — <a href="https://en.wikipedia.org/wiki/Demographics_of_Toronto" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Demographics_of_Toronto</a> ✅</li>
-<li id="S77" value="77">Wikipedia — Demographics of Ottawa — <a href="https://en.wikipedia.org/wiki/Demographics_of_Ottawa" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Demographics_of_Ottawa</a> ✅</li>
-<li id="S78" value="78">IRCC — 2025 Annual Report to Parliament on Immigration — <a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/annual-report-parliament-immigration-2025.html" target="_blank" rel="noopener">https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/annual-report-parliament-immigration-2025.html</a> ✅</li>
-<li id="S79" value="79">IRCC — 2024 Annual Report to Parliament on Immigration — <a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/annual-report-parliament-immigration-2024.html" target="_blank" rel="noopener">https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/annual-report-parliament-immigration-2024.html</a> ✅</li>
-<li id="S80" value="80">Wikipedia — International students in Canada — <a href="https://en.wikipedia.org/wiki/International_students_in_Canada" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/International_students_in_Canada</a> ✅</li>
-<li id="S81" value="81">Wikipedia — Xiaohongshu — <a href="https://en.wikipedia.org/wiki/Xiaohongshu" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Xiaohongshu</a> ✅</li>
-<li id="S82" value="82">中文维基 — 小红书 — <a href="https://zh.wikipedia.org/wiki/小红书" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/小红书</a> ✅</li>
-<li id="S83" value="83">Statistics Canada 2021 Census Profile(Toronto / Ottawa–Gatineau 拼接 URL)⛔ 404</li>
-<li id="S84" value="84">Wikipedia — Slickdeals — <a href="https://en.wikipedia.org/wiki/Slickdeals" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Slickdeals</a> ✅</li>
-<li id="S85" value="85">Wikipedia — RedFlagDeals — <a href="https://en.wikipedia.org/wiki/RedFlagDeals" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/RedFlagDeals</a> ✅</li>
-<li id="S86" value="86">Wikipedia — Sneaker collecting — <a href="https://en.wikipedia.org/wiki/Sneaker_collecting" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Sneaker_collecting</a> ✅(球鞋二手市场 2021 $100 亿、2030 估 $300 亿)</li>
-<li id="S87" value="87">Sole Retriever 首页 — <a href="https://www.soleretriever.com/" target="_blank" rel="noopener">https://www.soleretriever.com/</a> ✅(经 r.jina.ai;无价格;`/premium` 404)</li>
-<li id="S88" value="88">Whop Discover Reselling — <a href="https://whop.com/discover/reselling/" target="_blank" rel="noopener">https://whop.com/discover/reselling/</a> ⛔ 403</li>
-<li id="S89" value="89">Disboard / discord.me 标签页 — <a href="https://disboard.org/servers/tag/pokemon-tcg" target="_blank" rel="noopener">https://disboard.org/servers/tag/pokemon-tcg</a> 、<a href="https://discord.me/servers/tag/restock" target="_blank" rel="noopener">https://discord.me/servers/tag/restock</a> ⛔ 人机验证</li>
-<li id="S90" value="90">Reddit r/PokemonTCG、r/PokeInvesting、r/labubu、r/Jellycatplush ⛔ 403</li>
-<li id="S91" value="91">Card Ladder 直连 — <a href="https://www.cardladder.com/" target="_blank" rel="noopener">https://www.cardladder.com/</a> ⛔ 403(见 [16])</li>
-<li id="S92" value="92">PriceCharting — <a href="https://www.pricecharting.com/" target="_blank" rel="noopener">https://www.pricecharting.com/</a> 🟡(经 r.jina.ai;无价格)</li>
-</ol></details>
-<!--REFS:END-->
+<p>参不参与，参与的话每周能投多少小时。技术上的选择你定，不用问我。</p>
 
 <footer>
-  <p>查资料用 Claude 跑的，国内六路加北美四路。判断是我的，数字都能点角标核。</p>
-  <p>山山 · 2026-09-09</p>
+  <p>调研部分用 Claude 跑的，出处都在另外几页。这页的判断是我的。</p>
+  <p>山山 · 2026-09-10</p>
 </footer>
 
 </div>
