@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>咱们先做这个</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f5; --card:#ffffff; --panel:#f1ece7; --ink:#22201e; --ink2:#615a55; --line:#e4ddd6;
+  --acc:#874c54; --acc-soft:#f3e6e8; --acc-ink:#6d3a41;
+  --serif:"Noto Serif SC","Songti SC","SimSun",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b1917; --card:#242120; --panel:#2d2927; --ink:#ebe6e1; --ink2:#a89f97; --line:#3a3532;
+    --acc:#d69aa2; --acc-soft:#3a2a2d; --acc-ink:#e6b4bb;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b1917; --card:#242120; --panel:#2d2927; --ink:#ebe6e1; --ink2:#a89f97; --line:#3a3532;
+  --acc:#d69aa2; --acc-soft:#3a2a2d; --acc-ink:#e6b4bb;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.8;text-wrap:pretty;orphans:3;widows:3}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px 72px}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;line-height:1.3;color:var(--ink)}
+h1{font-size:1.65rem;font-weight:700;margin:36px 0 6px}
+h2{font-size:1.3rem;font-weight:700;margin:44px 0 10px;padding-top:14px;border-top:1px solid var(--line)}
+h3{font-size:1rem;font-weight:600;margin:22px 0 6px;color:var(--acc-ink)}
+p{margin:.65em 0}
+a{color:var(--acc)}
+.who{display:flex;gap:8px;flex-wrap:wrap;font-size:.84rem;color:var(--ink2);margin:10px 0 18px}
+.who span{background:var(--panel);padding:2px 10px;border-radius:999px}
+.nav{font-size:.86rem;color:var(--ink2);margin:0 0 14px}
+.tw{overflow-x:auto;margin:12px -18px;padding:0 18px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;min-width:560px;width:100%;font-size:.88rem;line-height:1.5}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{background:var(--panel);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:16px 0}
+.box h3{margin:0 0 6px;color:var(--ink);font-size:1.05rem}
+.box p{margin:.4em 0}
+.pick{border-color:var(--acc);background:var(--acc-soft)}
+ul,ol{padding-left:1.3em}
+li{margin:.35em 0}
+pre{background:var(--panel);color:var(--ink);padding:10px 14px;border-radius:10px;overflow-x:auto;font-size:.78rem;line-height:1.5;font-family:ui-monospace,Consolas,monospace}
+footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.84rem;color:var(--ink2)}
+@media (max-width:480px){body{font-size:16px}h1{font-size:1.4rem}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<h1>咱们先做这个</h1>
+<div class="who"><span>2026-09-10</span><span>方向我定了，技术你定</span></div>
+<p class="nav">联动情报那些调研留着以后翻：<a href="../na/">北美</a> · <a href="../cn/">国内</a></p>
+
+<p>昨天聊完我又想了一晚上，把方向换了。联动玩具、卡牌、城市活动这些，查得再细也是我不熟的东西，做起来全靠猜。这次换成我天天在做、手上已经有半成品、而且已经有人为它付钱的事。方向和商业的部分我来扛，你只管技术。参不参与你定，不参与我也会先做。</p>
+
+<h2>我怎么挑的</h2>
+
+<p>三条标准：我懂这个领域，能自己判断对错；我已经做过一遍，有脚本和清单在手；已经有人为这件事付过钱。再加两条：北美先，不用审批；你只做技术，客户、内容、合规都是我的。</p>
+
+<div class="tw"><table>
+  <tr><th>看过的方向</th><th>怎么想的</th><th>决定</th></tr>
+  <tr><td>Circle 社区运营工具：分佣对账、证书发放、会员到期提醒</td><td>我在给 Superlinear 做社区运营，这三件每个月手动跑脚本。脚本已经在跑，钱已经有人在付。做成工具，第一个用户就在手上</td><td><b>先做</b></td></tr>
+  <tr><td>留学生和新移民的身份文书清单：学签、工签、补发、TRV、SIN</td><td>每一步我都亲自走过，清单已经写了三份。市面上找持牌顾问按小时收费。红线是只做信息，不做建议</td><td>第二个</td></tr>
+  <tr><td>中文播客后期：转写、show notes、多平台文案</td><td>我自己有播客，流程已经跑通。Descript 这类工具的<a href="https://www.descript.com/pricing" target="_blank" rel="noopener">转写语言里没有中文</a></td><td>第三个</td></tr>
+  <tr><td>联动情报、卡牌、Pop Mart</td><td>需求真，但我不懂这个圈子，也没人为情报付钱</td><td>兴趣项目，往后放</td></tr>
+  <tr><td>城市活动地图、餐馆开关店、华人本地信息</td><td>Eventbrite、Meetup、Yelp、小红书全向商家和主办方收费，读者一分不付。这是做媒体</td><td>不做</td></tr>
+</table></div>
+
+<h2>定了</h2>
+
+<div class="box pick">
+  <h3>先做：Circle 社区运营工具，Superlinear 第一个用</h3>
+  <p>Circle 是社区平台，像 Discord 加会员系统，很多做课程和会员的创作者在上面开社区。我在运营的这个社区每个月有三件事靠人手：<b>分佣对账</b>（拉本月交易、按渠道算各家该得多少、出对账消息、回写台账）、<b>证书发放</b>（学员申请、模板合成、发放记录）、<b>会员到期提醒</b>（手动开的权限平台不会自动收回，几种权限各一套规则）。把这三件做成管理员自己点一下就能跑的工具。</p>
+  <p>第二个用户去同一个圈子里找：<a href="https://circle.so/pricing" target="_blank" rel="noopener">Circle Business 档 $199/月</a>、开了 API 的中文创作者社区，跟这个社区一样有分佣、有证书、有到期权限的，不少。</p>
+</div>
+
+<div class="box">
+  <h3>钱</h3>
+  <p>第一个社区不谈钱，工具是我交付的一部分。第二家起按社区收，每月 C$99 到 199，或者按结算次数。第一年的目标很小：接上两三个社区，覆盖你我的时间。</p>
+</div>
+
+<div class="box">
+  <h3>四周之内算不算成</h3>
+  <p>分佣对账和到期提醒两件跑在工具上，不再靠我手动跑脚本；月结不用管理员来问我要数；找到第二个愿意试的社区。三件成两件算成。</p>
+</div>
+
+<div class="box">
+  <h3>不做什么</h3>
+  <p>不做 Circle 的替代品，只做它上面的运营层。不碰支付通道。不做任何要天天盯客户的服务型生意。</p>
+</div>
+
+<h2>分工</h2>
+
+<div class="tw"><table>
+  <tr><th>我做</th><th>你做（如果参与）</th><th>我不碰的</th></tr>
+  <tr><td>需求：每个流程现在怎么手动做的，写成一步步的规则给你</td><td>把规则变成工具：定时、对账、生成、提醒、后台页</td><td>你的技术决定。下面的栈是建议，可以全换</td></tr>
+  <tr><td>客户：第一个我在，第二个我去谈</td><td>Circle API 接入、限额、token 管理</td><td></td></tr>
+  <tr><td>内容：证书模板、对账消息文案、提醒文案</td><td>Google Sheet 和 Circle 同步</td><td></td></tr>
+  <tr><td>合规：隐私、数据最小化、token 安全规则</td><td>日志、告警、出错回滚</td><td></td></tr>
+  <tr><td>每周 10 小时</td><td>你报你的</td><td></td></tr>
+</table></div>
+
+<h2>技术任务书</h2>
+
+<h3>管理员会做的四件事</h3>
+
+<ol>
+  <li>接社区：填 Circle Admin API token，选权限组和渠道，五分钟接上</li>
+  <li>月结：点一下，拉本月交易，按渠道和分佣规则算出各家该得多少，生成对账消息，回写台账</li>
+  <li>发证书：学员申请进来，管理员核一眼，模板合成 PDF，发放并记录</li>
+  <li>收提醒：某个手动开的权限快到期、某笔付款权限已开但没进台账、某个成员标签和权限组对不上</li>
+</ol>
+
+<h3>数据长什么样</h3>
+
+<pre>community   Circle token · 权限组 id 表 · 分佣规则 · 渠道表 · 通知去哪(Discord / 邮件 / 文案)
+member      community_member.id ≠ user.id，两套 id 都存 · 权限组 · 标签 · 加入日 · 手动开的到期日
+txn         Circle Transactions 导出 · 渠道归因 · 金额 · 币种 · 退款状态(退款 ≠ 取消订阅)
+commission  月份 · 渠道 · 应付 · 已付 · 凭证 · 对账消息文本
+cert        学员 · 课程 · 提出日期 · 模板 · PDF · 发放日
+alert       类型(到期 / 权限漏 / 标签不符) · 对象 · 触发时间 · 是否处理</pre>
+
+<p>坑我踩过的：Circle 按 User-Agent 拦请求，默认 UA 直接 403，症状跟 token 失效一模一样；查会员身份只能看权限组不能看标签，直接付费的用户一个标签都没有；退款了不等于取消订阅，只看 refunded 不算完成；手动开的权限平台不会自动收回。</p>
+
+<h3>v0.1 范围</h3>
+
+<div class="tw"><table>
+  <tr><th>必须</th><th>以后</th><th>永远不</th></tr>
+  <tr><td>接社区、月结分佣、到期提醒、一个后台页</td><td>证书发放、周刊汇编、多社区、Discord bot 通知</td><td>替 Circle 做社区功能、碰支付通道、存超过需要的会员信息</td></tr>
+</table></div>
+
+<h3>硬约束</h3>
+
+<div class="tw"><table>
+  <tr><th>约束</th><th>规则</th><th>为什么</th></tr>
+  <tr><td>Circle API 限额</td><td>Business 档每月 3 万次 Admin API</td><td>拉全量成员要翻页，几千人，别一次拉爆</td></tr>
+  <tr><td>Token</td><td>只存服务端，加密，一社区一 token，能一键作废</td><td>token 泄露等于社区后台泄露</td></tr>
+  <tr><td>只读不发</td><td>工具只读 Circle、只生成草稿；任何发消息、改权限的动作要管理员点确认</td><td>对账错一次就要在群里解释</td></tr>
+  <tr><td>数据最小化</td><td>只存 id、权限组、到期日、交易金额</td><td>加拿大隐私法</td></tr>
+  <tr><td>成本</td><td>验证期每月 20 美元以内</td><td>就几个 cron 和一张表</td></tr>
+  <tr><td>出错</td><td>每次月结留输入快照，能重跑、能对比上月</td><td>同上</td></tr>
+</table></div>
+
+<h3>技术栈建议，可以全换</h3>
+
+<div class="tw"><table>
+  <tr><th>层</th><th>建议</th><th>理由</th></tr>
+  <tr><td>定时和 API</td><td>Cloudflare Workers + Cron Triggers</td><td>免费档够用</td></tr>
+  <tr><td>数据</td><td>D1；台账继续用 Google Sheet，双向同步</td><td>管理员现在就用 Sheet，看得懂</td></tr>
+  <tr><td>Circle</td><td>Admin API v2，自定义 User-Agent</td><td>现成的 Python 脚本在我这，可以直接翻</td></tr>
+  <tr><td>证书</td><td>HTML 模板转 PDF</td><td>现在是设计工具导出再合并，慢</td></tr>
+  <tr><td>通知</td><td>Discord webhook 先，邮件 Resend；微信只生成文案</td><td>微信没接口</td></tr>
+  <tr><td>后台页</td><td>一个简单的 H5</td><td>管理员用，不用好看</td></tr>
+</table></div>
+
+<h3>Jonathan 能直接搬的</h3>
+
+<div class="tw"><table>
+  <tr><th>Jonathan 已有</th><th>这里对应</th></tr>
+  <tr><td>定时任务</td><td>月结、到期扫描、权限核对的 cron</td></tr>
+  <tr><td>多源接入</td><td>Circle 交易 + Google Sheet + 手工渠道表合一张</td></tr>
+  <tr><td>Discord 推送</td><td>提醒和对账草稿先发到管理员的私有频道</td></tr>
+  <tr><td>愿望单匹配</td><td>「谁的权限几号到期」是同一种触发</td></tr>
+</table></div>
+
+<h3>第一个月</h3>
+
+<div class="tw"><table>
+  <tr><th>周</th><th>你</th><th>我</th></tr>
+  <tr><td>1</td><td>接 Circle：token、翻页拉成员、拉交易，落库</td><td>把分佣规则、渠道表、到期规则写成一页说明；给你现成的脚本</td></tr>
+  <tr><td>2</td><td>月结：算分佣、生成对账消息、写回 Sheet；到期扫描 + Discord 提醒</td><td>拿上个月真实数据跟你逐笔核</td></tr>
+  <tr><td>3</td><td>后台页 + 确认流程 + 快照重跑</td><td>本月结算用工具跑一遍，手动那份对照</td></tr>
+  <tr><td>4</td><td>修，写部署说明</td><td>去谈第二个社区</td></tr>
+</table></div>
+
+<h2>你要回我的就一件事</h2>
+
+<p>参不参与，参与的话每周能投多少小时。技术上的选择你定，不用问我。</p>
+
+<footer>
+  <p>山山 · 2026-09-10</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  function widont(el){
+    if(!el || !el.innerHTML) return;
+    const txt = (el.textContent||'').trim();
+    if(txt.split(/\s+/).length < 5) return;
+    el.innerHTML = el.innerHTML.replace(/\s+(\S+)\s+(\S+)\s+(\S+\s*)$/, '&nbsp;$1&nbsp;$2&nbsp;$3');
+  }
+  const SEL = 'p, li, h1, h2, h3, td';
+  function run(){ document.querySelectorAll(SEL).forEach(widont); }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();
+</script>
+
+</body>
+</html>
