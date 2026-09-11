@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>咱们先做这个</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f5; --card:#ffffff; --panel:#f1ece7; --ink:#22201e; --ink2:#615a55; --line:#e4ddd6;
+  --acc:#874c54; --acc-soft:#f3e6e8; --acc-ink:#6d3a41;
+  --serif:"Noto Serif SC","Songti SC","SimSun",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b1917; --card:#242120; --panel:#2d2927; --ink:#ebe6e1; --ink2:#a89f97; --line:#3a3532;
+    --acc:#d69aa2; --acc-soft:#3a2a2d; --acc-ink:#e6b4bb;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b1917; --card:#242120; --panel:#2d2927; --ink:#ebe6e1; --ink2:#a89f97; --line:#3a3532;
+  --acc:#d69aa2; --acc-soft:#3a2a2d; --acc-ink:#e6b4bb;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.8;text-wrap:pretty;orphans:3;widows:3}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px 72px}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;line-height:1.3;color:var(--ink)}
+h1{font-size:1.65rem;font-weight:700;margin:36px 0 6px}
+h2{font-size:1.3rem;font-weight:700;margin:44px 0 10px;padding-top:14px;border-top:1px solid var(--line)}
+h3{font-size:1rem;font-weight:600;margin:22px 0 6px;color:var(--acc-ink)}
+p{margin:.65em 0}
+a{color:var(--acc)}
+.who{display:flex;gap:8px;flex-wrap:wrap;font-size:.84rem;color:var(--ink2);margin:10px 0 18px}
+.who span{background:var(--panel);padding:2px 10px;border-radius:999px}
+.nav{font-size:.86rem;color:var(--ink2);margin:0 0 14px}
+.tw{overflow-x:auto;margin:12px -18px;padding:0 18px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;min-width:560px;width:100%;font-size:.88rem;line-height:1.5}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{background:var(--panel);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:16px 0}
+.box h3{margin:0 0 6px;color:var(--ink);font-size:1.05rem}
+.box p{margin:.4em 0}
+.pick{border-color:var(--acc);background:var(--acc-soft)}
+ul,ol{padding-left:1.3em}
+li{margin:.35em 0}
+pre{background:var(--panel);color:var(--ink);padding:10px 14px;border-radius:10px;overflow-x:auto;font-size:.78rem;line-height:1.5;font-family:ui-monospace,Consolas,monospace}
+footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.84rem;color:var(--ink2)}
+@media (max-width:480px){body{font-size:16px}h1{font-size:1.4rem}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<h1>咱们先做这个</h1>
+<div class="who"><span>2026-09-10</span><span>方向我定了，技术你定</span></div>
+<p class="nav">联动情报那些调研留着以后翻：<a href="../na/">北美</a> · <a href="../cn/">国内</a></p>
+
+<p>昨天聊完我又想了两天，方向换了。联动玩具、卡牌、城市活动这些，查得再细也是我不熟的东西，做起来全靠猜。这次换个问法：什么东西已经有人在为它花钱，我又正好比一般人懂，而且做出来是个软件不是个服务。方向和商业的部分我来扛，你只管技术。参不参与你定，不参与我也会先做。</p>
+
+<h2>我怎么挑的</h2>
+
+<p>五条，按顺序过：已经有人在为这件事花钱，我说得出是谁、花多少；我比一般人懂，有地方发；做出来是软件，用户自己用；你有足够的技术活干；四周能验证，验证不靠熟人。</p>
+
+<div class="tw"><table>
+  <tr><th>看过的方向</th><th>怎么想的</th><th>决定</th></tr>
+  <tr><td><b>落地清单</b>：留学生和新移民在加拿大的行政清单 + 到期提醒（学签续签、PGWP、工签、TRV、SIN、报税、驾照、医保、开户、手机）</td><td>留学生本来就在为这些花钱：问顾问、买攻略、交政府费用、错过期限重交。PGWP 一项申请费 $255、毕业后 180 天内必须交<a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/apply.html" target="_blank" rel="noopener">IRCC</a>。每一步我亲自走过，包括被退回重交；清单引擎我已经有了，三份清单已经写了。免费的官方站是政府通稿，不会告诉你出了岔子怎么办</td><td><b>先做</b></td></tr>
+  <tr><td><b>Claude Code 工作流工具</b>：规则、记忆、hook、skill 的治理和团队共享</td><td>开发者为工具付 $10 到 20/月是通例；圈子很热，claude-code 仓 14.4 万星，awesome-claude-code 5.4 万星，教 hook 的仓几千星。我自己跑着三十多条规则和十几个 hook，天天用。技术最重，是你最想练的那种。风险是官方随时原生化</td><td>第二个。你要是对这个更有兴趣，可以同时起</td></tr>
+  <tr><td>华人小商家开店包：菜单、招牌、小红书内容、上架</td><td>商家真付钱；Uber Eats 抽 20 到 30%<a href="https://merchants.ubereats.com/ca/en/pricing/" target="_blank" rel="noopener">Uber Eats</a>，他们急需自己的渠道。但一半是服务，成单靠人</td><td>第三个，看前两个</td></tr>
+  <tr><td>中文语音笔记、中文播客后期</td><td>我天天用，本地转写链路已通；但大厂随手就做</td><td>备选</td></tr>
+  <tr><td>联动情报、卡牌、城市活动地图、餐馆开关店、华人资讯</td><td>需求真，但没人为情报付钱，或者是做媒体，跟我们要做的软件没关系</td><td>不做</td></tr>
+</table></div>
+
+<h2>定了</h2>
+
+<div class="box pick">
+  <h3>先做：落地清单</h3>
+  <p>给在加拿大的中国留学生和新移民，一套能勾选、能存进度、到期会提醒的行政清单。第一批三份：学签续签和补发被退回怎么重交；毕业后 180 天内的 PGWP；TRV 和 SIN 的更新顺序。之后按到期时间铺开：报税、驾照、医保、开户、手机、回国前。</p>
+  <p>我以前给自己做过回国清单和签证冲刺清单，单文件网页，能勾选、能存进度。这次是把它从「给我一个人」变成「用户自己选场景、自己走」。引擎在，内容在，缺的是多用户、提醒、支付，这三样是你的活。</p>
+</div>
+
+<div class="box">
+  <h3>钱</h3>
+  <p>清单免费看，付费的是存进度加到期提醒加更新推送，一年 C$19 到 29；清单包按场景卖 C$9；开户、手机、保险的新客联盟按成交。第一年目标：付费用户几百人，覆盖你我的时间。定价先这么定，跑一个月再改。</p>
+</div>
+
+<div class="box">
+  <h3>四周之内算不算成</h3>
+  <p>三份清单上线；小红书三帖收藏合计过 500；打开清单的人过 300；付费或订阅提醒的过 50。四件成三件算成。不成就换第二个方向，引擎不扔。</p>
+</div>
+
+<div class="box">
+  <h3>不做什么</h3>
+  <p>不做移民建议，不代办，只做信息和清单，因为收费给建议只有持牌顾问、律师、魁北克公证人能做。不存证件号。不做联动情报和城市活动那些。</p>
+</div>
+
+<h2>分工</h2>
+
+<div class="tw"><table>
+  <tr><th>我做</th><th>你做（如果参与）</th><th>我不碰的</th></tr>
+  <tr><td>清单内容：三份先写，每一步附官方链接和我踩过的坑</td><td>把清单引擎改成多用户：账号、进度、场景选择</td><td>你的技术决定。下面的栈是建议，可以全换</td></tr>
+  <tr><td>发：小红书、留学生群、学校国际学生办公室</td><td>到期提醒：邮件、网页推送、微信文案</td><td></td></tr>
+  <tr><td>合规：只做信息的措辞、隐私政策、不存证件号</td><td>官方页面变更监控，变了提醒我改清单</td><td></td></tr>
+  <tr><td>定价和联盟去谈</td><td>支付、成本、告警</td><td></td></tr>
+  <tr><td>每周 10 小时</td><td>你报你的</td><td></td></tr>
+</table></div>
+
+<h2>技术任务书</h2>
+
+<h3>用户会做的四件事</h3>
+
+<ol>
+  <li>选场景：我是学签快到期 / 刚毕业要办 PGWP / 要更新 TRV 和 SIN / 第一次报税</li>
+  <li>走清单：一步一步勾，每步有官方链接、要准备的材料、常见的坑；进度存着，换设备还在</li>
+  <li>收提醒：到期前 60 天、30 天、7 天；官方规则变了也推</li>
+  <li>分享：把清单发给同学，对方打开是干净的一份</li>
+</ol>
+
+<h3>数据长什么样</h3>
+
+<pre>scenario   场景 · 适用身份 · 版本号 · 最后核对日期
+step       属于哪个场景 · 顺序 · 标题 · 说明 · 官方链接 · 材料 · 坑 · 预计耗时
+progress   用户 · 场景 · 已勾的 step · 用户自填的日期(如学签到期日)
+deadline   由用户日期算出 · 类型 · 到期日 · 提醒节点
+watch      官方页面 URL · 上次哈希 · 变更时间 → 提醒我改内容
+user       邮箱 · 语言 · 渠道偏好 · 付费状态。不存证件号、不存申请号</pre>
+
+<h3>v0.1 范围</h3>
+
+<div class="tw"><table>
+  <tr><th>必须</th><th>以后</th><th>永远不</th></tr>
+  <tr><td>三个场景、勾选存进度、邮件提醒、分享链接、Stripe 年费</td><td>网页推送、更多场景、英法双语、官方页面变更监控、联盟入口</td><td>存证件号、给建议、代填表、代交</td></tr>
+</table></div>
+
+<h3>硬约束</h3>
+
+<div class="tw"><table>
+  <tr><th>约束</th><th>规则</th></tr>
+  <tr><td>只做信息</td><td>每页脚注：这是信息不是法律建议。不出现「你应该」这类句式，用「官方要求」「常见做法」</td></tr>
+  <tr><td>数据最小化</td><td>不存证件号、申请号、护照号。到期日用户自填，只存日期</td></tr>
+  <tr><td>内容版本化</td><td>每份清单标最后核对日期；官方页面变了先标「待核」再改</td></tr>
+  <tr><td>提醒同意</td><td>邮件和推送都要用户主动开，每条带退订；加拿大反垃圾法一次做对</td></tr>
+  <tr><td>成本</td><td>验证期每月 20 美元以内</td></tr>
+</table></div>
+
+<h3>技术栈建议，可以全换</h3>
+
+<div class="tw"><table>
+  <tr><th>层</th><th>建议</th><th>理由</th></tr>
+  <tr><td>前端</td><td>现有的清单网页引擎改成多用户；先网页，不做 App</td><td>引擎已经有勾选、折叠、进度存本地，改成存服务端</td></tr>
+  <tr><td>后端</td><td>Cloudflare Workers + D1</td><td>免费档够</td></tr>
+  <tr><td>提醒</td><td>Resend 邮件；网页推送第二步；微信只生成文案</td><td>邮件每人每月两分钱</td></tr>
+  <tr><td>变更监控</td><td>cron 拉官方页面算哈希，变了发 Discord</td><td>你 Jonathan 的定时任务直接搬</td></tr>
+  <tr><td>支付</td><td>Stripe 网页结账，年费</td><td>2.9% + 30 分</td></tr>
+  <tr><td>登录</td><td>邮箱魔法链接，不做密码</td><td>用户少操作，我们少存东西</td></tr>
+</table></div>
+
+<h3>Jonathan 能直接搬的</h3>
+
+<div class="tw"><table>
+  <tr><th>Jonathan 已有</th><th>这里对应</th></tr>
+  <tr><td>定时任务</td><td>到期扫描、官方页面变更监控</td></tr>
+  <tr><td>多源接入</td><td>官方页面、用户日期、清单版本合一张表</td></tr>
+  <tr><td>Discord 推送</td><td>变更监控先发给我；留学生群 bot 第二步</td></tr>
+  <tr><td>愿望单匹配</td><td>「谁的哪个期限几天后到」是同一种触发</td></tr>
+</table></div>
+
+<h3>第一个月</h3>
+
+<div class="tw"><table>
+  <tr><th>周</th><th>你</th><th>我</th></tr>
+  <tr><td>1</td><td>引擎多用户化：账号、进度存服务端、场景选择</td><td>三份清单内容定稿，每步带官方链接和坑</td></tr>
+  <tr><td>2</td><td>到期提醒 + 分享链接 + Stripe</td><td>小红书三帖、留学生群、学校国际学生办公室</td></tr>
+  <tr><td>3</td><td>官方页面变更监控 + 告警 + 成本上限</td><td>看数据，回私信，改清单</td></tr>
+  <tr><td>4</td><td>修</td><td>算四件成几件，定要不要开第二个方向</td></tr>
+</table></div>
+
+<h2>你要回我的就一件事</h2>
+
+<p>参不参与，参与的话每周能投多少小时。另外如果你对第二个方向（Claude Code 工具）更有兴趣，也说一声，可以同时起。技术上的选择你定，不用问我。</p>
+
+<footer>
+  <p>山山 · 2026-09-10</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  function widont(el){
+    if(!el || !el.innerHTML) return;
+    const txt = (el.textContent||'').trim();
+    if(txt.split(/\s+/).length < 5) return;
+    el.innerHTML = el.innerHTML.replace(/\s+(\S+)\s+(\S+)\s+(\S+\s*)$/, '&nbsp;$1&nbsp;$2&nbsp;$3');
+  }
+  const SEL = 'p, li, h1, h2, h3, td';
+  function run(){ document.querySelectorAll(SEL).forEach(widont); }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();
+</script>
+
+</body>
+</html>
